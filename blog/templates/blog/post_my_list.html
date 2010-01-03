@@ -1,0 +1,25 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% blocktrans %}Your Blog Posts{% endblocktrans %}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for All Users" href="/feeds/posts/all/" />
+    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for User {{ user.username }}" href="/feeds/posts/only/{{ user.username }}/" />
+{% endblock %}
+
+{% block body %}
+  
+    <h1>{% trans "Your Posts" %}</h1>
+ 
+    {% if post_list %}
+
+        {% include "blog/post_iterator.html" %}
+
+    {% else %}
+        {% trans "No blog posts yet." %}
+    {% endif %}
+       
+{% endblock %}

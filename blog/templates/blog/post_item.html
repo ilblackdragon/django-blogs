@@ -1,0 +1,44 @@
+{% load i18n %}
+{% load markup_tags %}
+{% load avatar_tags %}
+{% load extra_tagging_tags %}
+{% load theme_tags %}
+{% load misc %}
+
+<div class="blog_post clearfix">
+    <h2>
+        <a href="{{ post.category.get_absolute_url }}" class="category_link">{{ post.category.name }}</a> <span class="category_post_breaker">&rarr;</span>
+        <a href="{{ post.get_absolute_url }}" class="post_link">{{ post.title }}</a>
+        ({{ post.get_status_display }})
+        {% ifequal post.author request.user %}
+            <a href="{% url blog_edit post.id %}">{% silk "pencil" %}</a>
+            <a href="{% url blog_delete post.id %}">{% silk "delete" %}</a>
+        {% endifequal %}
+    </h2>
+
+    <div class="blog-post-tease">
+        {% if not post_undetailed %}
+            {{ post.body|apply_markup:post.markup }}
+        {% else %}
+            {% if post.tease %}
+                {{ post.tease|apply_markup:post.markup }}
+            {% else %}
+                {{ post.body|truncatewords:"150"|apply_markup:post.markup }}
+            {% endif %}
+        {% endif %}
+    </div>
+
+   <div class="blog_post_meta">
+        <div class="blog_post_tags">
+            {% show_tags_for post %}
+        </div>
+        {% avatar post.author 40 %}
+        {% url profile_detail post.author.username as profile_detail_url %}
+        {% define post.author.username author %}
+        {% with post.publish|date:"d M Y, H:i" as publish_date %}
+            {% blocktrans %}
+                Posted by <a href="{{ profile_detail_url }}">{{ author }}</a> on {{ publish_date }}
+            {% endblocktrans %}
+        {% endwith %}
+    </div>
+</div>

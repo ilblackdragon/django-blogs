@@ -1,0 +1,22 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load uni_form %}
+
+{% block head_title %}{% trans "Editing Post" %}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}tiny_mce/tiny_mce.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ MEDIA_URL }}js/blog.js" language="JavaScript" type="text/javascript"></script>
+{% endblock %}
+
+{% block body %}
+
+        <form class="uniForm" id="edit-profile" method="POST" action="{% url blog_edit post.id %}">
+        <fieldset class="inlineLabels">
+            {{ blog_form|as_uni_form }}
+            <input type="submit" class="default" value="{% trans "Update" %}"/>
+        </fieldset>
+    </form>
+{% endblock %}

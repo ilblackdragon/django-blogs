@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load humanize %}
+{% load comments_tag %}
+{% load extra_tagging_tags %}
+{% load blog_tags %}
+{% load theme_tags %}
+
+{% block head_title %}{% trans "Blog Post:" %} {{ post.title }}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for All Users" href="/feeds/posts/all/" />
+    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for User {{ post.author.username }}" href="/feeds/posts/only/{{ post.author.username }}/" />
+{% endblock %}
+
+{% block body %}
+    
+    {% show_full_blog_post request post %} 
+    
+    <h3>{% trans "Comments on This Post:" %}</h3>
+    {% comments post %}
+{% endblock %}

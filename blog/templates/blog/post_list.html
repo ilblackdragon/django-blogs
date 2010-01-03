@@ -1,0 +1,24 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "All Posts" %}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="alternate" type="application/atom+xml" title="{% trans "Blog post feed for all categories and users" %}" href="/feeds/posts/all/" />
+{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans "All Posts" %}</h1>
+    {% if post_list %}
+
+        <p>{% trans "These are blog posts from everyone:" %}</p>
+        {% include "blog/post_iterator.html" %}
+
+    {% else %}
+        {% trans "No blog posts yet." %}
+    {% endif %}
+
+{% endblock %}

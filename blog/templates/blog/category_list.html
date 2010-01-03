@@ -1,0 +1,26 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "All Categories" %}{% endblock %}
+
+{% block body %}
+
+    <h1>{% trans "All Categories" %}</h1>
+
+    {% if category_list %}
+
+        {% autopaginate category_list %}
+
+            {% for category in category_list %}
+                <a href="{{ category.get_absolute_url }}">{{ category.name }}</a><br>
+            {% endfor %}
+
+        {% paginate %}
+
+    {% else %}
+        {% trans "No categories yet." %}
+    {% endif %}
+
+{% endblock %}
