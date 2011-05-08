@@ -1,44 +1,55 @@
 {% load i18n %}
-{% load markup_tags %}
 {% load avatar_tags %}
-{% load extra_tagging_tags %}
-{% load theme_tags %}
-{% load misc %}
+{% load misc_tags %}
+{% load blog_tags %}
+{% load ratings_tags %}
+{% load share_buttons %}
+{% load profile_bubble %}
 
-<div class="blog_post clearfix">
-    <h2>
-        <a href="{{ post.category.get_absolute_url }}" class="category_link">{{ post.category.name }}</a> <span class="category_post_breaker">&rarr;</span>
-        <a href="{{ post.get_absolute_url }}" class="post_link">{{ post.title }}</a>
-        ({{ post.get_status_display }})
-        {% ifequal post.author request.user %}
-            <a href="{% url blog_edit post.id %}">{% silk "pencil" %}</a>
-            <a href="{% url blog_delete post.id %}">{% silk "delete" %}</a>
-        {% endifequal %}
-    </h2>
-
-    <div class="blog-post-tease">
-        {% if not post_undetailed %}
-            {{ post.body|apply_markup:post.markup }}
-        {% else %}
-            {% if post.tease %}
-                {{ post.tease|apply_markup:post.markup }}
-            {% else %}
-                {{ post.body|truncatewords:"150"|apply_markup:post.markup }}
+{% check_post_status request.user post %}
+{% if show_post %}
+    <div class="blog_post clearfix">
+       
+        <div class="blog_post_title">
+            {% if post.blog %}  
+                <a href="{{ post.blog.get_absolute_url }}" class="blog_link">{{ post.blog.name }}</a>
+                <span class="blog_post_breaker">&rarr;</span>
             {% endif %}
-        {% endif %}
-    </div>
-
-   <div class="blog_post_meta">
-        <div class="blog_post_tags">
-            {% show_tags_for post %}
+            <a href="{{ post.get_absolute_url }}" class="post_link"><h1>{{ post.title }}</h1></a>
+            {% ifequal post.author request.user %}
+                <a href="{% url blog_edit post.id %}" class="icon_edit"><img src="{{ MEDIA_URL }}img/edit.png" alt="{% trans 'Edit' %}"></a>
+                {% if post.status == 1 %}
+                    <b>{% trans "Draft" %}</b>
+                    [ <a href="{% url blog_change_status 'public' post.id %}" class="inline_action">{% trans "Publish" %}</a> ]
+                {% endif %}
+            {% endifequal %}
         </div>
-        {% avatar post.author 40 %}
-        {% url profile_detail post.author.username as profile_detail_url %}
-        {% define post.author.username author %}
-        {% with post.publish|date:"d M Y, H:i" as publish_date %}
-            {% blocktrans %}
-                Posted by <a href="{{ profile_detail_url }}">{{ author }}</a> on {{ publish_date }}
-            {% endblocktrans %}
-        {% endwith %}
+
+        <div class="blog_post_tease">
+            {% if post_undetailed and post.tease %}
+                {{ post.tease|safe }}
+            {% else %}
+                {{ post.body|safe }}
+            {% endif %}
+        </div>
+
+        <div class="blog_post_meta">
+            <span class="avatarname with_popup">
+                {% url poetry_user_works post.author.username as profile_detail_url %}
+                <a href="{{ profile_detail_url }}">
+                    {% avatar post.author 20 %}
+                    {{ post.author.username }}
+                </a>,
+                {% get_profile_bubblepopup post.author %}
+            </span>
+            {{ post.updated_at|date:"d M Y, H:i" }}
+            {% if post.allow_comments %}
+                | <a href="{{ post.get_absolute_url }}">
+                    {% blocktrans with post.comments_count as comments_count %}Comments: {{ comments_count }}{% endblocktrans %}
+                </a>
+                | {% share_it post.get_absolute_url post.title %}
+                {% render_rating post post.author %}
+            {% endif %}
+        </div>
     </div>
-</div>
+{% endif %}

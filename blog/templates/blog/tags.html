@@ -1,0 +1,11 @@
+{% comment %} Not need now.
+{% load tagging_tags %}
+
+{% tag_cloud_for_model blog.Post as tags with steps=6 min_count=1 distribution=log %}
+
+<div class="tag_cloud">
+    {% for tag in tags %}
+        <a href="{% url tag_results tag.name %}"><span class="cloud_{{ tag.font_size }}">{{ tag.name }}</span></a>
+    {% endfor %}
+</div>
+{% endcomment %}

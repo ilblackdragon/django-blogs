@@ -1,1 +1,12 @@
+# Ignore all temproray, log and avatar files
 *.pyc
+*.swp
+*~
+*.mo
+.svn
+.git
+*.log
+build/
+dist/
+django_blogs.egg-info/
+Thumbs.db

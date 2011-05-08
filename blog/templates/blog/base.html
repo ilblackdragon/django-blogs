@@ -1,21 +1,5 @@
 {% extends "site_base.html" %}
 
-{% load i18n %}
-
-{% block body_class %}blogs{% endblock %}
-
 {% block extra_head %}
-    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">
-{% endblock %}
-
-{% block subnav %}
-    {% if user.is_authenticated %}
-        <ul>
-            <li><a href="{% url blog_post_list %} ">{% trans "All Blogs" %}</a></li>
-            <li><a href="{% url blog_my_post_list %}">{% trans "Your Posts" %}</a></li>
-            <li><a href="{% url blog_add %}">{% trans "Write a Blog Post" %}</a></li>
-        </ul>
-    {% else %}
-        &nbsp;
-    {% endif %}
+    <link href="{{ MEDIA_URL }}blog/blog.css" rel="stylesheet" type="text/css">
 {% endblock %}

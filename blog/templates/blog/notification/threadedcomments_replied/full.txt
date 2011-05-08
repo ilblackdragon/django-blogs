@@ -1,0 +1,13 @@
+{% spaceless %}
+    {% load i18n %}
+    {% load html_tags %}
+    {% load misc_tags %}
+
+    {% set comment.content_object.title post_title %}
+    {% set comment.user.get_profile.display_name display_name %}
+    {% blocktrans %}You have received the reply in post "{{ post_title }}" from user {{ display_name }}{% endblocktrans %}
+
+    {% remove_tags comment.comment %}
+
+    http://{{ current_site }}{{ comment.content_object.get_absolute_url }}#comment_{{ comment.id }}
+{% endspaceless %}

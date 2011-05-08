@@ -1,0 +1,56 @@
+{#% extends "blog/base.html" %#}
+{% extends "search/all.html" %}
+
+{% load i18n %}
+{% load misc_tags %}
+{% load pagination_tags %}
+
+{% block head_title %}{% trans "All blogs" %}{% endblock %}
+
+{% block extra_head %}
+    {{ block.super }}
+    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">    
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans "All blogs" %}</h1>
+    
+    <table class="all_blogs">
+        <thead>
+            <tr><th class="blog_icon_column"></th><th>{% trans "Blog name" %}</th><th class="column-center" style="text-align: center;">{% trans "Posts count" %}</th><th>{% trans "Last post" %}</th></tr>
+        </thead>
+        <tbody>
+        {% autopaginate blog_list %}
+            {% for blog in blog_list %}
+                <tr class="{% cycle "odd" "even" %}">
+                    <td class="column-center blog_icon_column">
+                        {% if blog.icon %}
+                            <img src="{{ blog.icon.url }}" class="blog_icon">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ blog.get_absolute_url }}">{{ blog.name|capfirst }}</a><br/>
+                        {{ blog.description }}
+                    </td>
+                    <td class="column-center">
+                        {{ blog.post_list.count }}
+                    </td>
+                    <td>
+                        {% set filter blog.post_list status 2 posts %}
+                        {% if posts %}
+                            {% set posts.0 post %}
+                            {{ post.updated_at }}<br/>
+                            <b>{% trans "Topic:" %} </b><a href="{{ post.get_absolute_url }}" class="post_link">{{ post.title|capfirst }}</a><br/>
+                            <b>{% trans "Author:" %} </b><a href="{% url  poetry_user_works post.author %}">{{ post.author }}</a><br/>
+                        {% else %}
+                            {% trans "No posts yet." %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% empty %}
+                {% trans "No blogs found." %}
+            {% endfor %}
+        {% paginate %}
+        </tbody>
+    </table>
+{% endblock %}

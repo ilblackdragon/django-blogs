@@ -1,0 +1,87 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}
+    {% ifequal action 'following' %}
+        {% trans "Following" %}
+    {% else %}
+        {% trans "Followers" %}
+    {% endifequal %}
+{% endblock %}
+
+{% block body %}
+
+    <h1>
+        {% ifequal action 'following' %}
+            {% ifequal request.user other_user %}
+                {% trans "My following" %}
+            {% else %}
+                {% blocktrans with other_user.username as username %}{{ username }}'s following{% endblocktrans %}
+            {% endifequal %}
+        {% else %}
+            {% ifequal request.user other_user %}
+                {% trans "My followers" %}
+            {% else %}
+               {% blocktrans with other_user.username as username %}{{ username }}'s followers{% endblocktrans %}
+            {% endifequal %}
+        {% endifequal %}
+    </h1>
+
+    {% if follow_list %}
+
+        <table class="follow_list">
+            <caption>
+                {% trans "Users" %}
+            </caption>
+            {% for follow in follow_list %}
+                {% if follow.user %}
+                    <tr>
+                        <td class="title">
+                            {% ifequal action 'following' %}
+                                <a href="{{ follow.user.get_absolute_url }}">{{ follow.user.username }}</a>
+                            {% else %}
+                                <a href="{{ follow.owner.get_absolute_url }}">{{ follow.owner.username }}</a>
+                            {% endifequal %}
+                        </td>
+                        {% ifequal request.user other_user %}
+                            <td class="actions">
+                                {% ifequal action 'following' %}
+                                    <a href="{% url blog_unfollow_user follow.user.username %}" rel="link" class="inline_action">[Unfollow]</a>
+                                {% endifequal %}
+                            </td>
+                        {% endifequal %}
+                    </tr>
+                {% endif %}
+            {% endfor %}
+        </table>
+        {% ifequal action 'following' %}
+            <table class="follow_list">
+                <caption>
+                    {% trans "Blogs" %}
+                </caption>
+                {% for follow in follow_list %}
+                    {% if follow.blog %}
+                        <tr>
+                            <td class="title">
+                                <a href="{{ follow.blog.get_absolute_url }}">{{ follow.blog.name }}</a>
+                            </td>
+                            {% ifequal request.user other_user %}
+                                <td class="actions">
+                                    <a href="{% url blog_unfollow_blog follow.blog.slug %}" rel="link" class="inline_action">[Unfollow]</a>
+                                </td>
+                            {% endifequal %}
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+        {% endifequal %}
+    {% else %}
+        {% ifequal action 'following' %}
+            {% trans "No following yet." %}
+        {% else %}
+            {% trans "No followers yet." %}
+        {% endifequal %}
+    {% endif %}
+
+{% endblock %}

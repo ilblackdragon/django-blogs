@@ -1,25 +1,48 @@
-{% extends "blog/base.html" %}
+{% extends "blog/base_my.html" %}
 
 {% load i18n %}
 
-{% block head_title %}{% blocktrans %}Your Blog Posts{% endblocktrans %}{% endblock %}
+{% block head_title %}{% trans "My posts" %}{% endblock %}
 
-{% block extra_head %}
-    {{ block.super }}
-    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for All Users" href="/feeds/posts/all/" />
-    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for User {{ user.username }}" href="/feeds/posts/only/{{ user.username }}/" />
-{% endblock %}
+{% block my_post_list_tab_class %} ui-tabs-selected ui-state-active{% endblock %}
 
-{% block body %}
-  
-    <h1>{% trans "Your Posts" %}</h1>
- 
+{% block tab_content %}
     {% if post_list %}
+        {% regroup post_list|dictsort:"status" by status as posts_by_status %}
 
-        {% include "blog/post_iterator.html" %}
-
+        {% for post_list in posts_by_status %}
+            <h2>{{ post_list.list.0.get_status_display }}</h2>
+            <table class="blog_list_my">
+                {% with post_list.list|dictsortreversed:"created_at" as posts %}
+                    <thead>
+                        <td>{% trans "Title" %}</td>
+                        <td>{% trans "Created" %}</td>
+                        <td>{% trans "Updated" %}</td>
+                        <td>{% trans "Actions" %}</td>
+                    </thead>
+                    {% for post in posts %}
+                        <tr>
+                            <td class="post_list">
+                                <a href="{{ post.blog.get_absolute_url }}" class="blog_link_small">{{ post.blog.name }}</a>
+                                <span class="blog_post_breaker_small">&rarr;</span>
+                                <a href="{{ post.get_absolute_url }}" class="post_link_small">{{ post.title }}</a>
+                            </td>
+                            <td>{{ post.created_at|date:"d M Y, H:i" }}</td>
+                            <td>{{ post.updated_at|date:"d M Y, H:i" }}</td>
+                            <td class="actions">
+                                [ <a href="{% url blog_edit post.id %}" class="inline_action">{% trans "Edit" %}</a> ]
+                                {% if post.is_public %}
+                                    [ <a href="{% url blog_change_status 'draft' post.id %}" class="inline_action">{% trans "To drafts" %}</a> ]
+                                {% else %}
+                                    [ <a href="{% url blog_change_status 'public' post.id %}" class="inline_action">{% trans "Publish" %}</a> ]
+                                {% endif %}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                {% endwith %}
+            </table>
+        {% endfor %}
     {% else %}
-        {% trans "No blog posts yet." %}
+        {% trans "No posts yet." %}
     {% endif %}
-       
 {% endblock %}

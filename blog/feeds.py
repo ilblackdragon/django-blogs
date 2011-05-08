@@ -1,134 +1,77 @@
-from atomformat import Feed
-from django.core.urlresolvers import reverse
-from django.conf import settings
-from django.contrib.sites.models import Site
-from django.contrib.auth.models import User
-from django.shortcuts import get_object_or_404
-from blog.models import Post, Category
-from django.template.defaultfilters import linebreaks, escape, capfirst
 from datetime import datetime
-from friends.models import friend_set_for
 
-ITEMS_PER_FEED = getattr(settings, 'PINAX_ITEMS_PER_FEED', 20)
+from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.syndication.views import Feed
+from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
+from django.template.defaultfilters import linebreaks, escape, capfirst
+from django.utils.translation import ugettext_lazy as _
+from django.utils import feedgenerator
+
+from blog.models import Post, Blog, IS_PUBLIC
+
+ITEMS_PER_FEED = getattr(settings, 'BLOG_ITEMS_PER_FEED', 20)
 
 class BasePostFeed(Feed):
-    def item_id(self, post):
-        return "http://%s%s" % (
-            Site.objects.get_current().domain,
-            post.get_absolute_url(),
-        )
+    feed_type = feedgenerator.Atom1Feed
+
+    def item_title(self, item):
+        return item.title
     
-    def item_title(self, post):
-        return post.title
+    def item_pubdate(self, item):
+        return item.updated_at
     
-    def item_updated(self, post):
-        return post.updated_at
+    def item_author_name(self, item):
+        return item.author.username
     
-    def item_published(self, post):
-        return post.created_at
-    
-    def item_content(self, post):
-        if post.tease:
-            return {"type" : "html", }, linebreaks(escape(post.tease))
-        return {"type" : "html", }, linebreaks(escape(post.body))
-    
-    def item_links(self, post):
-        return [{"href" : self.item_id(post)}]
-    
-    def item_authors(self, post):
-        return [{"name" : post.author.username}]
+    def item_author_link(self, item):
+        return 'http://%s%s' % (settings.SITE_DOMAIN,
+            reverse('poetry_user_works', args=[item.author.username]))
+
+    def item_description(self, item):
+        if item.tease:
+            return linebreaks(escape(item.tease))
+        return linebreaks(escape(item.body))
+
 
 class BlogFeedAll(BasePostFeed):
-    def feed_id(self):
-        return 'http://%s/feeds/posts/all/' % Site.objects.get_current().domain
-    
-    def feed_title(self):
-        return 'Blog post feed for all users'
-
-    def feed_updated(self):
-        qs = Post.objects.all()
-        # We return an arbitrary date if there are no results, because there
-        # must be a feed_updated field as per the Atom specifications, however
-        # there is no real data to go by, and an arbitrary date can be static.
-        if qs.count() == 0:
-            return datetime(year=2008, month=7, day=1)
-        return qs.latest('created_at').created_at
-
-    def feed_links(self):
-        absolute_url = reverse('blog_post_list')
-        complete_url = "http://%s%s" % (
-                Site.objects.get_current().domain,
-                absolute_url,
-            )
-        return ({'href': complete_url},)
+    title = "Escalibro all posts"
+    link = "http://%s/feeds/posts/all/" % settings.SITE_DOMAIN
 
     def items(self):
-        return Post.objects.order_by("-created_at")[:ITEMS_PER_FEED]
+        return Post.objects.filter(status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
 
-class BlogFeedCategory(BasePostFeed):
 
-    def get_object(self, params):
-        return get_object_or_404(Category, slug=params[0])
+class BlogFeedBlog(BasePostFeed):
+    def get_object(self, request, *args, **kwargs):
+        return get_object_or_404(Blog, slug=request.GET.get('slug'))
 
-    def feed_id(self, category):
-        return 'http://%s/feeds/posts/category/%s/' % (
-            Site.objects.get_current().domain,
-            category.slug,
+    def link(self, blog):
+        return 'http://%s/feeds/posts/blog/?slug=%s' % (
+            settings.SITE_DOMAIN,
+            blog.slug,
         )
 
-    def feed_title(self, category):
-        return 'Blog post feed for category %s' % category.name
+    def title(self, blog):
+        return "Escalibro blog %s" % blog.name
 
-    def feed_updated(self, category):
-        qs = Post.objects.filter(category = category)
-        # We return an arbitrary date if there are no results, because there
-        # must be a feed_updated field as per the Atom specifications, however
-        # there is no real data to go by, and an arbitrary date can be static.
-        if qs.count() == 0:
-            return datetime(year=2008, month=7, day=1)
-        return qs.latest('created_at').created_at
+    def items(self, blog):
+        return Post.objects.filter(blog=blog, status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
 
-    def feed_links(self, category):
-        absolute_url = reverse('blog_category_detail', kwargs={'slug': category.slug})
-        complete_url = "http://%s%s" % (
-                Site.objects.get_current().domain,
-                absolute_url,
-            )
-        return ({'href': complete_url},)
-
-    def items(self, category):
-        return Post.objects.filter(category = category).order_by("-created_at")[:ITEMS_PER_FEED]
 
 class BlogFeedUser(BasePostFeed):
-
-    def get_object(self, params):
-        return get_object_or_404(User, username=params[0].lower())
+    def get_object(self, request, *args, **kwargs):
+        return get_object_or_404(User, username=request.GET.get('username'))
     
-    def feed_id(self, user):
-        return 'http://%s/feeds/posts/only/%s/' % (
-            Site.objects.get_current().domain,
+    def link(self, user):
+        return 'http://%s/feeds/posts/only/?username=%s' % (
+            settings.SITE_DOMAIN,
             user.username,
         )
 
-    def feed_title(self, user):
-        return 'Blog post feed for user %s' % user.username
-
-    def feed_updated(self, user):
-        qs = Post.objects.filter(author=user)
-        # We return an arbitrary date if there are no results, because there
-        # must be a feed_updated field as per the Atom specifications, however
-        # there is no real data to go by, and an arbitrary date can be static.
-        if qs.count() == 0:
-            return datetime(year=2008, month=7, day=1)
-        return qs.latest('created_at').created_at
-
-    def feed_links(self, user):
-        absolute_url = reverse('blog_user_post_list', kwargs={'username': user.username})
-        complete_url = "http://%s%s" % (
-                Site.objects.get_current().domain,
-                absolute_url,
-            )
-        return ({'href': complete_url},)
+    def title(self, user):
+        return "Escalibro user %s" % user.username
 
     def items(self, user):
-        return Post.objects.filter(author=user).order_by("-created_at")[:ITEMS_PER_FEED]
+        return Post.objects.filter(author=user, status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]

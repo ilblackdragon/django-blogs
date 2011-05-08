@@ -1,24 +1,45 @@
 {% extends "blog/base.html" %}
 
 {% load i18n %}
-{% load humanize %}
-{% load comments_tag %}
-{% load extra_tagging_tags %}
+{% load threadedcommentstags %}
 {% load blog_tags %}
-{% load theme_tags %}
+{% load misc_tags %}
+{% load ratings_tags %}
 
-{% block head_title %}{% trans "Blog Post:" %} {{ post.title }}{% endblock %}
+{% block head_title %}{% blocktrans with post.title as title %}Blog Post: {{ title }}{% endblocktrans %}{% endblock %}
 
-{% block extra_head %}
+{% block external_css %}
     {{ block.super }}
-    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for All Users" href="/feeds/posts/all/" />
-    <link rel="alternate" type="application/atom+xml" title="Blog Post Feed for User {{ post.author.username }}" href="/feeds/posts/only/{{ post.author.username }}/" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}wysiwyg-bbcode/editor.css" />
 {% endblock %}
 
+{% block bread_crumbs %}
+    <a href="{% url blog_post_list %}">{% trans "All posts" %}</a>
+    <span class="tail"> » {{ post.title }}</span>
+{% endblock %}
+ 
+{% block extra_head %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/comments.css" />
+    <link rel="stylesheet" href="{{ MEDIA_URL }}css/pygments.css" />
+{% endblock %}
+
+{% block external_js %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}wysiwyg-bbcode/editor.js" language="JavaScript" type="text/javascript"></script>
+{% endblock %} 
+
+{% block js %}
+    {{ block.super }}
+    <script src="{{ STATIC_URL }}js/misc.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/comments.js" language="JavaScript" type="text/javascript"></script>
+{% endblock %} 
+
 {% block body %}
+    {% show_full_blog_post post %} 
     
-    {% show_full_blog_post request post %} 
-    
-    <h3>{% trans "Comments on This Post:" %}</h3>
-    {% comments post %}
+    {% if post.allow_comments %}
+        <h3>{% trans "Comments:" %}</h3>
+        {% comments post %}
+    {% endif %}
 {% endblock %}

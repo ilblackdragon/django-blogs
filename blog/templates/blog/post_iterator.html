@@ -1,12 +1,10 @@
-{% load humanize %}
-{% load pagination_tags %}
 {% load blog_tags %}
-{% load i18n %}
+{% load pagination_tags %}
 
 {% autopaginate post_list %}
 
-    {% for post in post_list %}
-        {% show_blog_post request post %}
-    {% endfor %}
+{% for post in post_list %}
+    {% show_blog_post post %}
+{% endfor %}
 
 {% paginate %}

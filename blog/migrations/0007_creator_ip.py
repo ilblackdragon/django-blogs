@@ -7,33 +7,24 @@ class Migration:
     
     def forwards(self, orm):
         
-        # Adding model 'Category'
-        db.create_table('blog_category', (
-            ('id', orm['blog.category:id']),
-            ('name', orm['blog.category:name']),
-            ('slug', orm['blog.category:slug']),
-        ))
-        db.send_create_signal('blog', ['Category'])
-        
-        # Adding field 'Post.category'
-        db.add_column('blog_post', 'category', orm['blog.post:category'])
+        # Changing field 'Post.creator_ip'
+        # (to signature: django.db.models.fields.CharField(max_length=255, null=True, blank=True))
+        db.alter_column('blog_post', 'creator_ip', orm['blog.post:creator_ip'])
         
     
     
     def backwards(self, orm):
         
-        # Deleting model 'Category'
-        db.delete_table('blog_category')
-        
-        # Deleting field 'Post.category'
-        db.delete_column('blog_post', 'category_id')
+        # Changing field 'Post.creator_ip'
+        # (to signature: django.db.models.fields.IPAddressField(max_length=15, null=True, blank=True))
+        db.alter_column('blog_post', 'creator_ip', orm['blog.post:creator_ip'])
         
     
     
     models = {
         'auth.group': {
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'name': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '80'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '80', 'unique': 'True'}),
             'permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'blank': 'True'})
         },
         'auth.permission': {
@@ -56,24 +47,43 @@ class Migration:
             'last_name': ('django.db.models.fields.CharField', [], {'max_length': '30', 'blank': 'True'}),
             'password': ('django.db.models.fields.CharField', [], {'max_length': '128'}),
             'user_permissions': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['auth.Permission']", 'blank': 'True'}),
-            'username': ('django.db.models.fields.CharField', [], {'unique': 'True', 'max_length': '30'})
+            'username': ('django.db.models.fields.CharField', [], {'max_length': '30', 'unique': 'True'})
         },
-        'blog.category': {
+        'blog.blog': {
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '200'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'})
+        },
+        'blog.feedlist': {
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'feed_list_owner'", 'to': "orm['auth.User']"}),
+            'posts': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Post']"})
+        },
+        'blog.follow': {
+            'blog': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'follow_blog'", 'blank': 'True', 'null': 'True', 'to': "orm['blog.Blog']"}),
+            'follow_list': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'follow_list'", 'blank': 'True', 'null': 'True', 'to': "orm['blog.FollowList']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'follow_owner'", 'to': "orm['auth.User']"}),
+            'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'follow_user'", 'blank': 'True', 'null': 'True', 'to': "orm['auth.User']"})
+        },
+        'blog.followlist': {
+            'follows': ('django.db.models.fields.related.ManyToManyField', [], {'to': "orm['blog.Follow']"}),
+            'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'follow_list_owner'", 'to': "orm['auth.User']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'})
         },
         'blog.post': {
             'allow_comments': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'author': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'added_posts'", 'to': "orm['auth.User']"}),
+            'blog': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'post_list'", 'null': 'True', 'to': "orm['blog.Blog']"}),
             'body': ('django.db.models.fields.TextField', [], {}),
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['blog.Category']", 'null': 'True'}),
+            'comments_count': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'creator_ip': ('django.db.models.fields.IPAddressField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
+            'creator_ip': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'markup': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
+            'last_comment_datetime': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'publish': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'db_index': 'True', 'max_length': '50', 'blank': 'True'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '2'}),
             'tags': ('tagging.fields.TagField', [], {}),
             'tease': ('django.db.models.fields.TextField', [], {'blank': 'True'}),

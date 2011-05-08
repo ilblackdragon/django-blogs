@@ -1,0 +1,28 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load blog_tags %}
+
+{% block head_title %}
+    {% ifequal request.user other_user %}
+        {% trans "Your feed" %}
+    {% else %}
+        {% blocktrans with other_user.username as username %}{{ username }}'s feed{% endblocktrans %}
+    {% endifequal %}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        {% ifequal request.user other_user %}
+            {% trans "Your feed" %}
+        {% else %}
+            {% blocktrans with other_user.username as username %}{{ username }}'s feed{% endblocktrans %}
+        {% endifequal %}
+    </h1>
+
+    {% if post_list %}
+        {% include "blog/post_iterator.html" %}
+    {% else %}
+        {% trans "No posts yet." %}
+    {% endif %}
+{% endblock %}

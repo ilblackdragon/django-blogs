@@ -1,0 +1,8 @@
+{% load i18n %}
+{% load blog_tags %}
+    
+{% if post_list %}
+    {% include "blog/post_iterator.html" %}
+{% else %}
+    {% trans "No posts yet." %}
+{% endif %}

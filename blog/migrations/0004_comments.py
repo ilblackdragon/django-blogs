@@ -7,26 +7,21 @@ class Migration:
     
     def forwards(self, orm):
         
-        # Adding model 'Category'
-        db.create_table('blog_category', (
-            ('id', orm['blog.category:id']),
-            ('name', orm['blog.category:name']),
-            ('slug', orm['blog.category:slug']),
-        ))
-        db.send_create_signal('blog', ['Category'])
+        # Adding field 'Post.comments_count'
+        db.add_column('blog_post', 'comments_count', orm['blog.post:comments_count'])
         
-        # Adding field 'Post.category'
-        db.add_column('blog_post', 'category', orm['blog.post:category'])
+        # Adding field 'Post.last_comment_datetime'
+        db.add_column('blog_post', 'last_comment_datetime', orm['blog.post:last_comment_datetime'])
         
     
     
     def backwards(self, orm):
         
-        # Deleting model 'Category'
-        db.delete_table('blog_category')
+        # Deleting field 'Post.comments_count'
+        db.delete_column('blog_post', 'comments_count')
         
-        # Deleting field 'Post.category'
-        db.delete_column('blog_post', 'category_id')
+        # Deleting field 'Post.last_comment_datetime'
+        db.delete_column('blog_post', 'last_comment_datetime')
         
     
     
@@ -67,13 +62,14 @@ class Migration:
             'allow_comments': ('django.db.models.fields.BooleanField', [], {'default': 'True', 'blank': 'True'}),
             'author': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'added_posts'", 'to': "orm['auth.User']"}),
             'body': ('django.db.models.fields.TextField', [], {}),
-            'category': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['blog.Category']", 'null': 'True'}),
+            'category': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'post_list'", 'null': 'True', 'to': "orm['blog.Category']"}),
+            'comments_count': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'created_at': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'creator_ip': ('django.db.models.fields.IPAddressField', [], {'max_length': '15', 'null': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'markup': ('django.db.models.fields.CharField', [], {'max_length': '20', 'null': 'True', 'blank': 'True'}),
+            'last_comment_datetime': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'publish': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'slug': ('django.db.models.fields.SlugField', [], {'max_length': '50', 'db_index': 'True'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'db_index': 'True', 'max_length': '50', 'blank': 'True'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '2'}),
             'tags': ('tagging.fields.TagField', [], {}),
             'tease': ('django.db.models.fields.TextField', [], {'blank': 'True'}),
