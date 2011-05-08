@@ -10,7 +10,7 @@ Quick overview
 
 Using this module, you can add to your project blogs.
 From simple one person blog, to multiblogging and multi-user blogs system.
-Posts can conain safe html tags.
+Posts can conain safe html tags. RSS feeds for blogs and user's blogs.
 
 Requirements
 ==============
@@ -39,12 +39,22 @@ Setup
 
 - Add blog urls to urlpatterns in url.py:
 
-urlpatterns = ('',
-    ...
-    (r'^blogs/', include('blog.urls')),
-    (r'^b/', include('blogs.short_urls')), # For short urls, if you want
-    ...
-)
+    from blog.feeds import BlogFeedAll, BlogFeedBlog, BlogFeedUser
+
+    blogs_feed_dict = {"feed_dict": {
+        'all': BlogFeedAll,
+        'blog' : BlogFeedBlog,
+        'only': BlogFeedUser,
+    }}
+
+
+    urlpatterns = ('',
+        ...
+        (r'^blogs/', include('blog.urls')),
+        (r'^b/', include('blogs.short_urls')), # For short urls, if you want
+        (r'^feeds/posts/(?P<url>\w+)/', 'django.contrib.syndication.views.feed', blogs_feed_dict), # Rss feeds
+        ...
+    )
 
 - Copy blog/static/ to your STATIC_URL path
 
