@@ -1,0 +1,2 @@
+recursive-include django-blogs *
+exclude *.pyc *.orig

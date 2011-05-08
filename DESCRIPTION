@@ -1,0 +1,5 @@
+Django blogs - module that provide blogs to your django application.
+- One user blog
+- Multi blogging system
+- Blog per user
+- Safe html in posts
