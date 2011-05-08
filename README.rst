@@ -76,7 +76,6 @@ Development of django-blogs happens at github: https://github.com/ilblackdragon/
 License
 ============
 
-Licensed under a `GNU lesser general public license`_.
-
-.. _GNU lesser general public license: http://www.gnu.org/copyleft/lesser.html
-
+Copyright (C) 2011 Ilya Polosukhin
+This program is licensed under the MIT License (see LICENSE)
+ 
