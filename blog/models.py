@@ -1,6 +1,6 @@
+# encoding: utf-8
 from datetime import datetime
 from pytils.translit import slugify
-from BeautifulSoup import BeautifulSoup
 
 from django.db import models
 from django.conf import settings
