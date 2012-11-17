@@ -15,37 +15,42 @@
 {% endblock %}
 
 {% block bread_crumbs %}
-    <a href="{% url blog_blog_list %}">{% trans "All blogs" %}</a>
+    <a href="{% url blog_list %}">{% trans "All blogs" %}</a>
     <span class="tail"> » {% blocktrans with blog.name as name %}Blog: {{ name }}{% endblocktrans %}</span>
 {% endblock %}
  
-{% block body %}
+{% block body_inner %}
     <div id="right" class="info">
-        {% if blog.icon %}
-            <img src="{{ blog.icon.url }}" width="140px"><br>
-        {% endif %}
-        <h2>{% blocktrans with blog.name as name %}Blog: {{ name }}{% endblocktrans %}</h2>
-        {% if request.user.is_authenticated %}
-            <span class="actions">
-                {% is_following request.user blog %}
-                {% if following %}
-                    <span><a href="{% get_unfollow_url blog %}" rel="link" class="action">{% trans "Unfollow" %}</a></span>
-                {% else %}
-                    <span><a href="{% get_follow_url blog %}" rel="link" class="action">{% trans "Follow" %}</a></span>
-                {% endif %}
-            </span>
-        {% endif %}
-        {% include "blog/tags.html" %}
+        <div class="inner">
+            {% if blog.icon %}
+                <img src="{{ blog.icon.url }}" width="140px"><br>
+            {% endif %}
+            <h2>{% blocktrans with blog.name as name %}Blog: {{ name }}{% endblocktrans %}</h2>
+            {% if request.user.is_authenticated %}
+                <span class="actions">
+                    {% is_following request.user blog %}
+                    {% if following %}
+                        <span><a href="{% get_unfollow_url blog %}" rel="link" class="action">{% trans "Unfollow" %}</a></span>
+                    {% else %}
+                        <span><a href="{% get_follow_url blog %}" rel="link" class="action">{% trans "Follow" %}</a></span>
+                    {% endif %}
+                </span>
+            {% endif %}
+            {% include "blog/tags.html" %}
+        </div>
     </div>
 
     <div id="center">
-        {% set blog.post_list.all post_list %}
-        {% if post_list %}
-            <div class="blog_list" class="post_list">
-                {% include "blog/post_iterator.html" %}
-            </div>
-        {% else %}
-            {% trans "No posts yet." %}
-        {% endif %}
+        <div id="center_inner">
+            {% set blog.post_list.all post_list %}
+            {% if post_list %}
+                <div class="blog_list" class="post_list">
+                    {% include "blog/post_iterator.html" %}
+                </div>
+            {% else %}
+                {% trans "No posts yet." %}
+            {% endif %}
+        </div>
+        <div class="clearfix"></div>
     </div>
 {% endblock %}

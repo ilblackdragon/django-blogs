@@ -9,7 +9,7 @@
 
 {% block extra_head %}
     {{ block.super }}
-    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">    
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">    
 {% endblock %}
 
 {% block body %}
@@ -29,7 +29,7 @@
                         {% endif %}
                     </td>
                     <td>
-                        <a href="{{ blog.get_absolute_url }}">{{ blog.name|capfirst }}</a><br/>
+                        <a href="{{ blog.get_absolute_url }}">{{ blog.name }}</a><br/>
                         {{ blog.description }}
                     </td>
                     <td class="column-center">
@@ -39,9 +39,9 @@
                         {% set filter blog.post_list status 2 posts %}
                         {% if posts %}
                             {% set posts.0 post %}
-                            {{ post.updated_at }}<br/>
-                            <b>{% trans "Topic:" %} </b><a href="{{ post.get_absolute_url }}" class="post_link">{{ post.title|capfirst }}</a><br/>
-                            <b>{% trans "Author:" %} </b><a href="{% url  poetry_user_works post.author %}">{{ post.author }}</a><br/>
+                            {% include "containers/_username.html" with user=post.author %}
+                            <p><a href="{{ post.get_absolute_url }}" class="post_link">{{ post.title }}</a></p>
+                            <span class="timestamp" title="{{ post.updated_at }}">{% blocktrans with post.updated_at|timesince as time %}{{ time }} ago{% endblocktrans %}</span>
                         {% else %}
                             {% trans "No posts yet." %}
                         {% endif %}

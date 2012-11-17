@@ -1,0 +1,18 @@
+{% extends "profile_base.html" %}
+
+{% load i18n %}
+
+{% block blog_tab_class %} ui-tabs-selected ui-state-active{% endblock %}
+
+{% block right_block_outer %}{% endblock %}
+{% block center_class%}full_width{% endblock %}
+{% block body_content %}
+    <div class="horizontal_filter">
+        {% if request.user == current_user %}
+            <a href="{% url blog_post_add %}" class="item{% block add_tab_class %}{% endblock %}">{% trans "Write post" %}</a>
+        {% endif %}
+        <a href="{% url blog_user_post_list current_user.username %}" class="item{% block post_list_tab_class %}{% endblock %}">{% trans "Posts" %}</a>
+        <a href="{% url blog_user_post_compact_list current_user.username %}" class="item{% block post_compact_list_tab_class %}{% endblock %}">{% trans "Posts (compact view)" %}</a>
+    </div>
+    {% block tab_content %}{% endblock %}
+{% endblock %}

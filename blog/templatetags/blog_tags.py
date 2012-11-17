@@ -1,5 +1,6 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 import re
+from datetime import date
 
 from django import template
 from django.conf import settings
@@ -8,7 +9,7 @@ from django.utils.encoding import force_unicode
 from django.utils.safestring import mark_safe
 from django.template import RequestContext
 
-from blog.models import Post, Blog, IS_DRAFT, IS_PUBLIC, IS_DELETED
+from blog.models import Post
 
 register = template.Library()
 
@@ -27,11 +28,21 @@ class CheckPostStatus(template.Node):
         post = Variable(self.post).resolve(context)
         if not user or not post:
             return ''
-        if post.author == user or post.status == IS_PUBLIC:
+        if post.author == user or post.status == Post.IS_PUBLIC:
             context['show_post'] = True
         else:
             context['show_post'] = False
         return ''
+
+@register.simple_tag
+def get_last_escalibro_post_list():
+    return Post.objects.filter(status=Post.IS_PUBLIC, blog__slug='escalibro')
+
+@register.simple_tag
+def get_month_escalibro_post_list():
+    now = date.today()
+    month_beginning = date(now.year, now.month, 1)
+    return get_last_escalibro_post_list().filter(updated_at__gte=month_beginning)
 
 @register.inclusion_tag("blog/post_item.html", takes_context = True)
 def show_blog_post(context, post):

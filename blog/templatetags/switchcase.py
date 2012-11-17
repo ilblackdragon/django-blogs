@@ -1,3 +1,4 @@
+# encoding: utf-8
 """
 Simplistic switch/case tag for Django.
 

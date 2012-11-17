@@ -1,27 +1,5 @@
-{% extends "profile_base.html" %}
-
-{% load i18n %}
-
-{% block head_title %}
-    {% blocktrans with current_user.get_profile.display_name as name %}{{ name }}'s blog{% endblocktrans %}
-{% endblock %}
-
-{% block extra_head %}
-    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">
-    <link rel="alternate" type="application/atom+xml" title="{% blocktrans with current_user.name as name %}Blog post feed for user {{ name }}{% endblocktrans %}" href="/feeds/posts/only/?username={{ current_user.username }}" />
-{% endblock %}
-
-{% block blog_tab_class %} ui-tabs-selected ui-state-active{% endblock %}
-
-{% block bread_crumbs %}
-    {{ block.super }}
-    <span class="tail"> » {% trans "Blog" %}</span>
-{% endblock %}
-
-{% block body_content %}
-    {% if post_list %}
-        {% include "blog/post_iterator.html" %}
-    {% else %}
-        {% trans "No posts yet." %}
-    {% endif %}
-{% endblock %}
+{% if compact_view %}
+    {% include "blog/user_post_compact_list.html" %}
+{% else %}
+    {% include "blog/user_post_full_list.html" %}
+{% endif %}

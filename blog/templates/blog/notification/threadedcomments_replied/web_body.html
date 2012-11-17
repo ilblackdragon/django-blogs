@@ -1,0 +1,7 @@
+{% load i18n %}
+
+{% url poetry_user_works comment.user.username as poetry_user_works_url %}
+{% blocktrans with comment.content_object.title as post_title and comment.content_object.get_absolute_url as post_url and comment.user.get_profile.display_name as display_name %}
+    You have received the reply in post "<a href="{{ post_url }}">{{ post_title }}</a>"
+    from user <a href="{{ poetry_user_works_url }}">{{ display_name }}</a>.
+{% endblocktrans %}

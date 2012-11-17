@@ -1,3 +1,4 @@
+# encoding: utf-8
 from django.conf.urls.defaults import patterns, url
 from django.shortcuts import get_object_or_404
 

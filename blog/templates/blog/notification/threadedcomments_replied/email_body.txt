@@ -1,0 +1,9 @@
+{% load i18n %}
+{% load html_tags %}
+{% load misc_tags %}
+
+{% blocktrans with comment.content_object.title as post_title and comment.user.get_profile.display_name as display_name %}You have received the reply in post "{{ post_title }}" from user {{ display_name }}{% endblocktrans %}
+
+{% set remove_tags comment.comment message %}{{ message|linebreaksbr }}
+
+https://{{ current_site }}{{ comment.content_object.get_absolute_url }}#comment_{{ comment.id }}

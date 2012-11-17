@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 """ Provides the `creole` template filter, to render
 texts using the markup used by the MoinMoin wiki.
 """

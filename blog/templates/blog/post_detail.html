@@ -7,10 +7,12 @@
 {% load ratings_tags %}
 
 {% block head_title %}{% blocktrans with post.title as title %}Blog Post: {{ title }}{% endblocktrans %}{% endblock %}
+{% block seo_keywords %}{% trans "blog post" %}, {{ post.title }}{% endblock %}
+{% block seo_description %}{% blocktrans with post.title as title %}Blog Post: {{ title }}{% endblocktrans %}. {{ block.super }}{% endblock %}
 
 {% block external_css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}wysiwyg-bbcode/editor.css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}prostoEscribir/css/prostoEscribir.css" />
 {% endblock %}
 
 {% block bread_crumbs %}
@@ -20,19 +22,19 @@
  
 {% block extra_head %}
     {{ block.super }}
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/comments.css" />
-    <link rel="stylesheet" href="{{ MEDIA_URL }}css/pygments.css" />
+    <link rel="stylesheet" href="{{ THEME_STATIC_URL }}css/comments.css" />
+    <link rel="stylesheet" href="{{ THEME_STATIC_URL }}css/pygments.css" />
 {% endblock %}
 
 {% block external_js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}wysiwyg-bbcode/editor.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}prostoEscribir/prostoEscribir.js"></script>
 {% endblock %} 
 
 {% block js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}js/misc.js" language="JavaScript" type="text/javascript"></script>
-    <script src="{{ STATIC_URL }}js/comments.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/misc.js"></script>
+    <script src="{{ STATIC_URL }}js/comments.js"></script>
 {% endblock %} 
 
 {% block body %}

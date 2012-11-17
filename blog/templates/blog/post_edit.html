@@ -3,29 +3,38 @@
 {% load i18n %}
 {% load uni_form_tags %}
 
-{% block head_title %}{% trans "Editing Post" %}{% endblock %}
+{% block head_title %}{% trans "Editing the post" %}{% endblock %}
 
 {% block external_css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/editor.css" type="text/css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/redactor.css">
+{% endblock %}
+
+{% block extra_head %}
+    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block external_js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}redactor/editor.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}redactor/redactor.js"></script>
 {% endblock %}
 
 {% block js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}js/blog.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/blog.js"></script>
+{% endblock %}
+
+{% block inline_js %}
+$(function() { $('#id_blog').chosen(); });
 {% endblock %}
 
 {% block body %}
-    <form class="uniForm" id="edit_post" method="POST" action="{% url blog_edit post.id %}">
+    <h1>{% trans "Editing the post" %}</h1>
+    <form class="uniForm" id="edit_post_form" method="POST" action="{% url blog_post_edit post.id %}">
         {% csrf_token %}
         <fieldset class="inlineLabels">
             {{ post_form|as_uni_form }}
-            <input type="submit" class="default" value="{% trans "Update" %}"/>
+            <input type="submit" class="submit default" value="{% trans "Update" %}"/>
         </fieldset>
     </form>
 {% endblock %}

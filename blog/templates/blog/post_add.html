@@ -1,33 +1,41 @@
-{% extends "blog/base_my.html" %}
+{% extends "blog/base_profile.html" %}
 
 {% load i18n %}
 {% load uni_form_tags %}
 
-{% block head_title %}{% trans "Write a Blog Post" %}{% endblock %}
+{% block head_title %}{% trans "Write a blog post" %}{% endblock %}
 
 {% block external_css %}
     {{ block.super }}
-    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/editor.css" type="text/css" />
+    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/redactor.css">
+{% endblock %}
+
+{% block extra_head %}
+    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">
 {% endblock %}
 
 {% block external_js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}redactor/editor.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}redactor/redactor.js"></script>
 {% endblock %}
 
 {% block js %}
     {{ block.super }}
-    <script src="{{ STATIC_URL }}js/blog.js" language="JavaScript" type="text/javascript"></script>
+    <script src="{{ STATIC_URL }}js/blog.js"></script>
 {% endblock %}
 
-{% block add_tab_class %} ui-tabs-selected ui-state-active{% endblock %}
+{% block inline_js %}
+$(function() { $('#id_blog').chosen(); });
+{% endblock %}
+
+{% block add_tab_class %} selected{% endblock %}
 
 {% block tab_content %}
-    <form class="uniForm" id="add_post" method="POST" action="{% url blog_add %}">
+    <form class="uniForm" id="add_post_form" method="POST" action="{% url blog_post_add %}">
         {% csrf_token %}
         <fieldset class="inlineLabels">
             {{ post_form|as_uni_form }}
-            <input type="submit" class="default" value="{% trans "Create" %}"/>
+            <input type="submit" class="submit default" value="{% trans "Create" %}"/>
         </fieldset>
     </form>
 {% endblock %}

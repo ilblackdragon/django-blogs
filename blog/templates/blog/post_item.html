@@ -16,13 +16,17 @@
                 <span class="blog_post_breaker">&rarr;</span>
             {% endif %}
             <a href="{{ post.get_absolute_url }}" class="post_link"><h1>{{ post.title }}</h1></a>
-            {% ifequal post.author request.user %}
-                <a href="{% url blog_edit post.id %}" class="icon_edit"><img src="{{ MEDIA_URL }}img/edit.png" alt="{% trans 'Edit' %}"></a>
+            {% set post.can_edit request.user post_can_edit %}
+            {% if post_can_edit %}
+                <a href="{% url blog_post_edit post.id %}" class="icon_edit"><img src="{{ THEME_STATIC_URL }}img/icons/edit.png" alt="{% trans 'Edit' %}"></a>
                 {% if post.status == 1 %}
                     <b>{% trans "Draft" %}</b>
-                    [ <a href="{% url blog_change_status 'public' post.id %}" class="inline_action">{% trans "Publish" %}</a> ]
+                    [ <a href="{% url blog_post_change_status 'public' post.id %}" class="inline_action">{% trans "Publish" %}</a> ]
+                    [ <a href="{% url blog_post_delete post.id %}" class="inline_action">{% trans "Delete" %}</a> ]
+                {% else %}
+                    [ <a href="{% url blog_post_change_status 'draft' post.id %}" class="inline_action">{% trans "To drafts" %}</a> ]
                 {% endif %}
-            {% endifequal %}
+            {% endif %}
         </div>
 
         <div class="blog_post_tease">
@@ -32,24 +36,30 @@
                 {{ post.body|safe }}
             {% endif %}
         </div>
-
+        <div class="clearfix"></div>
         <div class="blog_post_meta">
-            <span class="avatarname with_popup">
-                {% url poetry_user_works post.author.username as profile_detail_url %}
-                <a href="{{ profile_detail_url }}">
-                    {% avatar post.author 20 %}
-                    {{ post.author.username }}
-                </a>,
-                {% get_profile_bubblepopup post.author %}
-            </span>
-            {{ post.updated_at|date:"d M Y, H:i" }}
-            {% if post.allow_comments %}
-                | <a href="{{ post.get_absolute_url }}">
-                    {% blocktrans with post.comments_count as comments_count %}Comments: {{ comments_count }}{% endblocktrans %}
-                </a>
-                | {% share_it post.get_absolute_url post.title %}
-                {% render_rating post post.author %}
-            {% endif %}
+            <div class="avatarname">
+                <span class="with_popup">
+                    <a class="username" href="{% url poetry_user_works post.author.username %}">
+                        {% avatar post.author 20 %} {{ post.author.username }}
+                        <span class="fullname">{{ post.author.get_profile.display_name }}</span>
+                    </a>
+                    {% get_profile_bubblepopup post.author %}
+                </span>
+            </div>
+            <div class="blog_post_date">
+                {{ post.updated_at|date:"d M Y, H:i" }}
+                {% if post.allow_comments %}
+                    | <a href="{{ post.get_absolute_url }}">
+                        {% blocktrans with post.comments_count as comments_count %}Comments: {{ comments_count }}{% endblocktrans %}
+                    </a>
+                {% endif %}
+                |
+            </div>
+            {% share_it request post.get_absolute_url post.title %}
+            {% render_rating post "post" post.author %}
+            <div class="clearfix"></div>
         </div>
     </div>
+    {% share_js request %}
 {% endif %}

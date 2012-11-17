@@ -1,3 +1,4 @@
+# encoding: utf-8
 from datetime import datetime
 
 from django.conf import settings
@@ -9,7 +10,7 @@ from django.template.defaultfilters import linebreaks, escape, capfirst
 from django.utils.translation import ugettext_lazy as _
 from django.utils import feedgenerator
 
-from blog.models import Post, Blog, IS_PUBLIC
+from blog.models import Post, Blog
 
 ITEMS_PER_FEED = getattr(settings, 'BLOG_ITEMS_PER_FEED', 20)
 
@@ -40,7 +41,7 @@ class BlogFeedAll(BasePostFeed):
     link = "http://%s/feeds/posts/all/" % settings.SITE_DOMAIN
 
     def items(self):
-        return Post.objects.filter(status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
+        return Post.objects.filter(status=Post.IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
 
 
 class BlogFeedBlog(BasePostFeed):
@@ -57,7 +58,7 @@ class BlogFeedBlog(BasePostFeed):
         return "Escalibro blog %s" % blog.name
 
     def items(self, blog):
-        return Post.objects.filter(blog=blog, status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
+        return Post.objects.filter(blog=blog, status=Post.IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
 
 
 class BlogFeedUser(BasePostFeed):
@@ -74,4 +75,4 @@ class BlogFeedUser(BasePostFeed):
         return "Escalibro user %s" % user.username
 
     def items(self, user):
-        return Post.objects.filter(author=user, status=IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]
+        return Post.objects.filter(author=user, status=Post.IS_PUBLIC).order_by("-updated_at")[:ITEMS_PER_FEED]

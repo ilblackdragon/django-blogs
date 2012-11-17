@@ -4,10 +4,12 @@
 {% load i18n %}
 
 {% block head_title %}{% trans "All posts" %}{% endblock %}
+{% block seo_keywords %}{% trans "All posts" %}{% endblock %}
+{% block seo_description %}{% trans "All posts" %}. {{ block.super }}{% endblock %}
 
 {% block extra_head %}
     {{ block.super }}
-    <link href="{{ MEDIA_URL }}css/blog.css" rel="stylesheet" type="text/css">    
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">    
     <link rel="alternate" type="application/atom+xml" title="{% trans "All posts" %}" href="/feeds/posts/all/" />
 {% endblock %}
 

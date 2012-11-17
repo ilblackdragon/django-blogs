@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+# encoding: utf-8
 from django import template
 from django.template import Variable
 from django.conf import settings
