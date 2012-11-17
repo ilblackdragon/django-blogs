@@ -37,7 +37,12 @@ META_DATA = dict(
     packages = find_packages(),
     package_data = { '': PACKAGE_DATA, },
 
-    install_requires = [ 'django>=1.2', 'django-misc', 'django-pagination'],
+    install_requires = [ 'django>=1.2', 
+                         'django-misc', 
+                         'django-pagination', 
+                         'django-tagging', 
+                         'django-ratings',
+                       ],
 )
 
 if __name__ == "__main__":

@@ -1,4 +1,15 @@
+## 2012-11-16 0.2
+
+    * Added permissions for reading\writing\moderationg blogs. BlogUserAccess model added to capture access rules. Admin page for blog allows to edit access rules.
+    * Limits to post without cut added (use BLOG_SHORT_POST_MAX_LENGTH to control), default = 2048 symbols.
+    * Limits to size of cut added (use BLOG_CUT_MAX_LENGTH to control), default=2048 symbols.
+    * BLOG_CUT_TAG and BLOG_CUT_TAG_SYNONYMS are added to help customize tag that is used to cut post on tease and main content. defaults: '<hr class="redactor_cut">' as main cut tag, and <!--more--> as one synonym.
+    * Added encoding: utf-8 in all python files
+    * Added RatingField to Post. "django-ratings" app added to dependencies (I'll have mine own implementation of it shortly published).
+    * Migrations that remove some old models (that actually even wasn't in prev verision) and migrations to add rating fields added.
+    
+    WARNING: templates are updated according with how we use them in http://escalibro.com/, because of this they actually have a lot of specifics (like using django-themes to serve different themes, additional tags and etc). Consider them as an example for your own templates.
+
 ## 2011-05-08 0.1
 
-* Push new version to public repository
-
+    * Push new version to public repository

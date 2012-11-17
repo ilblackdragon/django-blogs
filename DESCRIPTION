@@ -3,3 +3,4 @@ Django blogs - module that provide blogs to your django application.
 - Multi blogging system
 - Blog per user
 - Safe html in posts
+- System to manage permissions to read\write\moderate blogs
