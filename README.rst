@@ -10,10 +10,10 @@ Quick overview
 
 - Using this module, you can implement blogging system in your project.
 - This application allows to configure:
--- One blog (for companies news blog or for personal blog)
--- Multiblogging system (multiple blogs with different topics, for internet societies or instead of forum as more orginized way to share information)
--- Blog-per-user system (each user writes in his own blog, useful for companies when each person has it's own blog)
--- Mix of blog-per-user and blog-per-topic - multiple blogs with specific topic and each user has own blog (Large internet societies, social networks)
+    - One blog (for companies news blog or for personal blog)
+    - Multiblogging system (multiple blogs with different topics, for internet societies or instead of forum as more orginized way to share information)
+    - Blog-per-user system (each user writes in his own blog, useful for companies when each person has it's own blog)
+    - Mix of blog-per-user and blog-per-topic - multiple blogs with specific topic and each user has own blog (Large internet societies, social networks)
 - Post's content is cleaned up to contain only safe html tags. So you can use any JS editor you like (we use http://frol.github.com/prostoEscribir/)
 - Each post can have tease which will be shown at when posts are listed, you can configure how will it be cut and how long it can be.
 - RSS feeds are available for all types of blogs.
