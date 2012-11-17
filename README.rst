@@ -27,7 +27,7 @@ Requirements
 - django-misc (https://github.com/ilblackdragon/django-misc)
 - django-pagination
 - django-tagging
-- django-ratings (https://github.com/ilblackdragon/django-ratings)
+- django-voter (https://github.com/ilblackdragon/django-voter)
 
 Optional:
 
@@ -97,7 +97,7 @@ Contributing
 
 Development of django-blogs happens at github: https://github.com/ilblackdragon/django-blogs
 
-Note, that I don't like having django-ratings as obligatory requirement, and if you have a solution how to make it not to be obligatory but still be able to use it's RatingField as an optional feature - I'm open for suggestion.
+Note, that I don't like having django-voter as obligatory requirement, and if you have a solution how to make it not to be obligatory but still be able to use it's RatingField as an optional feature - I'm open for suggestion.
 
 License
 ============

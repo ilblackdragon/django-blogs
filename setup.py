@@ -27,9 +27,9 @@ META_DATA = dict(
     version = VERSION,
     description = read('DESCRIPTION'),
     long_description = read('README.rst'),
-    license='GNU LGPL',
+    license='MIT',
 
-    author = "Ilya Polosukhin",
+    author = "Illia Polosukhin",
     author_email = "ilblackdragon@gmail.com",
 
     url = "http://github.com/ilblackdragon/django-blogs.git",
@@ -41,7 +41,7 @@ META_DATA = dict(
                          'django-misc', 
                          'django-pagination', 
                          'django-tagging', 
-                         'django-ratings',
+                         'django-voter',
                        ],
 )
 
