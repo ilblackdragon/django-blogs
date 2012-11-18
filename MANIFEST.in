@@ -1,2 +1,2 @@
-recursive-include django-blogs *
-exclude *.pyc *.orig
+include LICENSE
+recursive-include blog *
