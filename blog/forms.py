@@ -27,7 +27,7 @@ class PostForm(forms.ModelForm):
         ).distinct()
 
     def clean_title(self):
-        title = self.cleaned_data['title'].strip().capitilize()
+        title = self.cleaned_data['title'].strip().capitalize()
         if len(title) < settings.POST_NAME_MIN_LENGTH:
             raise forms.ValidationError(_("Post title should be at least 3 characters."))
         return title
