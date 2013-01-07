@@ -35,8 +35,8 @@ class PostForm(forms.ModelForm):
     def clean_body(self):
         body = self.cleaned_data['body']
         for synonym in settings.CUT_TAG_SYNONYMS:
-            body = body.replace(synonym, CUT_TAG)
-        editor_cut = body.find(CUT_TAG)
+            body = body.replace(synonym, settings.CUT_TAG)
+        editor_cut = body.find(settings.CUT_TAG)
         if editor_cut != -1:
             tease = body[:editor_cut]
             tease = clear_html_code(tease)
