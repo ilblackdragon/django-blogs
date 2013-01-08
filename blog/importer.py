@@ -1,7 +1,7 @@
 # encoding: utf-8
 from blog.models import Post
 
-from ratings.models import create_rating
+from voter.models import create_rating
 
 def import_post(user, import_item):
     title = import_item.title

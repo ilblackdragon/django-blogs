@@ -9,7 +9,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         
         # Adding field 'Post.rating'
-        db.add_column('blog_post', 'rating', self.gf('django.db.models.fields.related.ForeignKey')(related_name='blog_list', null=True, to=orm['ratings.Rating']), keep_default=False)
+        db.add_column('blog_post', 'rating', self.gf('django.db.models.fields.related.ForeignKey')(related_name='blog_list', null=True, to=orm['voter.Rating']), keep_default=False)
 
 
     def backwards(self, orm):
@@ -80,7 +80,7 @@ class Migration(SchemaMigration):
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'last_comment_datetime': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
             'publish': ('django.db.models.fields.DateTimeField', [], {'default': 'datetime.datetime.now'}),
-            'rating': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'blog_list'", 'null': 'True', 'to': "orm['ratings.Rating']"}),
+            'rating': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'blog_list'", 'null': 'True', 'to': "orm['voter.Rating']"}),
             'slug': ('django.db.models.fields.SlugField', [], {'db_index': 'True', 'max_length': '50', 'blank': 'True'}),
             'status': ('django.db.models.fields.IntegerField', [], {'default': '1'}),
             'tags': ('tagging.fields.TagField', [], {}),
@@ -95,19 +95,19 @@ class Migration(SchemaMigration):
             'model': ('django.db.models.fields.CharField', [], {'max_length': '100'}),
             'name': ('django.db.models.fields.CharField', [], {'max_length': '100'})
         },
-        'ratings.rating': {
+        'voter.rating': {
             'Meta': {'object_name': 'Rating'},
             'dislikes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'likes': ('django.db.models.fields.IntegerField', [], {'default': '0'}),
             'score': ('django.db.models.fields.FloatField', [], {'default': '0'}),
-            'users': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'rating'", 'symmetrical': 'False', 'through': "orm['ratings.RatingVote']", 'to': "orm['auth.User']"})
+            'users': ('django.db.models.fields.related.ManyToManyField', [], {'related_name': "'rating'", 'symmetrical': 'False', 'through': "orm['voter.RatingVote']", 'to': "orm['auth.User']"})
         },
-        'ratings.ratingvote': {
+        'voter.ratingvote': {
             'Meta': {'object_name': 'RatingVote'},
             'date': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
             'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
-            'score': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'rating_vote_list'", 'to': "orm['ratings.Rating']"}),
+            'score': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'rating_vote_list'", 'to': "orm['voter.Rating']"}),
             'user': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'rating_vote_list'", 'to': "orm['auth.User']"}),
             'vote_type': ('django.db.models.fields.IntegerField', [], {'default': '0'})
         }

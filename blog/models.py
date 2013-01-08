@@ -14,7 +14,7 @@ else:
     ThreadedComment = None
 
 from tagging.fields import TagField
-from ratings.models import RatingField
+from voter.models import RatingField
 
 class BlogUserAccess(models.Model):
     blog = models.ForeignKey('Blog', verbose_name=_("Blog"), 

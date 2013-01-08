@@ -27,7 +27,7 @@ Requirements
 - django-misc (https://github.com/ilblackdragon/django-misc)
 - django-pagination
 - django-tagging
-- django-voter (https://github.com/ilblackdragon/django-voter)
+- django-voter (https://github.com/ProstoKSI/django-voter)
 
 Optional:
 
