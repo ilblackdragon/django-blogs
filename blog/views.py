@@ -14,7 +14,7 @@ from django.conf import settings
 from django.db.models import Q
 
 from misc.json_encode import json_response
-from ratings.models import create_rating
+from voter.models import create_rating
 
 from blog.models import Blog, Post
 from blog.forms import PostForm
