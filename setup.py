@@ -7,12 +7,13 @@ from blog import VERSION, PROJECT
 
 
 MODULE_NAME = 'django-blogs'
+PACKAGE_NAME = 'blog'
 PACKAGE_DATA = list()
 
-for directory in [ 'blog/templates', 'blog/static' ]:
-    for root, dirs, files in os.walk( os.path.join( MODULE_NAME, directory )):
+for directory in [ 'templates', 'static' ]:
+    for root, dirs, files in os.walk( os.path.join( PACKAGE_NAME, directory )):
         for filename in files:
-            PACKAGE_DATA.append("%s/%s" % ( root[len(MODULE_NAME)+1:], filename ))
+            PACKAGE_DATA.append("%s/%s" % ( root[len(PACKAGE_NAME)+1:], filename ))
 
 
 def read( fname ):
