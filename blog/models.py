@@ -103,7 +103,7 @@ class Post(models.Model):
     def get_absolute_url(self):
         if self.blog:
             return ('blog_post_detail', None, {
-                'blog': self.blog.slug,
+                'blog_slug': self.blog.slug,
                 'slug': self.slug,
             })
         else:
@@ -119,8 +119,12 @@ class Post(models.Model):
             self.slug = ('%d-%s' % (self.id, slugify(self.title)))[:50]
         super(Post, self).save(**kwargs)
 
+    @property
     def is_public(self):
         return self.status == self.IS_PUBLIC
+
+    def is_visible_for_user(self, user):
+        return self.is_public or self.author == user
 
     def comment_status_changed(self, comment, status):
         if not ThreadedComment:

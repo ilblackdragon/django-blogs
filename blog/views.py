@@ -1,96 +1,104 @@
 # encoding: utf-8
 from datetime import datetime
 
-from django.shortcuts import render_to_response, get_object_or_404, redirect
-from django.http import Http404, HttpResponse
-from django.template import RequestContext
-from django.core.urlresolvers import reverse
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from django.views.generic import date_based, list_detail
-from django.conf import settings
+from django.core.urlresolvers import reverse
 from django.db.models import Q
+from django.http import Http404, HttpResponse
+from django.shortcuts import get_object_or_404, redirect
+from django.template import RequestContext
+from django.utils.translation import ugettext_lazy as _
 
-from misc.json_encode import json_response
+if 'coffin' in settings.INSTALLED_APPS:
+    from coffin.template.response import TemplateResponse
+else:
+    from django.template.response import TemplateResponse
+
 from voter.models import create_rating
 
 from blog.models import Blog, Post
 from blog.forms import PostForm
 from blog.signals import post_published
 
-def blog_list(request, *kargs, **kwargs):
+def blog_list(request, template_name='blog/blog_list.html'):
+    blog_list = Blog.objects.all()
     if request.user.is_authenticated():
-        kwargs['queryset'] = kwargs['queryset'].filter(
+        blog_list = blog_list.filter(
             Q(can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__is_moderator=True)
-       ).distinct()
+        ).distinct()
     else:
-         kwargs['queryset'] = kwargs['queryset'].filter(Q(can_read=True))
-    return list_detail.object_list(request, *kargs, **kwargs)
+        blog_list = blog_list.filter(Q(can_read=True))
+    return TemplateResponse(request, template_name, {'blog_list': blog_list})
 
-def blog_detail(request, *kargs, **kwargs):
+def blog_detail(request, slug, template_name='blog/blog_detail.html'):
+    blog = Blog.objects.filter(slug=slug)
     if request.user.is_authenticated():
-        blog = Blog.objects.filter(Q(slug=kwargs.get('slug', '')) & Q(
+        blog = blog.filter(
             Q(can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__is_moderator=True)
-        )).distinct()
+        ).distinct()
     else:
-        blog = Blog.objects.filter(slug=kwargs.get('slug', ''), can_read=True)
-    if len(blog) != 1:
+        blog = blog.filter(can_read=True)
+    if not blog:
         raise Http404("No blog matches given this slug or it isn't accessable")
-    return list_detail.object_detail(request, *kargs, **kwargs)
+    return TemplateResponse(request, template_name, {'blog': blog[0]})
 
-def post_detail(request, *kargs, **kwargs):
+def post_list(request, template_name='blog/post_list.html'):
+    return TemplateResponse(request, template_name,
+        {'post_list': Post.objects.filter(status=Post.IS_PUBLIC)})
+
+def post_detail(request, blog_slug, slug, template_name='blog/post_detail.html'):
+    blog = Blog.objects.filter(slug=blog_slug)
     if request.user.is_authenticated():
-        blog = Blog.objects.filter(Q(slug=kwargs.pop('blog', '')) & Q(
+        blog = blog.filter(
             Q(can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__can_read=True) |
             Q(blog_user_access_list__user=request.user, blog_user_access_list__is_moderator=True)
-        )).distinct()
+        ).distinct()
     else:
-        blog = Blog.objects.filter(slug=kwargs.pop('blog', ''), can_read=True)
-    if len(blog) != 1:
+        blog = blog.filter(can_read=True)
+    if not blog:
         raise Http404("No blog matches given this slug or it isn't accessable")
-    kwargs['template_object_name'] = 'post'
-    kwargs['queryset'] = Post.objects.filter(blog = blog[0])
+    post = Post.objects.filter(blog=blog[0])
     if request.user.is_authenticated():
-        kwargs['queryset'] = kwargs['queryset'].filter(author=request.user) |\
-                             kwargs['queryset'].filter(status=Post.IS_PUBLIC)
+        post = post.filter(Q(author=request.user) | Q(status=Post.IS_PUBLIC))
     else:
-        kwargs['queryset'] = kwargs['queryset'].filter(status=Post.IS_PUBLIC)
-    return list_detail.object_detail(request, *kargs, **kwargs)
+        post = post.filter(status=Post.IS_PUBLIC)
+    if not post:
+        raise Http404("No post matches given this slug or it isn't accessable")
+    return TemplateResponse(request, template_name, {'post': post[0]})
 
-def user_post_detail(request, *kargs, **kwargs):
-    user = get_object_or_404(User, username=kwargs.pop('username', ''))
-    if user==request.user:
-        kwargs['queryset'] = kwargs['queryset'].filter(author=request.user)
-    else:
-        kwargs['queryset'] = kwargs['queryset']\
-            .filter(author=user, status=Post.IS_PUBLIC)
-    return list_detail.object_detail(request, *kargs, **kwargs)
+def user_post_detail(request, username, slug, template_name='blog/post_detail.html'):
+    user = get_object_or_404(User, username=username)
+    post = Post.objects.filter(author=user, slug=slug)
+    if request.user != user:
+        post = post.filter(status=Post.IS_PUBLIC)
+    if not post:
+        raise Http404("No post matches given this slug or it isn't accessable")
+    return TemplateResponse(request, template_name, {'post': post[0]})
 
-def user_post_list(request, *kargs, **kwargs):
-    user = get_object_or_404(User, username=kwargs.pop('username', ''))
+def user_post_list(request, username, compact_view, template_name='blog/user_post_list.html'):
+    user = get_object_or_404(User, username=username)
+    post_list = Post.objects.filter(author=user)
     if request.user == user:
-        kwargs['queryset'] = Post.objects.filter(author=user)\
-            .exclude(status=Post.IS_DELETED)
+        post_list = post_list.exclude(status=Post.IS_DELETED)
     else:
-        kwargs['queryset'] = kwargs['queryset'].filter(author=user)
-    kwargs['extra_context'].update({
-        'current_user': user,
-    })
-    return list_detail.object_list(request, *kargs, **kwargs)
+        post_list = post_list.filter(status=Post.IS_PUBLIC)
+    return TemplateResponse(request, template_name,
+        {'post_list': post_list, 'current_user': user, 'compact_view': compact_view})
 
 @login_required
-def my_post_list(request, *kargs, **kwargs):
-    kwargs['queryset'] = Post.objects.filter(author=request.user)\
-        .exclude(status=Post.IS_DELETED)
-    kwargs['extra_context'] = {'current_user': request.user}
-    return list_detail.object_list(request, *kargs, **kwargs)
+def my_post_list(request, template_name='blog/user_post_compact_list.html'):
+    post_list = Post.objects.filter(author=request.user)\
+        .exclude(status=Post.IS_DELETED).order_by('status', '-created_at')
+    return TemplateResponse(request, template_name,
+        {'post_list': post_list, 'current_user': request.user})
 
 @login_required
 def post_change_status(request, action, id):
@@ -121,8 +129,7 @@ def post_add(request, form_class=PostForm, template_name="blog/post_add.html"):
         post.save()
         messages.success(request, _("Successfully created post '%s'") % post.title)
         return redirect("blog_user_post_detail", username=request.user.username, slug=post.slug)
-    return render_to_response(template_name, {'post_form': post_form, 'current_user': request.user},
-        context_instance=RequestContext(request))
+    return TemplateResponse(request, template_name, {'post_form': post_form, 'current_user': request.user})
 
 @login_required
 def post_edit(request, id, form_class=PostForm, template_name="blog/post_edit.html"):
@@ -137,7 +144,7 @@ def post_edit(request, id, form_class=PostForm, template_name="blog/post_edit.ht
         post.save()
         messages.success(request, _("Successfully updated post '%s'") % post.title)
         return redirect("blog_user_post_detail", username=post.author.username, slug=post.slug)
-    return render_to_response(template_name, {"post_form": post_form, "post": post}, context_instance=RequestContext(request))
+    return TemplateResponse(request, template_name, {"post_form": post_form, "post": post})
 
 @login_required
 def post_delete(request, id):
