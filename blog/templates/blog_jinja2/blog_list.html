@@ -1,0 +1,57 @@
+{#% extends "blog/base.html" %#}
+{% extends "search/all.html" %}
+
+{% from "pagination/jinja2_pagination.html" import paginate %}
+{% from "containers/_username.html" import render_username %}
+
+{% block head_title %}{% trans %}All blogs{% endtrans %}{% endblock %}
+
+{% block extra_head %}
+    {{ super() }}
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">    
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}All blogs{% endtrans %}</h1>
+    
+    <table class="all_blogs">
+        <thead>
+            <tr><th class="blog_icon_column"></th><th>{% trans %}Blog name{% endtrans %}</th><th class="column-center" style="text-align: center;">{% trans %}Posts count{% endtrans %}</th><th>{% trans %}Last post{% endtrans %}</th></tr>
+        </thead>
+        <tbody>
+        {% autopaginate blog_list %}
+        {% if blog_list %}
+            {% for blog in blog_list %}
+                <tr class="{{ loop.cycle("odd", "even") }}">
+                    <td class="column-center blog_icon_column">
+                        {% if blog.icon %}
+                            <img src="{{ blog.icon.url }}" class="blog_icon">
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{ blog.get_absolute_url() }}">{{ blog.name }}</a><br/>
+                        {{ blog.description }}
+                    </td>
+                    <td class="column-center">
+                        {{ blog.post_list.count() }}
+                    </td>
+                    <td>
+                        {% set post_list = blog.post_list.filter(status=2) %}
+                        {% if post_list %}
+                            {% set post = post_list.0 %}
+                            {{ render_username(request, post.author) }}
+                            <p><a href="{{ post.get_absolute_url() }}" class="post_link">{{ post.title }}</a></p>
+                            <span class="timestamp" title="{{ post.updated_at }}">{% trans time=post.updated_at|timesince() %}{{ time }} ago{% endtrans %}</span>
+                        {% else %}
+                            {% trans %}No posts yet.{% endtrans %}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            {% trans %}No blogs found.{% endtrans %}
+        {% endif %}
+        {{ paginate(blog_list_pages) }}
+        </tbody>
+    </table>
+{% endblock %}

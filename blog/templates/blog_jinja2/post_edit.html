@@ -1,0 +1,40 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load uni_form_tags %}
+
+{% block head_title %}{% trans %}Editing the post{% endtrans %}{% endblock %}
+
+{% block external_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/redactor.css">
+{% endblock %}
+
+{% block extra_head %}
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block external_js %}
+    {{ super() }}
+    <script src="{{ STATIC_URL }}redactor/redactor.js"></script>
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+    <script src="{{ STATIC_URL }}js/blog.js"></script>
+{% endblock %}
+
+{% block inline_js %}
+$(function() { $('#id_blog').chosen(); });
+{% endblock %}
+
+{% block body %}
+    <h1>{% trans %}Editing the post{% endtrans %}</h1>
+    <form class="uniForm" id="edit_post_form" method="POST" action="{% url blog_post_edit post.id %}">
+        {% csrf_token %}
+        <fieldset class="inlineLabels">
+            {{ post_form|as_uni_form }}
+            <input type="submit" class="submit default" value="{% trans %}Update{% endtrans %}"/>
+        </fieldset>
+    </form>
+{% endblock %}

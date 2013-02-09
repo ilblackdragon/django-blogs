@@ -1,0 +1,56 @@
+{% extends "blog/base.html" %}
+
+{% load i18n %}
+{% load misc_tags %}
+{% load blog_tags %}
+{% load feeds_tags %}
+
+{% block head_title %}
+    {% trans name=blog.name %}Posts in blog: {{ name }}{% endtrans %}
+{% endblock %}
+
+{% block extra_head %}
+    {{ super() }}
+    <link rel="alternate" type="application/atom+xml" title="{% trans name=blog.name %}Posts in blog: {{ name }}{% endtrans %}" href="/feeds/posts/blog/?slug={{ blog.slug }}" />
+{% endblock %}
+
+{% block bread_crumbs %}
+    <a href="{% url "blog_list" %}">{% trans %}All blogs{% endtrans %}</a>
+    <span class="tail"> » {% trans name=blog.name %}Blog: {{ name }}{% endtrans %}</span>
+{% endblock %}
+ 
+{% block body_inner %}
+    <div id="right" class="info">
+        <div class="inner">
+            {% if blog.icon %}
+                <img src="{{ blog.icon.url }}" width="140px"><br>
+            {% endif %}
+            <h2>{% trans name=blog.name %}Blog: {{ name }}{% endtrans %}</h2>
+            {% if request.user.is_authenticated() %}
+                <span class="actions">
+                    {{ is_following(request.user, blog) }}
+                    {% if following %}
+                        <span><a href="{{ get_unfollow_url(blog) }}" rel="link" class="action">{% trans %}Unfollow{% endtrans %}</a></span>
+                    {% else %}
+                        <span><a href="{{ get_follow_url(blog) }}" rel="link" class="action">{% trans %}Follow{% endtrans %}</a></span>
+                    {% endif %}
+                </span>
+            {% endif %}
+            {% include "blog/tags.html" %}
+        </div>
+    </div>
+
+    <div id="center">
+        <div id="center_inner">
+            {% set post_list = blog.post_list.all() %}
+            {% if post_list.exists() %}
+                <div class="blog_list" class="post_list">
+                    {% include "blog/post_iterator.html" %}
+                </div>
+            {% else %}
+                {% trans %}No posts yet.{% endtrans %}
+            {% endif %}
+        </div>
+        <div class="clearfix"></div>
+    </div>
+{% endblock %}

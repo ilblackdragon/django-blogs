@@ -1,0 +1,66 @@
+{% from "auth/profile_bubblepopup.html" import get_profile_bubblepopup %}
+{% from "voter/default_rating.html" import render_rating %}
+
+{% macro _show_blog_post(post, post_undetailed) -%}
+    {% if post.is_visible_for_user(request.user) %}
+        <div class="blog_post clearfix">
+            <div class="blog_post_title">
+                {% if post.blog %}  
+                    <a href="{{ post.blog.get_absolute_url() }}" class="blog_link">{{ post.blog.name }}</a>
+                    <span class="blog_post_breaker">&rarr;</span>
+                {% endif %}
+                <a href="{{ post.get_absolute_url() }}" class="post_link"><h1>{{ post.title }}</h1></a>
+                {% if post.can_edit(request.user) %}
+                    <a href="{% url "blog_post_edit" post.id %}" class="icon_edit"><img src="{{ THEME_STATIC_URL }}img/icons/edit.png" alt="{% trans %}Edit{% endtrans %}"></a>
+                    {% if post.is_public %}
+                        <b>{% trans %}Draft{% endtrans %}</b>
+                        [ <a href="{% url "blog_post_change_status" 'public', post.id %}" class="inline_action">{% trans %}Publish{% endtrans %}</a> ]
+                        [ <a href="{% url "blog_post_delete" post.id %}" class="inline_action">{% trans %}Delete{% endtrans %}</a> ]
+                    {% else %}
+                        [ <a href="{% url "blog_post_change_status" 'draft', post.id %}" class="inline_action">{% trans %}To drafts{% endtrans %}</a> ]
+                    {% endif %}
+                {% endif %}
+            </div>
+            <div class="blog_post_tease">
+                {% if post_undetailed and post.tease %}
+                    {{ post.tease|safe() }}
+                {% else %}
+                    {{ post.body|safe() }}
+                {% endif %}
+            </div>
+            <div class="clearfix"></div>
+            <div class="blog_post_meta">
+                <div class="avatarname">
+                    <span class="with_popup">
+                        <a class="username" href="{% url "poetry_user_works" post.author.username %}">
+                            {{ avatar(post.author, 20) }} {{ post.author.username }}
+                            <span class="fullname">{{ post.author.get_profile().display_name }}</span>
+                        </a>
+                        {{ get_profile_bubblepopup(request, post.author) }}
+                    </span>
+                </div>
+                <div class="blog_post_date">
+                    {{ post.updated_at|date("d M Y, H:i") }}
+                    {% if post.allow_comments %}
+                        | <a href="{{ post.get_absolute_url() }}">
+                            {% trans comments_count=post.comments_count %}Comments: {{ comments_count }}{% endtrans %}
+                        </a>
+                    {% endif %}
+                    |
+                </div>
+                {{ share_it(request, post.get_absolute_url(), post.title) }}
+                {{ render_rating(request.user, post, "post", post.author) }}
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        {{ share_js(request) }}
+    {% endif %}
+{%- endmacro %}
+
+{% macro show_blog_post(post) -%}
+    {{ _show_blog_post(post, true) }}
+{%- endmacro %}
+
+{% macro show_full_blog_post(post) -%}
+    {{ _show_blog_post(post, false) }}
+{%- endmacro %}

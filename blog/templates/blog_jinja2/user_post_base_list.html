@@ -1,0 +1,21 @@
+{% extends "blog/base_profile.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{{ current_user.get_profile().display_name }} - {% trans %}Posts{% endtrans %}{% endblock %}
+{% block seo_keywords %}{% trans %}Posts{% endtrans %}, {{ current_user.get_profile().display_name }}, {% for post in post_list[:3] %}{{ post.title }}, {% endfor %}{% trans %}Blogs{% endtrans %}{% endblock %}
+{% block seo_description %}{{ current_user.get_profile().display_name }}, {% trans %}Posts{% endtrans %}:{% for post in post_list[:3] %} {{ post.title }}.{% endfor %}.. {{ super() }}{% endblock%}
+
+{% block external_css %}
+    {{ super() }}
+    <link rel="alternate" type="application/atom+xml" title="{% trans name=current_user.name %}Blog post feed for user {{ name }}{% endtrans %}" href="/feeds/posts/only/?username={{ current_user.username }}" />
+{% endblock %}
+
+{% block extra_head %}
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block bread_crumbs %}
+    {{ super() }}
+    <span class="tail"> » {% trans %}Blog{% endtrans %}</span>
+{% endblock %}

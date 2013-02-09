@@ -1,0 +1,41 @@
+{% extends "blog/base_profile.html" %}
+
+{% load i18n %}
+{% load uni_form_tags %}
+
+{% block head_title %}{% trans %}Write a blog post{% endtrans %}{% endblock %}
+
+{% block external_css %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ STATIC_URL }}redactor/css/redactor.css">
+{% endblock %}
+
+{% block extra_head %}
+    <link href="{{ THEME_STATIC_URL }}css/blog.css" rel="stylesheet" type="text/css">
+{% endblock %}
+
+{% block external_js %}
+    {{ super() }}
+    <script src="{{ STATIC_URL }}redactor/redactor.js"></script>
+{% endblock %}
+
+{% block js %}
+    {{ super() }}
+    <script src="{{ STATIC_URL }}js/blog.js"></script>
+{% endblock %}
+
+{% block inline_js %}
+$(function() { $('#id_blog').chosen(); });
+{% endblock %}
+
+{% block add_tab_class %} selected{% endblock %}
+
+{% block tab_content %}
+    <form class="uniForm" id="add_post_form" method="POST" action="{% url blog_post_add %}">
+        {% csrf_token %}
+        <fieldset class="inlineLabels">
+            {{ post_form|as_uni_form }}
+            <input type="submit" class="submit default" value="{% trans %}Create{% endtrans %}"/>
+        </fieldset>
+    </form>
+{% endblock %}

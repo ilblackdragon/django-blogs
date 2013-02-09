@@ -1,0 +1,39 @@
+{% load i18n %}
+
+{% for post_list_by_status in post_list|groupby('status') %}
+    <h2>{{ post_list_by_status.list.0.get_status_display() }}</h2>
+    <table class="post_compact_list">
+        <thead>
+            <td>{% trans %}Title{% endtrans %}</td>
+            <td>{% trans %}Created{% endtrans %}</td>
+            <td>{% trans %}Updated{% endtrans %}</td>
+            <td>{% trans %}Actions{% endtrans %}</td>
+        </thead>
+        {% for post in post_list_by_status.list %}
+            <tr>
+                <td>
+                    {% if post.blog %}
+                        <a href="{{ post.blog.get_absolute_url() }}" class="blog_link_small">{{ post.blog.name }}</a>
+                        <span class="blog_post_breaker_small">&rarr;</span>
+                    {% endif %}
+                    <a href="{{ post.get_absolute_url() }}" class="post_link_small">{{ post.title }}</a>
+                </td>
+                <td class="date">{{ post.created_at|date("d M Y, H:i") }}</td>
+                <td class="date">{{ post.updated_at|date("d M Y, H:i") }}</td>
+                {% if request.user == current_user or request.user.is_superuser %}
+                    <td class="actions">
+                        <ul>
+                            <li><a href="{% url "blog_post_edit" post.id %}" class="inline_action">{% trans %}Edit{% endtrans %}</a></li>
+                            {% if post.is_public %}
+                                <li><a href="{% url "blog_post_change_status" 'draft', post.id %}" class="inline_action">{% trans %}To drafts{% endtrans %}</a></li>
+                            {% else %}
+                                <li><a href="{% url "blog_post_change_status" 'public', post.id %}" class="inline_action">{% trans %}Publish{% endtrans %}</a></li>
+                                <li><a href="{% url "blog_post_delete" post.id %}" class="inline_action">{% trans %}Delete{% endtrans %}</a></li>
+                            {% endif %}
+                        </ul>
+                    </td>
+                {% endif %}
+            </tr>
+        {% endfor %}
+    </table>
+{% endfor %}

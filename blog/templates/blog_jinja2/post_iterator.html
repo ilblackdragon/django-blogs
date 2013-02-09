@@ -1,0 +1,10 @@
+{% from "pagination/jinja2_pagination.html" import paginate %}
+{% from "blog/post_item.html" import show_blog_post with context %}
+
+{% autopaginate post_list %}
+
+{% for post in post_list %}
+    {{ show_blog_post(post) }}
+{% endfor %}
+
+{{ paginate(post_list_pages) }}
