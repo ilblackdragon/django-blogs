@@ -65,7 +65,7 @@ def post_detail(request, blog_slug, slug, template_name='blog/post_detail.html')
         blog = blog.filter(can_read=True)
     if not blog:
         raise Http404("No blog matches given this slug or it isn't accessable")
-    post = Post.objects.filter(blog=blog[0])
+    post = Post.objects.filter(blog=blog[0], slug=slug)
     if request.user.is_authenticated():
         post = post.filter(Q(author=request.user) | Q(status=Post.IS_PUBLIC))
     else:
