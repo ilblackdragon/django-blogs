@@ -4,7 +4,7 @@ from django import forms
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
-from misc.html.clear import clear_html_code
+from html_cleaner.cleaner import clear_html_code
 
 from blog import settings
 from blog.models import Post, Blog
