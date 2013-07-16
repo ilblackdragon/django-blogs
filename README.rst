@@ -64,7 +64,7 @@ Setup
         ...
         (r'^blogs/', include('blog.urls')),
         (r'^b/', include('blogs.short_urls')), # For short urls, if you want
-        (r'^feeds/posts/(?P<url>\w+)/', 'django.contrib.syndication.views.feed', blogs_feed_dict), # Rss feeds
+        (r'^feeds/posts/(?P<url>\w+)/', 'django.contrib.syndication.views.Feed', blogs_feed_dict), # Rss feeds
         ...
     )
 
