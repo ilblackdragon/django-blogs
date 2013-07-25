@@ -1,0 +1,3306 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-07-24 23:14-0700\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:32
+msgid "Post title should be at least 3 characters."
+msgstr "Назва посту має буди щонайменьше 3 літери."
+
+#: forms.py:48
+msgid ""
+"Your post is too long and without cut - please add cut somewhere to leave "
+"only introduction part before it."
+msgstr "Ваш пост дуже довгий та не розділен (нема ката) - будь ласка додайте кат, десь так щоб залишилось лише начальна частина до нього."
+
+#: forms.py:50
+msgid ""
+"Your cut is too long - please add cut somewhere to leave only introduction "
+"part before it."
+msgstr "Ваш кат дуже довгий - будь ласта додайте кат десь так, шоб залишилось лише начальна частина до нього."
+
+#: management.py:10
+msgid "Friend Posted to Blog"
+msgstr "Друг опублікувався у блозі"
+
+#: management.py:10
+#, fuzzy
+msgid "a friend of yours posted to their blog"
+msgstr "Друг опублікувався у блозі"
+
+#: management.py:11
+msgid "New Comment on Blog Post"
+msgstr "Новий коментарій у блозі"
+
+#: management.py:11
+msgid "a comment was made on one of your blog posts"
+msgstr "хтось прокоментував ваш пост у блозі"
+
+#: models.py:20 models.py:40 models.py:84
+#: templates/blog/user_post_base_list.html:20
+msgid "Blog"
+msgstr "Блог"
+
+#: models.py:22
+msgid "User"
+msgstr "Користувач"
+
+#: models.py:24
+msgid "Is moderator"
+msgstr "Модератор?"
+
+#: models.py:25
+msgid "Can read"
+msgstr "Можна читати?"
+
+#: models.py:26
+msgid "Can write"
+msgstr "Можна писати?"
+
+#: models.py:29
+msgid "name"
+msgstr "ім'я"
+
+#: models.py:30 models.py:72
+msgid "slug"
+msgstr "слаг"
+
+#: models.py:31
+msgid "blog icon"
+msgstr "іконка блогу"
+
+#: models.py:32
+msgid "description"
+msgstr "опис"
+
+#: models.py:35
+msgid "User access list"
+msgstr ""
+
+#: models.py:36
+msgid "Are everybody can read"
+msgstr "Усі можуть читати"
+
+#: models.py:37
+msgid "Are everybody can write"
+msgstr "Усі можуть писати"
+
+#: models.py:41 templates/blog/follow_info.html:61
+#: templates/blog/user_post_base_list.html:6
+msgid "Blogs"
+msgstr "Блоги"
+
+#: models.py:66 templates/blog/post_item.html:23
+msgid "Draft"
+msgstr "Чернетка"
+
+#: models.py:67
+msgid "Public"
+msgstr "Опубліковано"
+
+#: models.py:68
+msgid "Deleted"
+msgstr "Видалено"
+
+#: models.py:71
+msgid "title"
+msgstr "назва"
+
+#: models.py:74
+msgid "IP Address of the Post Creator"
+msgstr "IP-адреса з посту автора"
+
+#: models.py:76
+msgid "tease"
+msgstr "теза"
+
+#: models.py:77
+msgid "body"
+msgstr "зміст"
+
+#: models.py:78
+msgid "status"
+msgstr "статус"
+
+#: models.py:79
+msgid "allow comments"
+msgstr "дозволити коментувати"
+
+#: models.py:80
+msgid "publish"
+msgstr "опоблікувати"
+
+#: models.py:81
+msgid "created at"
+msgstr "створено в"
+
+#: models.py:82
+msgid "updated at"
+msgstr "відновлено в"
+
+#: models.py:86
+msgid "comments count"
+msgstr "кількість коментаріїв"
+
+#: models.py:87
+msgid "date of last comment"
+msgstr "дата останнього коментарю"
+
+#: models.py:91
+msgid "Rating score"
+msgstr ""
+
+#: models.py:94
+msgid "Post"
+msgstr "Пост"
+
+#: models.py:95 templates/blog/base_profile.html:14
+#: templates/blog/user_post_base_list.html:5
+#: templates/blog/user_post_base_list.html:6
+#: templates/blog/user_post_base_list.html:7
+msgid "Posts"
+msgstr "Пости"
+
+#: views.py:115
+#, python-format
+msgid "Successfully change status for post '%s'"
+msgstr "Успішно змінено статус для посту '% s'"
+
+#: views.py:130
+#, python-format
+msgid "Successfully created post '%s'"
+msgstr "Успішно створений пост '% s'"
+
+#: views.py:138
+msgid "You can't edit posts that aren't yours"
+msgstr ""
+
+#: views.py:145
+#, python-format
+msgid "Successfully updated post '%s'"
+msgstr "Успішно оновлено пост '% s'"
+
+#: views.py:153
+msgid "You can't delete posts that aren't yours"
+msgstr ""
+
+#: templates/blog/base_my.html:13 templates/blog/post_my_list.html:5
+msgid "My posts"
+msgstr "Мої пости"
+
+#: templates/blog/base_my.html:16 templates/blog/base_profile.html:12
+msgid "Write post"
+msgstr "Написати пост"
+
+#: templates/blog/base_profile.html:15
+msgid "Posts (compact view)"
+msgstr "Пости (компактний вигляд)"
+
+#: templates/blog/blog_detail.html:9 templates/blog/blog_detail.html.py:14
+#, python-format
+msgid "Posts in blog: %(name)s"
+msgstr "Повідомлення в блозі: %(name)s"
+
+#: templates/blog/blog_detail.html:18 templates/blog/blog_list.html:8
+#: templates/blog/blog_list.html.py:16
+msgid "All blogs"
+msgstr "Всі блоги"
+
+#: templates/blog/blog_detail.html:19 templates/blog/blog_detail.html.py:28
+#, python-format
+msgid "Blog: %(name)s"
+msgstr "Блог: %(name)s"
+
+#: templates/blog/blog_detail.html:33
+msgid "Unfollow"
+msgstr "Не слідкувати"
+
+#: templates/blog/blog_detail.html:35
+msgid "Follow"
+msgstr "Слідкувати"
+
+#: templates/blog/blog_detail.html:51 templates/blog/blog_list.html:46
+#: templates/blog/follow.html:26 templates/blog/post_list.html:21
+#: templates/blog/post_my_list.html:46 templates/blog/show_user_feed.html:7
+#: templates/blog/user_post_compact_list.html:11
+#: templates/blog/user_post_full_list.html:11
+msgid "No posts yet."
+msgstr "Постів ще нема."
+
+#: templates/blog/blog_list.html:20
+msgid "Blog name"
+msgstr "Им'я блога"
+
+#: templates/blog/blog_list.html:20
+msgid "Posts count"
+msgstr "Кількість постів"
+
+#: templates/blog/blog_list.html:20
+msgid "Last post"
+msgstr "Останній пост"
+
+#: templates/blog/blog_list.html:44
+#, python-format
+msgid "%(time)s ago"
+msgstr "%(time)s тому"
+
+#: templates/blog/blog_list.html:51
+msgid "No blogs found."
+msgstr "Блоги не найдені."
+
+#: templates/blog/follow.html:8 templates/blog/follow.html.py:17
+msgid "Your feed"
+msgstr "Ваша стрічка"
+
+#: templates/blog/follow.html:10 templates/blog/follow.html.py:19
+#: templates/blog_jinja2/follow.html:10 templates/blog_jinja2/follow.html:19
+#, python-format
+msgid "%(username)s's feed"
+msgstr "Стрічка %(username)s"
+
+#: templates/blog/follow_info.html:7
+msgid "Following"
+msgstr "Спостереження"
+
+#: templates/blog/follow_info.html:9
+#, fuzzy
+msgid "Followers"
+msgstr "Слідкувати"
+
+#: templates/blog/follow_info.html:18
+msgid "My following"
+msgstr "Я читаю"
+
+#: templates/blog/follow_info.html:20
+#: templates/blog_jinja2/follow_info.html:20
+#, python-format
+msgid "%(username)s's following"
+msgstr "Читачі %(username)s"
+
+#: templates/blog/follow_info.html:24
+msgid "My followers"
+msgstr "Мене читають"
+
+#: templates/blog/follow_info.html:26
+#: templates/blog_jinja2/follow_info.html:26
+#, fuzzy, python-format
+msgid "%(username)s's followers"
+msgstr "Читачі %(name)s"
+
+#: templates/blog/follow_info.html:35
+msgid "Users"
+msgstr "Користувачі"
+
+#: templates/blog/follow_info.html:81
+msgid "No following yet."
+msgstr "Спостережень ще нема."
+
+#: templates/blog/follow_info.html:83
+msgid "No followers yet."
+msgstr "Читачів ще нема."
+
+#: templates/blog/friends_posts.html:7 templates/blog/friends_posts.html:11
+#: templates/blog_jinja2/friends_posts.html:7
+#: templates/blog_jinja2/friends_posts.html:11
+msgid "Friends' Blogs"
+msgstr "Блоги друзів"
+
+#: templates/blog/friends_posts.html:14
+msgid "These are blog posts from your friends:"
+msgstr "Ці повідомлення в блозі від ваших друзів:"
+
+#: templates/blog/friends_posts.html:25
+msgid "No blog posts yet."
+msgstr "В блозі ще нама повідомлень."
+
+#: templates/blog/post_add.html:6
+msgid "Write a blog post"
+msgstr "Написати в блозі"
+
+#: templates/blog/post_add.html:38
+msgid "Create"
+msgstr "Створити"
+
+#: templates/blog/post_compact_iterator.html:10
+#: templates/blog/post_my_list.html:18
+msgid "Title"
+msgstr "Назва"
+
+#: templates/blog/post_compact_iterator.html:11
+#: templates/blog/post_my_list.html:19
+msgid "Created"
+msgstr "Створено"
+
+#: templates/blog/post_compact_iterator.html:12
+#: templates/blog/post_my_list.html:20
+msgid "Updated"
+msgstr "Оновлено"
+
+#: templates/blog/post_compact_iterator.html:13
+#: templates/blog/post_my_list.html:21
+msgid "Actions"
+msgstr "Дії"
+
+#: templates/blog/post_compact_iterator.html:27
+#: templates/blog/post_item.html:21 templates/blog/post_my_list.html:33
+msgid "Edit"
+msgstr "Редагувати"
+
+#: templates/blog/post_compact_iterator.html:29
+#: templates/blog/post_item.html:27 templates/blog/post_my_list.html:35
+msgid "To drafts"
+msgstr "У чернетки"
+
+#: templates/blog/post_compact_iterator.html:31
+#: templates/blog/post_item.html:24 templates/blog/post_my_list.html:37
+msgid "Publish"
+msgstr "Опублікувати"
+
+#: templates/blog/post_compact_iterator.html:32
+#: templates/blog/post_item.html:25
+msgid "Delete"
+msgstr "Видалити"
+
+#: templates/blog/post_detail.html:9 templates/blog/post_detail.html.py:11
+#, python-format
+msgid "Blog Post: %(title)s"
+msgstr "Пост в блозі %(title)s"
+
+#: templates/blog/post_detail.html:10
+msgid "blog post"
+msgstr "пост в блозі"
+
+#: templates/blog/post_detail.html:19 templates/blog/post_list.html:6
+#: templates/blog/post_list.html.py:7 templates/blog/post_list.html:8
+#: templates/blog/post_list.html.py:13 templates/blog/post_list.html:17
+msgid "All posts"
+msgstr "Всі пости"
+
+#: templates/blog/post_detail.html:44
+msgid "Comments:"
+msgstr "Коментарі:"
+
+#: templates/blog/post_edit.html:6 templates/blog/post_edit.html.py:32
+msgid "Editing the post"
+msgstr "Редагування поста"
+
+#: templates/blog/post_edit.html:37
+msgid "Update"
+msgstr "Оновити"
+
+#: templates/blog/post_item.html:54
+#, python-format
+msgid "Comments: %(comments_count)s"
+msgstr "Коментарі: %(comments_count)s"
+
+#: templates/blog/user_post_base_list.html:11
+#, python-format
+msgid "Blog post feed for user %(name)s"
+msgstr "Пости користувача %(name)s"
+
+#: templates/blog/notification/threadedcomments_replied/email_body.html:4
+#: templates/blog/notification/threadedcomments_replied/email_body.txt:5
+#: templates/blog_jinja2/notification/threadedcomments_replied/email_body.html:4
+#: templates/blog_jinja2/notification/threadedcomments_replied/email_body.txt:5
+#, fuzzy, python-format
+msgid ""
+"You have received the reply in post \"%(post_title)s\" from user "
+"%(display_name)s"
+msgstr ""
+"Ви отримали відповідь у пості \"%(post_title)s\" від користувача "
+"%(display_name)s"
+
+#: templates/blog/notification/threadedcomments_replied/email_body.html:9
+#, fuzzy
+msgid "See comment"
+msgstr "Дивитися коментар"
+
+#: templates/blog/notification/threadedcomments_replied/web_body.html:4
+#: templates/blog_jinja2/notification/threadedcomments_replied/web_body.html:4
+#, python-format
+msgid ""
+"\n"
+"    You have received the reply in post \"<a href=\"%(post_url)s\">"
+"%(post_title)s</a>\"\n"
+"    from user <a href=\"%(poetry_user_works_url)s\">%(display_name)s</a>.\n"
+msgstr ""
+"\n"
+"Ви отримали відповідь у пості <a href=\"%(post_url)s\">%(post_title)s</a> "
+"від користувача <a href=\"%(poetry_user_works_url)s\">%(display_name)s</a>.\n"
+
+#~ msgid "Email"
+#~ msgstr "Адреса електронної пошти"
+
+#~ msgid "Book"
+#~ msgstr "Книга"
+
+#~ msgid "Default theme"
+#~ msgstr "Типова тема"
+
+#~ msgid "Brown default theme"
+#~ msgstr "Коричнева типова тема"
+
+#~ msgid "Nostalgic"
+#~ msgstr "Ностальгічна"
+
+#~ msgid "Old nostalgic theme"
+#~ msgstr "Стара ностальгічна тема"
+
+#~ msgid "Old"
+#~ msgstr "Стара"
+
+#~ msgid "Ancient old theme. Only for evaluation puproses!"
+#~ msgstr "Древня стара тема. Тільки для ознайомлення!"
+
+#~ msgid "Username"
+#~ msgstr "Ім'я користувача"
+
+#~ msgid "Last login"
+#~ msgstr "Останній вхід"
+
+#~ msgid "New e-mail"
+#~ msgstr "Нова адреса електронної пошти"
+
+#~ msgid "Current Password"
+#~ msgstr "Поточний пароль"
+
+#~ msgid "New Password"
+#~ msgstr "Новий пароль"
+
+#~ msgid "New Password (again)"
+#~ msgstr "Повторіть новий пароль"
+
+#~ msgid "Please type your current password."
+#~ msgstr "Будь ласка, введіть пароль"
+
+#~ msgid "You must type the same password each time."
+#~ msgstr "Ви повинні вказувати пароль щоразу"
+
+#~ msgid "Timezone"
+#~ msgstr "Часовий пояс"
+
+#~ msgid "Password"
+#~ msgstr "Пароль"
+
+#~ msgid "Remember Me"
+#~ msgstr "Запам'ятати мене"
+
+#~ msgid "If checked you will stay logged in for 2 weeks"
+#~ msgstr "Не виходити з системи 2 тижні"
+
+#~ msgid "This account is currently inactive."
+#~ msgstr "Цей обліковий запис в даний час не активний"
+
+#~ msgid "The username and/or password you specified are not correct."
+#~ msgstr "Ім'я користувача або / та пароль вказано невірно."
+
+#~ msgid "Password (again)"
+#~ msgstr "Повторіть пароль"
+
+#~ msgid "Email (optional)"
+#~ msgstr "Адреса електронної пошти (опціонально)"
+
+#~ msgid "Usernames can only contain letters, numbers and underscores."
+#~ msgstr ""
+#~ "Ім'я користувача може містити тільки латинські літери, цифри і знаки "
+#~ "підкреслення."
+
+#~ msgid "This username is already taken. Please choose another."
+#~ msgstr "Це ім'я користувача вже зайнято. Будь ласка, виберіть інше."
+
+#~ msgid "Confirmation email sent to %(email)s"
+#~ msgstr "Підтвердження повідомлення надіслано на %(email)s"
+
+#~ msgid "E-mail"
+#~ msgstr "Адреса електронної пошти"
+
+#~ msgid "Confirmation for %(user)s, email - %(email)s"
+#~ msgstr "Підтвердження для %(user)s, email - %(email)s"
+
+#~ msgid "E-mail confirmation"
+#~ msgstr "Підтвердження адреси електронної пошти"
+
+#~ msgid "E-mail confirmations"
+#~ msgstr "Підтвердження адрес електронної пошти"
+
+#~ msgid "Unknown"
+#~ msgstr "Не вказано"
+
+#~ msgid "Male"
+#~ msgstr "Чоловіча"
+
+#~ msgid "Female"
+#~ msgstr "Жіноча"
+
+#~ msgid "Default"
+#~ msgstr "За замовчуванням"
+
+#~ msgid "timezone"
+#~ msgstr "часовий пояс"
+
+#~ msgid "language"
+#~ msgstr "мова"
+
+#~ msgid "Middle name"
+#~ msgstr "По батькові"
+
+#~ msgid "Email confirmed"
+#~ msgstr "Ваша адреса електронної пошти підтверджена"
+
+#~ msgid "Avatar"
+#~ msgstr "Аватар"
+
+#~ msgid "Sex"
+#~ msgstr "Стать"
+
+#~ msgid "Birth date"
+#~ msgstr "Дата народження"
+
+#~ msgid "Location"
+#~ msgstr "Країна"
+
+#~ msgid "Website"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "Phone"
+#~ msgstr "Телефон"
+
+#~ msgid "About myself"
+#~ msgstr "Про себе"
+
+#, fuzzy
+#~ msgid "Poetry book reader"
+#~ msgstr "Книга"
+
+#~ msgid "profile"
+#~ msgstr "профайл"
+
+#~ msgid "profiles"
+#~ msgstr "профайли"
+
+#~ msgid "Date"
+#~ msgstr "Дата"
+
+#~ msgid "First name"
+#~ msgstr "Ім’я"
+
+#~ msgid "Last name"
+#~ msgstr "Фамілія"
+
+#~ msgid "Birth day"
+#~ msgstr "День народження"
+
+#~ msgid "About"
+#~ msgstr "Про сайт"
+
+#~ msgid "invitation"
+#~ msgstr "запрошення"
+
+#~ msgid "invitations"
+#~ msgstr "запрошення"
+
+#~ msgid "Language successfully updated."
+#~ msgstr "Мова змінена."
+
+#~ msgid "Information successfully changed."
+#~ msgstr "Інформація змінена."
+
+#~ msgid "Information changing failed."
+#~ msgstr "Змінити інформацію не вдалося."
+
+#~ msgid "Contacts successfully changed."
+#~ msgstr "Контактна інформація змінена."
+
+#~ msgid "Contacts changing failed."
+#~ msgstr "Змінити контактну інформацію не вдалося."
+
+#~ msgid "Email successfully changed."
+#~ msgstr "Адреса електронної пошти змінена."
+
+#~ msgid "Email changing failed."
+#~ msgstr "Змінити адресу електронної пошти не вдалося."
+
+#~ msgid "Password successfully changed."
+#~ msgstr "Пароль змінено."
+
+#~ msgid "Password changing failed."
+#~ msgstr "Змінити пароль не вдалося."
+
+#~ msgid "Timezone successfully changed."
+#~ msgstr "Часовий пояс змінено."
+
+#~ msgid "Timezone changing failed."
+#~ msgstr "Змінити часовий пояс не вдалося."
+
+#~ msgid "by rating"
+#~ msgstr "за рейтингом"
+
+#~ msgid "by alphabet (A-Z)"
+#~ msgstr "за алфавітом (А-Я)"
+
+#~ msgid "by alphabet (Z-A)"
+#~ msgstr "за алфавітом (Я-А)"
+
+#~ msgid "by book count"
+#~ msgstr "за кількістю книг"
+
+#~ msgid "by joined date (old-new)"
+#~ msgstr "за датою реєстрації (старі-нові)"
+
+#~ msgid "by joined date (new-old)"
+#~ msgstr "за датою реєстрації (нові-старі)"
+
+#~ msgid "Author"
+#~ msgstr "Автор"
+
+#~ msgid "Reader"
+#~ msgstr "Читач"
+
+#~ msgid "Is author"
+#~ msgstr "Чи є автором"
+
+#~ msgid "First letter of username or last name (russian alphabet)"
+#~ msgstr "Перша літера імені або прізвища користувача (український алфавіт)"
+
+#~ msgid "First letter of username or last name (english alphabet)"
+#~ msgstr "Перша літера імені або прізвища користувача (англійський алфавіт)"
+
+#~ msgid "Juri desicion"
+#~ msgstr "Рiшення журі"
+
+#~ msgid "People, and than juri desicion"
+#~ msgstr "Рішення людей, а потім журі"
+
+#~ msgid "People desicion"
+#~ msgstr "Рішення людей"
+
+#~ msgid "Juris"
+#~ msgstr "Журі"
+
+#~ msgid "You can choose only users that you follow."
+#~ msgstr "Ви можете обирати тільки користувачів, за якими слідкуєте."
+
+#~ msgid "Slug"
+#~ msgstr "Cлаг"
+
+#, fuzzy
+#~ msgid "End date for publish"
+#~ msgstr "Редагувати видавництво"
+
+#~ msgid "Name"
+#~ msgstr "Ім'я"
+
+#~ msgid "Description"
+#~ msgstr "Опис"
+
+#~ msgid "Rules"
+#~ msgstr "Правила"
+
+#~ msgid "Win rule"
+#~ msgstr "Правила перемоги"
+
+#~ msgid "Votes"
+#~ msgstr "Голоси"
+
+#~ msgid "Status"
+#~ msgstr "Стан"
+
+#~ msgid "Feed item"
+#~ msgstr "Елемент стрічки"
+
+#~ msgid "Feed items"
+#~ msgstr "Елементи стрічки"
+
+#~ msgid "%(owner)s's feed contains %(object)s %(date)s"
+#~ msgstr "%(owner)s's стрічка містить %(object)s %(date)s"
+
+#~ msgid "Follow group"
+#~ msgstr "Група спостерігачів"
+
+#~ msgid "Follow groups"
+#~ msgstr "Групи спостерігачів"
+
+#~ msgid "%(owner)s's group <%(slug)s>"
+#~ msgstr "група %(owner)s <%(slug)s>"
+
+#~ msgid "Follow item"
+#~ msgstr "Елемент спостереження"
+
+#~ msgid "Follow items"
+#~ msgstr "Елементи спостереження"
+
+#~ msgid "%(owner)s is following %(object)s"
+#~ msgstr "%(owner)s читає %(object)s"
+
+#, fuzzy
+#~ msgid "Notification type"
+#~ msgstr "Тип сповіщення"
+
+#, fuzzy
+#~ msgid "Is read"
+#~ msgstr "Можна читати?"
+
+#, fuzzy
+#~ msgid "Notification"
+#~ msgstr "Тип сповіщення"
+
+#, fuzzy
+#~ msgid "Notifications"
+#~ msgstr "Тип сповіщення"
+
+#, fuzzy
+#~ msgid "Notification Setting"
+#~ msgstr "Змінити налаштування сповіщень"
+
+#, fuzzy
+#~ msgid "Notification Settings"
+#~ msgstr "Змінити налаштування сповіщень"
+
+#~ msgid "Books"
+#~ msgstr "Книги"
+
+#~ msgid "Contests"
+#~ msgstr "Конкурси"
+
+#~ msgid "You successfully followed %(object)s"
+#~ msgstr "Успішно спостерігаєте за %(object)s"
+
+#~ msgid "An error occured while following"
+#~ msgstr "Збій при спостереженні"
+
+#~ msgid "You successfully unfollowed %(object)s"
+#~ msgstr "Ви успішно припинили спостерігати за %(object)s"
+
+#~ msgid "An error occured while unfollowing"
+#~ msgstr "Збій при скасуванні спостереження"
+
+#~ msgid "You successfully shared news"
+#~ msgstr "Ви успішно розшарили новину %s"
+
+#~ msgid "Message removed"
+#~ msgstr "Повідомлення видалене"
+
+#~ msgid "Scan mode"
+#~ msgstr "Режим сканування"
+
+#~ msgid "One time"
+#~ msgstr "Один раз"
+
+#~ msgid "Many times"
+#~ msgstr "Багато разів"
+
+#~ msgid "Done"
+#~ msgstr "Завершено"
+
+#~ msgid "One time & accept"
+#~ msgstr "Один раз & прийняти"
+
+#~ msgid "Check status"
+#~ msgstr "Статус перевірки"
+
+#~ msgid "Last check date"
+#~ msgstr "Остання дата перевірки"
+
+#~ msgid "%(owner)s's source %(url)s (%(backend)s / %(status)s)"
+#~ msgstr "Джерело %(owner)s %(url)s (%(backend)s / %(status)s)"
+
+#~ msgid "Approved"
+#~ msgstr "Затверджено"
+
+#~ msgid "Canceled"
+#~ msgstr "Скасовано"
+
+#~ msgid "Text"
+#~ msgstr "Текст"
+
+#~ msgid "External URL"
+#~ msgstr "Зовнішній URL"
+
+#~ msgid "Genre"
+#~ msgstr "Жанр"
+
+#~ msgid "from %(source)s - %(title)s (%(status)s)"
+#~ msgstr "з %(source)s - %(title)s (%(status)s)"
+
+#~ msgid "Already registered"
+#~ msgstr "Вже зареєстрован"
+
+#~ msgid "Add to my posts"
+#~ msgstr "Додати до моїх постів"
+
+#~ msgid "Add to my books"
+#~ msgstr "Додати до моїх книг"
+
+#~ msgid "Content"
+#~ msgstr "Зміст"
+
+#~ msgid "File"
+#~ msgstr "Файл"
+
+#~ msgid "Supported formats: txt, doc, docx, odt"
+#~ msgstr "Формати, що підтримуються: txt, doc, docx, odt"
+
+#~ msgid "Book with such title already exists."
+#~ msgstr "Книга з такою назвою вже іcнує."
+
+#~ msgid "You should either upload file or paste content to text box."
+#~ msgstr "Ви повинні завантажити файл або вставити текст у редактор."
+
+#~ msgid ""
+#~ "You should paste or input some text to text area or select \"Upload text "
+#~ "from file\"."
+#~ msgstr ""
+#~ "Ви повинні вставити або ввести текст у редактор або обрати \"Завантажити "
+#~ "текст з файлу\"."
+
+#~ msgid "You should upload file or select \"Paste or input text\"."
+#~ msgstr ""
+#~ "Ви повинні завантажити файл або обрати \"Вставити або ввести текст\"."
+
+#, fuzzy
+#~ msgid "Comment for this update"
+#~ msgstr "Коментувати чи голосувати"
+
+#~ msgid "Comment"
+#~ msgstr "Коментар"
+
+#~ msgid "No users found with this nick."
+#~ msgstr "Користувачів з цим ніком не знайдено."
+
+#~ msgid "This user already author of this book."
+#~ msgstr "Цей користувач вже є автором цієї книги."
+
+#~ msgid "This user already author of this series."
+#~ msgstr "Цей користувач вже є автором цієї серії."
+
+#~ msgid "Imported from '%(url)s'."
+#~ msgstr "Завантажено з %(url)s"
+
+#~ msgid "Authors"
+#~ msgstr "Автори"
+
+#~ msgid "Name "
+#~ msgstr "Назва"
+
+#~ msgid "Book Series"
+#~ msgstr "Книжкова серія"
+
+#~ msgid "Books Series"
+#~ msgstr "Серії книг"
+
+#~ msgid "No status"
+#~ msgstr "Без статусу"
+
+#~ msgid "Failed"
+#~ msgstr "Помилка"
+
+#~ msgid "Book Content"
+#~ msgstr "Зміст книги"
+
+#~ msgid "Books Contents"
+#~ msgstr "Змісти книг"
+
+#~ msgid "Content: "
+#~ msgstr "Зміст: "
+
+#~ msgid "Poem"
+#~ msgstr "Поема"
+
+#~ msgid "Story"
+#~ msgstr "Історія"
+
+#~ msgid "Novel"
+#~ msgstr "Роман"
+
+#~ msgid "Chapter"
+#~ msgstr "Розділ"
+
+#~ msgid "Short story"
+#~ msgstr "Розповідь"
+
+#~ msgid "Storybook"
+#~ msgstr "Збірник розповідей"
+
+#~ msgid "Verse"
+#~ msgstr "Вірш"
+
+#, fuzzy
+#~ msgid "Poems book"
+#~ msgstr "Книга"
+
+#~ msgid "Feature story"
+#~ msgstr "Тематична історія"
+
+#~ msgid "Article"
+#~ msgstr "Стаття"
+
+#~ msgid "Monograph"
+#~ msgstr "Монографія"
+
+#~ msgid "Reference"
+#~ msgstr "Довідник"
+
+#~ msgid "Song"
+#~ msgstr "Пісня"
+
+#~ msgid "Novella"
+#~ msgstr "Новела"
+
+#~ msgid "Script"
+#~ msgstr "П'єса"
+
+#~ msgid "Thumbnail"
+#~ msgstr "Мініатюра"
+
+#~ msgid "Interview"
+#~ msgstr "Інтерв'ю"
+
+#~ msgid "Other"
+#~ msgstr "Інше"
+
+#~ msgid "Detective"
+#~ msgstr "Детектив"
+
+#~ msgid "Fiction"
+#~ msgstr "Фантастика"
+
+#~ msgid "Fantasy"
+#~ msgstr "Фентезі"
+
+#~ msgid "Lyrics"
+#~ msgstr "Тексти пісень"
+
+#~ msgid "Love story"
+#~ msgstr "Любовна історія"
+
+#~ msgid "Humor"
+#~ msgstr "Гумор"
+
+#~ msgid "Fairy tale"
+#~ msgstr "Казка"
+
+#~ msgid "Mystique"
+#~ msgstr "Незвідане"
+
+#~ msgid "Alternative history"
+#~ msgstr "Альтернативна історія"
+
+#~ msgid "Adventures"
+#~ msgstr "Пригоди"
+
+#~ msgid "Cyberpank"
+#~ msgstr "Кібер панк"
+
+#~ msgid "Prose"
+#~ msgstr "Проза"
+
+#~ msgid "Poetic"
+#~ msgstr "Поезія"
+
+#~ msgid "Memoirs"
+#~ msgstr "Мемуари"
+
+#~ msgid "History"
+#~ msgstr "Історія"
+
+#~ msgid "Journalism"
+#~ msgstr "Журналізм"
+
+#~ msgid "Events"
+#~ msgstr "Події"
+
+#~ msgid "Litobzor"
+#~ msgstr "Літературний огляд"
+
+#~ msgid "Criticism"
+#~ msgstr "Критика"
+
+#~ msgid "Philosophy"
+#~ msgstr "Філософія"
+
+#~ msgid "Religion"
+#~ msgstr "Релігія"
+
+#~ msgid "Esoterica"
+#~ msgstr "Езотерика"
+
+#~ msgid "Occultism"
+#~ msgstr "Окультизм"
+
+#~ msgid "Horror"
+#~ msgstr "Жахи"
+
+#~ msgid "Politics"
+#~ msgstr "Політика"
+
+#~ msgid "Erotica"
+#~ msgstr "Еротика"
+
+#~ msgid "Science"
+#~ msgstr "Наукова"
+
+#~ msgid "Invention"
+#~ msgstr "Винаходи"
+
+#~ msgid "Baikie"
+#~ msgstr "Байки"
+
+#~ msgid "Parodies"
+#~ msgstr "Пародії"
+
+#~ msgid "Translations"
+#~ msgstr "Переклади"
+
+#~ msgid "Dramaturgy"
+#~ msgstr "Драматургія"
+
+#~ msgid "Postmodernism"
+#~ msgstr "Постмодернізм"
+
+#~ msgid "Science fiction"
+#~ msgstr "Наукова фантастика"
+
+#~ msgid "Scenario"
+#~ msgstr "Сценарій"
+
+#~ msgid "Fan fiction"
+#~ msgstr "Фанфік"
+
+#~ msgid "Other genre"
+#~ msgstr "Інший жанр"
+
+#~ msgid "Yes"
+#~ msgstr "Так"
+
+#~ msgid "Yes, as long as others share alike"
+#~ msgstr "Так, доки інші користувачі поширюють на тих же умовах"
+
+#~ msgid "No"
+#~ msgstr "Ні"
+
+#~ msgid "English"
+#~ msgstr "Англійська"
+
+#~ msgid "Russian"
+#~ msgstr "Російська"
+
+#~ msgid "Ukrainian"
+#~ msgstr "Українська"
+
+#~ msgid "Authors count"
+#~ msgstr "Кількість авторів"
+
+#~ msgid "Default author"
+#~ msgstr "Аватар за замовчуванням"
+
+#~ msgid "Series"
+#~ msgstr "Книжкова серія"
+
+#~ msgid "Pages"
+#~ msgstr "Сторінки"
+
+#~ msgid "Size"
+#~ msgstr "Розмір"
+
+#~ msgid "Create date"
+#~ msgstr "Дата створення"
+
+#~ msgid "Update date"
+#~ msgstr "Дата оновлення"
+
+#~ msgid "Annotation to your poetry"
+#~ msgstr "Анотація до вашого твору"
+
+#~ msgid "Downloads"
+#~ msgstr "Завантаження"
+
+#~ msgid "Reads count"
+#~ msgstr "Кількість прочитань"
+
+#~ msgid "Form"
+#~ msgstr "Вид"
+
+#~ msgid "Literature genre by form"
+#~ msgstr "Літературний жанр за видом"
+
+#~ msgid "Literature genre by content"
+#~ msgstr "Літературний жанр за змістом"
+
+#~ msgid "Finished"
+#~ msgstr "Закінчено"
+
+#~ msgid "Is this book finished?"
+#~ msgstr "Цей твор закінчен?"
+
+#~ msgid "Language"
+#~ msgstr "мова"
+
+#~ msgid "Primary language of the book"
+#~ msgstr "Основна мова книги"
+
+#~ msgid "Allow commercial uses of your work?"
+#~ msgstr "Чи дозволяеться комерційне викорситовування вашой роботи?"
+
+#~ msgid "Allow modifications of your work?"
+#~ msgstr "Чи дозволяеться редагувати вашу роботу?"
+
+#~ msgid "Book: "
+#~ msgstr "Книга:"
+
+#~ msgid " in "
+#~ msgstr " в "
+
+#~ msgid "Cover path"
+#~ msgstr "Шлях до обкладинки"
+
+#~ msgid "Publisher Book"
+#~ msgstr "Книга видавництва"
+
+#~ msgid "Publishers Books"
+#~ msgstr "Книги видавництв"
+
+#~ msgid "Published: "
+#~ msgstr "Опубліковано: "
+
+#~ msgid "Path"
+#~ msgstr "Шлях"
+
+#~ msgid "Book Image"
+#~ msgstr "Зображення з книги"
+
+#~ msgid "Books Images"
+#~ msgstr "Зображення з книг"
+
+#~ msgid "Book image: "
+#~ msgstr "Зображення книг: "
+
+#~ msgid "I'm reading now"
+#~ msgstr "Я читаю зараз"
+
+#~ msgid "Unfinished books I've read"
+#~ msgstr "Незакнчені книги, що я читав"
+
+#~ msgid "Finished books I've read"
+#~ msgstr "Закінчені книги, що я читав"
+
+#~ msgid "All"
+#~ msgstr "Всі"
+
+#~ msgid "Now reading"
+#~ msgstr "Зараз читаються"
+
+#~ msgid "Unfinished books user has read"
+#~ msgstr "Незакінчені книги, що користувач читав"
+
+#~ msgid "Finished books user has read"
+#~ msgstr "Закінчені книги, що користувач читав"
+
+#~ msgid "Less 10Kb"
+#~ msgstr "Менше 10Kb"
+
+#~ msgid "More 1Mb"
+#~ msgstr "Більше 1Mb"
+
+#~ msgid "by readers count"
+#~ msgstr "за кількість прочитань"
+
+#~ msgid "by last update time"
+#~ msgstr "за датою останнього оновлення"
+
+#~ msgid "by size (small-large)"
+#~ msgstr "за розміром (менше-більше)"
+
+#~ msgid "by size (large-small)"
+#~ msgstr "за розміром (більше-менше)"
+
+#~ msgid "Book genres"
+#~ msgstr "Жанри книг"
+
+#~ msgid "Book kinds"
+#~ msgstr "Види книг"
+
+#~ msgid "Book sizes"
+#~ msgstr "Розмір книги"
+
+#~ msgid "Book's language"
+#~ msgstr "Мова книги"
+
+#~ msgid "First letter of book name (russian alphabet)"
+#~ msgstr "Перша літера в назві книги (український алфавіт)"
+
+#~ msgid "First letter of book name (english alphabet)"
+#~ msgstr "Перша літера в назві книги (англійский алфавіт)"
+
+#~ msgid "Author reported about the typo."
+#~ msgstr "Автор отримав повідомлення про помилку."
+
+#~ msgid "Typo or mistake detected"
+#~ msgstr "Знайдено опечатку чи помилку"
+
+#~ msgid "someone have reported about typo or mistake"
+#~ msgstr "Хтось доповів о опечатці чи помилці"
+
+#~ msgid ""
+#~ "Unknown format or encoding in the file. Let know administrator "
+#~ "(escalibro@gmail.com) about your problem."
+#~ msgstr ""
+#~ "Невідомий формат або кодування у файлі. Адміністратор повинен знати"
+#~ "(Escalibro@gmail.com) про вашу проблему."
+
+#~ msgid "Manager"
+#~ msgstr "Керівник"
+
+#~ msgid "Publishers name"
+#~ msgstr "Назва видавництва"
+
+#~ msgid "Work email"
+#~ msgstr "Робоча адреса електронної пошти"
+
+#~ msgid "Telephone number"
+#~ msgstr "Номер телефону"
+
+#~ msgid "Publisher"
+#~ msgstr "Видавництво"
+
+#~ msgid "Publishers"
+#~ msgstr "Видавництва"
+
+#, fuzzy
+#~ msgid "Page URL"
+#~ msgstr "Сторінки"
+
+#, fuzzy
+#~ msgid "en"
+#~ msgstr "Надіслані"
+
+#, fuzzy
+#~ msgid "Referer"
+#~ msgstr "Довідник"
+
+#, fuzzy
+#~ msgid "Object type"
+#~ msgstr "Зміст"
+
+#, fuzzy
+#~ msgid "Object id"
+#~ msgstr "Номер (ID) об'єкту"
+
+#, fuzzy
+#~ msgid "Date of statistics"
+#~ msgstr "Час повідомлення"
+
+#, fuzzy
+#~ msgid "Statistics"
+#~ msgstr "Стан"
+
+#~ msgid "Parent"
+#~ msgstr "Предок"
+
+#~ msgid "Meta"
+#~ msgstr "Мета"
+
+#~ msgid "comment"
+#~ msgstr "коментар"
+
+#~ msgid "Unapproved"
+#~ msgstr "Незатверджено"
+
+#~ msgid "object ID"
+#~ msgstr "Номер (ID) об'єкту"
+
+#~ msgid "date/time submitted"
+#~ msgstr "дата/час представлений"
+
+#~ msgid "date/time modified"
+#~ msgstr "дата/час змінені"
+
+#~ msgid "date/time approved"
+#~ msgstr "дата/час затверджено"
+
+#~ msgid "IP address"
+#~ msgstr "IP адреса"
+
+#~ msgid "Threaded Comment"
+#~ msgstr "Деревовидний коментар"
+
+#~ msgid "Threaded Comments"
+#~ msgstr "Деревовидні коментарі"
+
+#~ msgid "Comment received"
+#~ msgstr "Отримано коментар"
+
+#~ msgid "you have received a reply"
+#~ msgstr "ви отримали відповідь"
+
+#~ msgid "Latest updates"
+#~ msgstr "Останніі оновлення"
+
+#, fuzzy
+#~ msgid "Current contests"
+#~ msgstr "Ваші конкурси"
+
+#~ msgid "All contests"
+#~ msgstr "Всі конкурси"
+
+#~ msgid "Latest writings"
+#~ msgstr "Останні твори"
+
+#~ msgid "All writings"
+#~ msgstr "Усі твори"
+
+#~ msgid "Latest news"
+#~ msgstr "Останні новини"
+
+#~ msgid "All news"
+#~ msgstr "Усі новини"
+
+#~ msgid "Latest discussions"
+#~ msgstr "Останні коментарі"
+
+#~ msgid "All discussions"
+#~ msgstr "Усі коментарі"
+
+#~ msgid "Your works"
+#~ msgstr "Ваші роботи"
+
+#~ msgid "Send message"
+#~ msgstr "Відправити повідомлення"
+
+#~ msgid "Information about user %(display_name)s"
+#~ msgstr "Інформація про користувача %(display_name)s"
+
+#~ msgid "Birthday"
+#~ msgstr "День народження"
+
+#~ msgid "News"
+#~ msgstr "Новини"
+
+#~ msgid "Works"
+#~ msgstr "Роботи"
+
+#~ msgid "Reader room"
+#~ msgstr "Читацька кiмната"
+
+#~ msgid "Typos"
+#~ msgstr "Помилки"
+
+#~ msgid "Import"
+#~ msgstr "Імпорт"
+
+#~ msgid "Add book"
+#~ msgstr "Додати книгу"
+
+#~ msgid "Add series"
+#~ msgstr "Додати серію"
+
+#~ msgid "Main page"
+#~ msgstr "Головна сторінка"
+
+#~ msgid "Latest poetry"
+#~ msgstr "Останні твори"
+
+#~ msgid ""
+#~ "books, writers, readers, write book, read book, self publish, show book, "
+#~ "criticize, poetry, prose"
+#~ msgstr ""
+#~ "книги, твори, письменники, автори, читачі, писати книгу, написати твір, "
+#~ "читати твір, самопублікация, показати книгу, критикувати, поезія, проза"
+
+#~ msgid ""
+#~ "Escalibro is the site service for writing, publishing selfwritten books "
+#~ "and discuss them with readers. We have nice and easy design, reach "
+#~ "functional and great community."
+#~ msgstr ""
+#~ "Escalibro - це сайт сервіс для написання, публікації своїх книг, творів "
+#~ "та обговорювання їх з читачами. Ми маємо приємний та зручний дизайн, "
+#~ "багатий функціонал та відмінне ком’юніті."
+
+#~ msgid "Search"
+#~ msgstr "Пошук"
+
+#~ msgid "Loading..."
+#~ msgstr "Завантаження..."
+
+#~ msgid "Disable tips"
+#~ msgstr "Вимикнути підказки"
+
+#~ msgid "All users"
+#~ msgstr "Всі користувачі"
+
+#~ msgid "Clear filter"
+#~ msgstr "Зняти фільтр"
+
+#~ msgid "No users found."
+#~ msgstr "Користувачів не знайдено."
+
+#~ msgid "Here is your current avatar:"
+#~ msgstr "Поточний аватар:"
+
+#~ msgid ""
+#~ "Your avatar is currently the one found on <a href='http://www.gravatar."
+#~ "com/'>Gravatar</a>, but you can upload a custom avatar just for this "
+#~ "site! To do so, simply use the form below."
+#~ msgstr ""
+#~ "Ваш аватар знайдений на <a href='http://www.gravatar.com/'> Gravatar </ "
+#~ "a>, але Ви можете завантажити аватар тільки для цього сайту! Для цього "
+#~ "скористайтеся формою нижче."
+
+#~ msgid ""
+#~ "(Custom avatars will not show up unless you have a <a href="
+#~ "\"%(acct_email_url)s\">confirmed email address</a>.)"
+#~ msgstr ""
+#~ "(Ваш аватар не буде відображатися, якщо у вас є непідтверджена<a href="
+#~ "\"%(acct_email_url)s\">адреса електронної пошти</a>.)"
+
+#~ msgid "Select a different avatar:"
+#~ msgstr "Виберіть зображення:"
+
+#~ msgid ""
+#~ "Don&rsquo;t like this avatar? You can <a href=\"%(avatar_delete_url)s"
+#~ "\">delete it</a>."
+#~ msgstr ""
+#~ "Не подобається цей аватари? Ви можете <a href=\"%(avatar_delete_url)s"
+#~ "\">видалити його</a>."
+
+#~ msgid "Upload an Avatar:"
+#~ msgstr "Завантажити аватар:"
+
+#~ msgid "Avatar Image"
+#~ msgstr "Аватар"
+
+#~ msgid "Upload New Image"
+#~ msgstr "Завантажити нове зображення"
+
+#~ msgid "Confirm e-mail address for %(site_name)s"
+#~ msgstr "Підтвердження адреси електронної пошти від %(site_name)s"
+
+#~ msgid "Signup"
+#~ msgstr "Реєстрація"
+
+#~ msgid "Sign Up"
+#~ msgstr "Реєстрація"
+
+#~ msgid "You are already logged in."
+#~ msgstr "Ви вже пройшли ідентифікацію."
+
+#~ msgid "Already have an account?"
+#~ msgstr "У вас вже є акаунт?"
+
+#~ msgid "Log In"
+#~ msgstr "Вхід"
+
+#~ msgid "Sign up by invitation"
+#~ msgstr "Зареєструватися за запрошенням"
+
+#~ msgid "Sign Up &raquo;"
+#~ msgstr "Реєстрація &raquo;"
+
+#~ msgid ""
+#~ "By clicking \"Sign Up\", you are indicating that you have read and agree "
+#~ "to the <a href=\"/terms/\">Terms of Use</a> and <a href=\"/privacy/"
+#~ "\">Privacy Policy</a>."
+#~ msgstr ""
+#~ "Натиснувши кнопку \"Реєстрація\", ви підтверджуєте, що прочитали і "
+#~ "погоджуєтесь з <a href=\"/terms/\"> умовою використання</a> та <a href=\"/"
+#~ "privacy/\">приватності</a>."
+
+#~ msgid ""
+#~ "If you have any trouble creating your account, contact us at <a href="
+#~ "\"mailto:\">escalibro@gmail.com</a>."
+#~ msgstr ""
+#~ "Якщо ви не можете створити акаунт, зв'яжіться з нами за адресою <a href="
+#~ "\" mailto:\">escalibro@gmail.com</a>."
+
+#~ msgid "Login"
+#~ msgstr "Вхід"
+
+#~ msgid "Note"
+#~ msgstr "Примітка"
+
+#~ msgid "you are already logged in as %(user)s."
+#~ msgstr "ви вже зареєстровані як %(user)s."
+
+#~ msgid ""
+#~ "Don't have an account? <a href=\"%(signup_url)s?next=%(next)s\">Sign up</"
+#~ "a>!"
+#~ msgstr ""
+#~ "У вас немає акаунту? <a href=\"%(signup_url)s?next=%(next)s"
+#~ "\">Зареєструйтеся</a>!"
+
+#~ msgid "Standard login"
+#~ msgstr "Стандартний вхід"
+
+#~ msgid "Log in &raquo;"
+#~ msgstr "Увійти &raquo;"
+
+#~ msgid "Forgot password?"
+#~ msgstr "Забули пороль?"
+
+#~ msgid "Login using social providers"
+#~ msgstr "Увійти, використовуючи соціальні акаунти"
+
+#~ msgid ""
+#~ "If you have any trouble logging in to your account, contact us at <a href="
+#~ "\"mailto:escalibro@gmail.com\">escalibro@gmail.com</a>."
+#~ msgstr ""
+#~ "Якщо ви не можете увійти на сайт, зв'яжіться з <a href=\"mailto:"
+#~ "escalibro@gmail.com\">escalibro@gmail.com</a>."
+
+#~ msgid "Home"
+#~ msgstr "Головна"
+
+#~ msgid "Password reset"
+#~ msgstr "Відновлення паролю"
+
+#~ msgid "Password reset complete"
+#~ msgstr "Пароль відновлено"
+
+#~ msgid "Your password has been set.  You may go ahead and log in now."
+#~ msgstr "Ваш пароль було відновлено. Ви можете увійти в систему"
+
+#~ msgid "Log in"
+#~ msgstr "Увійти"
+
+#~ msgid "Enter new password"
+#~ msgstr "Введіть новий пароль"
+
+#~ msgid ""
+#~ "Please enter your new password twice so we can verify you typed it in "
+#~ "correctly."
+#~ msgstr ""
+#~ "Будь ласка, введіть новий пароль двічі, щоб ми могли впевнитися, що Ви "
+#~ "ввели його вірно."
+
+#~ msgid "New password:"
+#~ msgstr "Новий пароль:"
+
+#~ msgid "Confirm password:"
+#~ msgstr "Підтвердити пароль:"
+
+#~ msgid "Change my password"
+#~ msgstr "Змінити пароль"
+
+#~ msgid "Password reset unsuccessful"
+#~ msgstr "Скидання пароля не здійснено"
+
+#~ msgid ""
+#~ "The password reset link was invalid, possibly because it has already been "
+#~ "used.  Please request a new password reset."
+#~ msgstr ""
+#~ "Посилання для зміни пароля є недійсним, можливо, тому що він вже "
+#~ "використовується. Запросіть скидання нового паролю."
+
+#~ msgid "Password reset successful"
+#~ msgstr "Пароль успішно відправлено"
+
+#~ msgid ""
+#~ "We've e-mailed you instructions for setting your password to the e-mail "
+#~ "address you submitted. You should be receiving it shortly."
+#~ msgstr ""
+#~ "Ми на електронну пошту відправимо Вам інструкції для установки пароля. "
+#~ "Адресу ви вказали. Ви повинні отримати її найближчим часом."
+
+#~ msgid "You're receiving this e-mail because you requested a password reset"
+#~ msgstr "Ви отримали цей лист, тому що ви запросили скидання паролю"
+
+#~ msgid "for your user account at %(site_name)s"
+#~ msgstr "для облікового запису користувача %(site_name)s"
+
+#~ msgid "Please go to the following page and choose a new password:"
+#~ msgstr "Будь ласка, перейдіть на наступну сторінку і виберіть новий пароль:"
+
+#~ msgid "Your username, in case you've forgotten:"
+#~ msgstr "Ваше ім'я користувача, якщо ви забули:"
+
+#~ msgid "Thanks for using our site!"
+#~ msgstr "Дякуємо за відвідування нашого сайту!"
+
+#~ msgid "The %(site_name)s team"
+#~ msgstr "%(site_name)s команда"
+
+#~ msgid ""
+#~ "Forgotten your password? Enter your e-mail address below, and we'll e-"
+#~ "mail instructions for setting a new one."
+#~ msgstr ""
+#~ "Забули пароль? Введіть свій адрес електронної пошти, і ми надішлемо по "
+#~ "інструкції зі встановлення нового."
+
+#~ msgid "Reset my password"
+#~ msgstr "Відновити пароль"
+
+#~ msgid "Account settings"
+#~ msgstr "Налаштування акаунта"
+
+#~ msgid "General"
+#~ msgstr "Загальне"
+
+#~ msgid "Contacts"
+#~ msgstr "Контактна інформація"
+
+#~ msgid "Private"
+#~ msgstr "Конфіденційність"
+
+#~ msgid "Themes"
+#~ msgstr "Теми"
+
+#~ msgid "Associate with social providers"
+#~ msgstr "Зв'язати з соціальними акаунтами"
+
+#~ msgid "Change your email"
+#~ msgstr "Змінити адресу електронної пошти"
+
+#~ msgid "Current e-mail"
+#~ msgstr "Поточна адреса електронної пошти"
+
+#~ msgid "Unconfirmed"
+#~ msgstr "Непідтверджено"
+
+#~ msgid "Send email confirmation"
+#~ msgstr "Надіслати підтвердження email"
+
+#~ msgid "Confirmed"
+#~ msgstr "Підтверджений"
+
+#~ msgid "No email"
+#~ msgstr "Немає адреси електронної пошти"
+
+#~ msgid "Change your password"
+#~ msgstr "Змінити пароль"
+
+#~ msgid "Change your timezone"
+#~ msgstr "Змінити часовий пояс"
+
+#~ msgid "Standard sign up"
+#~ msgstr "Стандартна реєстрація"
+
+#~ msgid "Sign up using social providers"
+#~ msgstr "Реєстрація, з використанням соціальних акаунтів"
+
+#~ msgid "Escalibro's blog"
+#~ msgstr "Блог Escalibro"
+
+#~ msgid "All rights reserved."
+#~ msgstr "Усі права захищені."
+
+#~ msgid "Terms of Service"
+#~ msgstr "Умови використання"
+
+#~ msgid "Privacy"
+#~ msgstr "Приватність"
+
+#~ msgid "Admin"
+#~ msgstr "Адмін"
+
+#~ msgid "My news"
+#~ msgstr "Мої новини"
+
+#~ msgid "My messages"
+#~ msgstr "Мої повідомлення"
+
+#~ msgid "Log Out"
+#~ msgstr "Вихід"
+
+#~ msgid "I'm feeling lucky"
+#~ msgstr "Мені пощастить"
+
+#~ msgid "New"
+#~ msgstr "Новинки"
+
+#~ msgid "Finished contests"
+#~ msgstr "Закiнченi конкурси"
+
+#~ msgid "My contests"
+#~ msgstr "Мої конкурси"
+
+#~ msgid "Add contest"
+#~ msgstr "Додати конкурс"
+
+#~ msgid "Info"
+#~ msgstr "Інформація"
+
+#~ msgid "Not finished"
+#~ msgstr "Не закінчено"
+
+#~ msgid "Vote"
+#~ msgstr "Голосувати"
+
+#~ msgid "Kind"
+#~ msgstr "Тип"
+
+#~ msgid "Add new contest"
+#~ msgstr "Додати новий конкурс"
+
+#~ msgid "Add"
+#~ msgstr "Додати"
+
+#~ msgid "Contest"
+#~ msgstr "Конкурс"
+
+#, fuzzy
+#~ msgid "Publishing to contest finished"
+#~ msgstr "Книги видавництв"
+
+#~ msgid "Contest finished"
+#~ msgstr "Конкурс закiнчен"
+
+#~ msgid "Publish book to contest"
+#~ msgstr "Опублікувати книгу в конкурс"
+
+#~ msgid "Resign"
+#~ msgstr "Відмовитись бути журі"
+
+#~ msgid "Close contest"
+#~ msgstr "Закрити конкурс"
+
+#~ msgid "Contest owner"
+#~ msgstr "Автор конкурса"
+
+#~ msgid "Contest juri"
+#~ msgstr "Журі конкурса"
+
+#~ msgid "Contest votes"
+#~ msgstr "Оцінки конкурса"
+
+#~ msgid "Total votes: %(votes)s"
+#~ msgstr "Загальна кількість голосів: %(votes)s"
+
+#~ msgid "No contests yet."
+#~ msgstr "Конкурсів ще нема."
+
+#~ msgid "My contest"
+#~ msgstr "Мій конкурс"
+
+#~ msgid "No your contests yet."
+#~ msgstr "Ваших конкурсів ще нема."
+
+#~ msgid "Your contests"
+#~ msgstr "Ваші конкурси"
+
+#~ msgid "Contests where you juri"
+#~ msgstr "Конкурси, де ви журі"
+
+#~ msgid "Contests where you participant"
+#~ msgstr "Конкурси, де ви участник"
+
+#~ msgid "Your email confirmed"
+#~ msgstr "Ваша електронна пошта підтверджена"
+
+#~ msgid "Update comment"
+#~ msgstr "Коментарі до оновлення"
+
+#~ msgid "Comment to «%(name)s»"
+#~ msgstr "Коментар на %(name)s"
+
+#~ msgid "Reply"
+#~ msgstr "Відповісти"
+
+#~ msgid "by <a href=\"%(poetry_user_works_url)s\">%(name)s</a>"
+#~ msgstr "<a href=\"%(poetry_user_works_url)s\">%(name)s</a>"
+
+#~ msgid "You already shared this news"
+#~ msgstr "Ви вже поділилися цією новиною"
+
+#~ msgid "Share news"
+#~ msgstr "Поділитися новиною"
+
+#~ msgid "No news yet."
+#~ msgstr "Новин ще нема."
+
+#~ msgid "No such news yet."
+#~ msgstr "Таких новин ще нема."
+
+#~ msgid "Her followers"
+#~ msgstr "За нею слідкують"
+
+#~ msgid "His followers"
+#~ msgstr "За ним слідкують"
+
+#~ msgid "Your followers"
+#~ msgstr "За мною слідкують"
+
+#~ msgid "(All)"
+#~ msgstr "(Всі)"
+
+#~ msgid "No users yet."
+#~ msgstr "Користувачів ще нема."
+
+#~ msgid "%(name)s's followings"
+#~ msgstr "Спостерігачі %(name)s"
+
+#~ msgid "She follows"
+#~ msgstr "Вона слідкує"
+
+#~ msgid "He follows"
+#~ msgstr "Він слідкує"
+
+#~ msgid "I follow"
+#~ msgstr "Я слідкую"
+
+#~ msgid "Users that you following"
+#~ msgstr "Користувачі, за якими ви слідкуєте"
+
+#~ msgid "Еmail"
+#~ msgstr "Адреса електронної пошти"
+
+#~ msgid "change under <a href=\"%(email_url)s\">private settings</a>"
+#~ msgstr ""
+#~ "змінити в <a href=\"%(email_url)s\">налаштуваннях конфіденційності</a>"
+
+#~ msgid ""
+#~ "Your email address have not verified. You can add one by going to <a href="
+#~ "\"%(email_url)s\">private settings</a>."
+#~ msgstr ""
+#~ "Ваша адреса електронної пошти не підтверджена. Ви можете додати її в <a "
+#~ "href=\"%(email_url)s\">налаштуваннях конфіденційності</a>"
+
+#~ msgid "Change"
+#~ msgstr "Змінити"
+
+#~ msgid "Unsubscribe all"
+#~ msgstr "Відмовитись від всіх сповіщень"
+
+#, fuzzy
+#~ msgid ""
+#~ "See other notices or change how you receive notifications <a href="
+#~ "\"https://%(SITE_DOMAIN)s%(notification_settings_url)s\" style=\"color:"
+#~ "#6b543a;\">here</a>."
+#~ msgstr ""
+#~ "Ви отримали сповіщення з %(current_site)s:\n"
+#~ "\n"
+#~ "%(message)s\n"
+#~ "\n"
+#~ "Переглянути інші сповіщення чи змінити налаштування сповіщень ви можете "
+#~ "скориставшись посиланням %(notices_url)s.\n"
+
+#, fuzzy
+#~ msgid "You have received the following notice from %(SITE_DOMAIN)s:"
+#~ msgstr "Ви відхили запит про дружбу з %(from_user)s"
+
+#, fuzzy
+#~ msgid ""
+#~ "To see other notices or change how you receive notifications, please go "
+#~ "to https://%(SITE_DOMAIN)s%(notification_settings_url)s."
+#~ msgstr ""
+#~ "Ви отримали сповіщення з %(current_site)s:\n"
+#~ "\n"
+#~ "%(message)s\n"
+#~ "\n"
+#~ "Переглянути інші сповіщення чи змінити налаштування сповіщень ви можете "
+#~ "скориставшись посиланням %(notices_url)s.\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "You were added as a co-author for the book \"<a href=\"https://"
+#~ "%(SITE_DOMAIN)s%(book_url)s\">%(book_name)s</a>\""
+#~ msgstr ""
+#~ "\n"
+#~ "Була знайдена помилка в книзі \"%(book_name)s\". (http://%(current_site)s"
+#~ "%(book_url)s)\n"
+
+#, fuzzy
+#~ msgid "You were added as a co-author for book \"%(book_name)s\""
+#~ msgstr "Вас запросили співавтором книги %(name)s"
+
+#, fuzzy
+#~ msgid "Follow her back"
+#~ msgstr "Читачі"
+
+#, fuzzy
+#~ msgid "Follow him back"
+#~ msgstr "Елемент спостереження"
+
+#, fuzzy
+#~ msgid "%(follower_name)s follows you now."
+#~ msgstr "Читачі %(username)s"
+
+#, fuzzy
+#~ msgid "You have a new follower"
+#~ msgstr "За мною слідкують"
+
+#, fuzzy
+#~ msgid "Import is done"
+#~ msgstr "Джерела для завантаження"
+
+#, fuzzy
+#~ msgid "%(sender_name)s wrote: "
+#~ msgstr "Відповідь від %(message_sender)s"
+
+#, fuzzy
+#~ msgid "%(sender_name)s wrote:"
+#~ msgstr "Відповідь від %(message_sender)s"
+
+#, fuzzy
+#~ msgid "New private message from %(sender_name)s"
+#~ msgstr "Нове повідомлення від %(message_sender)s"
+
+#, fuzzy
+#~ msgid "You were added as a co-author for the series \"%(bookseries_name)s\""
+#~ msgstr "Вас запросили співавтором книги %(name)s"
+
+#, fuzzy
+#~ msgid "You were added as a co-author for series \"%(bookseries_name)s\""
+#~ msgstr "Вас запросили співавтором книги %(name)s"
+
+#, fuzzy
+#~ msgid ""
+#~ "Typo or mistake was detected in the book \"<a href=\"https://"
+#~ "%(SITE_DOMAIN)s%(book_url)s\">%(book_name)s</a>\"."
+#~ msgstr ""
+#~ "\n"
+#~ "Була знайдена помилка в книзі \"%(book_name)s\". (http://%(current_site)s"
+#~ "%(book_url)s)\n"
+
+#, fuzzy
+#~ msgid "All typos"
+#~ msgstr "Всі пости"
+
+#, fuzzy
+#~ msgid "Typo reported in \"%(book_name)s\""
+#~ msgstr "Помилки в %(name)s"
+
+#~ msgid "Adding an importer source"
+#~ msgstr "Додання джерела імпорту"
+
+#~ msgid "Adding a source"
+#~ msgstr "Додання джерела"
+
+#~ msgid "Imported items"
+#~ msgstr "Завантажені елементи"
+
+#~ msgid "Sources"
+#~ msgstr "Джерела"
+
+#~ msgid "Add source"
+#~ msgstr "Додати джерело"
+
+#~ msgid "Editing the '%(source_url)s' source"
+#~ msgstr "Редагування джерела '%(source_url)s'"
+
+#~ msgid "Editing the source"
+#~ msgstr "Редагування джерела"
+
+#~ msgid "Save"
+#~ msgstr "Зберегти"
+
+#~ msgid "Not import"
+#~ msgstr "Не імпортувати"
+
+#~ msgid "No items yet."
+#~ msgstr "Елементів ще нема."
+
+#~ msgid "Importer sources"
+#~ msgstr "Джерела для завантаження"
+
+#~ msgid "No sources yet."
+#~ msgstr "Джерел ще нема."
+
+#, fuzzy
+#~ msgid "%(time)s left"
+#~ msgstr "%(time)s тому"
+
+#~ msgid "Last step of registration"
+#~ msgstr "Останній крок реєстрації"
+
+#~ msgid "Registration"
+#~ msgstr "Реєстрація"
+
+#~ msgid "Submit"
+#~ msgstr "Надіслати"
+
+#~ msgid "Registration on %(domain)s"
+#~ msgstr "Реєстрація на %(domain)s"
+
+#~ msgid "Thanks for registration on %(domain)s"
+#~ msgstr "Дякуємо за реєстрацію на %(domain)s"
+
+#~ msgid "Please use following link to activate your account: %(url)s"
+#~ msgstr ""
+#~ "Будь ласка скористайтеся посиланням для активації вашого акаунту: %(url)s"
+
+#~ msgid ""
+#~ "If you don't want to receive these emails from Escalibro in the future, "
+#~ "please click"
+#~ msgstr ""
+#~ "Якщо ви бажаєте більше не отримувати ці повідомлення з Escalibro в "
+#~ "майбутньому, будь ласка скористуйтесь"
+
+#~ msgid "configure subscriptions"
+#~ msgstr "налаштуванням підписок"
+
+#~ msgid "Random works"
+#~ msgstr "Випадкові роботи"
+
+#~ msgid "Commented works"
+#~ msgstr "Коментовані роботи"
+
+#~ msgid "Top month works"
+#~ msgstr "ТОП роботи місяця"
+
+#~ msgid "Month Escalibro news"
+#~ msgstr "Новини місяця Escalibro"
+
+#~ msgid "Hello, %(name)s, here you may read news this month from Escalibro."
+#~ msgstr ""
+#~ "Добрий день, %(name)s, тут ви можете читати останні новини Escalibro "
+#~ "цього місяця."
+
+#~ msgid "Escalibro news"
+#~ msgstr "Новини Escalibro"
+
+#~ msgid ""
+#~ "Hello, %(username)s, here you can read latest news from Escalibro this "
+#~ "month."
+#~ msgstr ""
+#~ "Добрий день, %(username)s, тут ви можете читати останні новини Escalibro "
+#~ "цього місяця."
+
+#~ msgid "Previous page"
+#~ msgstr "Попередня сторінка"
+
+#~ msgid "previous"
+#~ msgstr "попередня"
+
+#~ msgid "Next page"
+#~ msgstr "Наступна сторінка"
+
+#~ msgid "next"
+#~ msgstr "наступна"
+
+#~ msgid "All books"
+#~ msgstr "Всі книги"
+
+#~ msgid "No books found"
+#~ msgstr "Книги не знайдено"
+
+#~ msgid "Edit book content"
+#~ msgstr "Редагувати зміст книги"
+
+#~ msgid "Load book content"
+#~ msgstr "Завантаження змісту книги"
+
+#~ msgid "Invite co-author"
+#~ msgstr "Запросити співавтором"
+
+#~ msgid "No description"
+#~ msgstr "Нема опису"
+
+#~ msgid "Read progress"
+#~ msgstr "Прогрес читання"
+
+#~ msgid "Already read"
+#~ msgstr "Вже прочитана"
+
+#~ msgid "Don't want read"
+#~ msgstr "Не хочу читати"
+
+#~ msgid "Want to read"
+#~ msgstr "Хочу прочитати"
+
+#~ msgid "Create new book"
+#~ msgstr "Створити нову книгу"
+
+#~ msgid "Paste or input text"
+#~ msgstr "Вставте або введіть текст"
+
+#~ msgid "or"
+#~ msgstr "або"
+
+#~ msgid "Upload text from file"
+#~ msgstr "Завантажити текст з файлу"
+
+#~ msgid "Create new series"
+#~ msgstr "Додати нову серію"
+
+#~ msgid "Editing info of the book «%(name)s»"
+#~ msgstr "Редагування книги «%(name)s»"
+
+#~ msgid "Your Profile"
+#~ msgstr "Ваш профайл"
+
+#~ msgid "Editing the book"
+#~ msgstr "Редагування книги"
+
+#~ msgid "Editing content for «%(name)s»"
+#~ msgstr "Редагування зміста книги «%(name)s»"
+
+#~ msgid "Editing book content"
+#~ msgstr "Редагування зміста книги"
+
+#~ msgid "Edit series «%(name)s»"
+#~ msgstr "Редагувати серію: %(name)s"
+
+#~ msgid "Do you want to report the typo?"
+#~ msgstr "Ви бажаєте повідомики про помилку?"
+
+#~ msgid "Cancel"
+#~ msgstr "Скасувати"
+
+#~ msgid "Information"
+#~ msgstr "Інформація"
+
+#~ msgid "Book info"
+#~ msgstr "Інформація про книгу"
+
+#~ msgid "author"
+#~ msgstr "автор"
+
+#~ msgid "Read book"
+#~ msgstr "Читати книгу"
+
+#~ msgid "Edit information"
+#~ msgstr "Редагувати інформацію"
+
+#~ msgid "License"
+#~ msgstr "Ліцензія"
+
+#~ msgid "Download"
+#~ msgstr "Завантажити"
+
+#~ msgid "Invite co-author to %(name)s"
+#~ msgstr "Запросити співавтором %(name)s"
+
+#~ msgid "Invite"
+#~ msgstr "Запросити"
+
+#~ msgid "Invite co-author to write in series «%(name)s»"
+#~ msgstr "Запросити співавтора для написання в серії «%(name)s»"
+
+#~ msgid "Load content for «%(name)s»"
+#~ msgstr "Завантаження змісту для «%(name)s»"
+
+#~ msgid "Are you sure you want to delete book \"%(name)s\"?"
+#~ msgstr "Ви впевнені, що хочете видалили книгу \"%(name)s\"?"
+
+#~ msgid "Are you sure you want to delete series: \"%(name)s\"?"
+#~ msgstr "Ви впевнені, що хочете видалити серію: \"%(name)s\"?"
+
+#~ msgid "Read"
+#~ msgstr "Читати"
+
+#~ msgid "Change the number of lines per page"
+#~ msgstr "Змінити кількість строчок на сторінці"
+
+#~ msgid "Decrease the number of lines per page"
+#~ msgstr "Зменшити кількість строчок на сторінці"
+
+#~ msgid "Increase the number of lines per page"
+#~ msgstr "Збільшити кількість строчок на сторінці"
+
+#~ msgid "If you found typo or mistake, select text and press Ctrl+Enter"
+#~ msgstr "Якщо ви знайшли помилку, виділіть текст та натисніть Ctrl+Enter"
+
+#~ msgid "No content"
+#~ msgstr "Нема змісту"
+
+#~ msgid "Comment or set rating"
+#~ msgstr "Коментувати чи голосувати"
+
+#~ msgid ""
+#~ "Page <input class=\"book_page_number\" value=\"1\"> of <span class="
+#~ "\"book_pages_count\"></span>"
+#~ msgstr ""
+#~ "Сторінка <input class=\"book_page_number\" value=\"1\"> з <span class="
+#~ "\"book_pages_count\"></span>"
+
+#, fuzzy
+#~ msgid "%(name)s hasn't read books yet.&nbsp;"
+#~ msgstr "Таких книг ще нема."
+
+#, fuzzy
+#~ msgid "%(name)s hasn't read books yet."
+#~ msgstr "Таких книг ще нема."
+
+#~ msgid "My typos"
+#~ msgstr "Мої помилки"
+
+#, fuzzy
+#~ msgid "No typos yet."
+#~ msgstr "Постів ще нема."
+
+#, fuzzy
+#~ msgid "You haven't added books yet."
+#~ msgstr "Таких книг ще нема."
+
+#~ msgid "Series %(name)s"
+#~ msgstr "Серія %(name)s"
+
+#, fuzzy
+#~ msgid ""
+#~ "You have received the reply in book \"%(book_name)s\" from user "
+#~ "%(sender_name)s."
+#~ msgstr ""
+#~ "\n"
+#~ "Ви отримали відповідь до книги \"%(book_name)s\" від користувача "
+#~ "%(display_name)s.\n"
+
+#, fuzzy
+#~ msgid "Archived Messages"
+#~ msgstr "Видалені повідомлення"
+
+#, fuzzy
+#~ msgid "Messaging"
+#~ msgstr "Повідомлення"
+
+#~ msgid "Compose"
+#~ msgstr "Написати"
+
+#~ msgid "Inbox"
+#~ msgstr "Вхідні"
+
+#~ msgid "Sent"
+#~ msgstr "Надіслані"
+
+#, fuzzy
+#~ msgid "Archives"
+#~ msgstr "Видалені повідомлення"
+
+#~ msgid "Trash"
+#~ msgstr "Видалені"
+
+#, fuzzy
+#~ msgid "by conversation"
+#~ msgstr "Мій конкурс"
+
+#, fuzzy
+#~ msgid "by message"
+#~ msgstr "Мої повідомлення"
+
+#~ msgid "Sender"
+#~ msgstr "Відправник"
+
+#~ msgid "Recipient"
+#~ msgstr "Отримувач"
+
+#~ msgid "Subject"
+#~ msgstr "Тема"
+
+#, fuzzy
+#~ msgid "Undelete"
+#~ msgstr "відновити"
+
+#, fuzzy
+#~ msgid "No messages."
+#~ msgstr "Мої повідомлення"
+
+#~ msgid "Send"
+#~ msgstr "Надіслати"
+
+#, fuzzy
+#~ msgid "Received Messages"
+#~ msgstr "Видалені повідомлення"
+
+#~ msgid "Received"
+#~ msgstr "Отримано"
+
+#~ msgid "Sent Messages"
+#~ msgstr "Надіслані повідомлення"
+
+#~ msgid "Deleted Messages"
+#~ msgstr "Видалені повідомлення"
+
+#, fuzzy
+#~ msgid "Conversation"
+#~ msgstr "Винаходи"
+
+#~ msgid "Message"
+#~ msgstr "Повідомлення"
+
+#, fuzzy
+#~ msgid "Write"
+#~ msgstr "Написати пост"
+
+#~ msgid "All publishers"
+#~ msgstr "Всі видавництва"
+
+#~ msgid "Edit publisher"
+#~ msgstr "Редагувати видавництво"
+
+#~ msgid "Head"
+#~ msgstr "Директор"
+
+#~ msgid "e-mail"
+#~ msgstr "Поштова скринька"
+
+#~ msgid "Number phone"
+#~ msgstr "Номер телефону"
+
+#~ msgid "Web-site"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "Editing publisher"
+#~ msgstr "Редагування видавництва"
+
+#~ msgid "No publishers found."
+#~ msgstr "Видавництв не знайдено"
+
+#~ msgid "No results found."
+#~ msgstr "Результатів не знайдено."
+
+#~ msgid "Sort"
+#~ msgstr "Сортування"
+
+#~ msgid "Change theme"
+#~ msgstr "Змінити тему"
+
+#~ msgid "Set theme"
+#~ msgstr "Встановити тему"
+
+#~ msgid "Current theme"
+#~ msgstr "Поточна тема"
+
+#~ msgid "Link to comment"
+#~ msgstr "Посилання на коментар"
+
+#~ msgid "Comment is deleted or unapproved."
+#~ msgstr "Коментар видалено або не затверджено"
+
+#~ msgid "Restore"
+#~ msgstr "Відновити"
+
+#~ msgid "No comments found"
+#~ msgstr "Коментаріїв нема"
+
+#~ msgid "Leave comment"
+#~ msgstr "Залишити коментар"
+
+#, fuzzy
+#~ msgid ""
+#~ "\n"
+#~ "                Please <a href=\"%(login_url)s?next=%(path)s\">Login</a> "
+#~ "(or <a href=\"%(signup_url)s?next=%(path)s\">Sign Up</a>) to leave a "
+#~ "comment\n"
+#~ "            "
+#~ msgstr ""
+#~ "\n"
+#~ "            Будь ласка <a href=\"%(login_url)s?next=%(path)s\">Увійдіть</"
+#~ "a> (або <a href=\"%(signup_url)s?next=%(path)s\">Зареєструйтеся</a>) щоб "
+#~ "залишити свій коментар\n"
+#~ "        "
+
+#~ msgid "I like it"
+#~ msgstr "Подобається"
+
+#~ msgid "I don't like it"
+#~ msgstr "Неподобається"
+
+#~ msgid "Top-5 authors"
+#~ msgstr "5 кращих авторiв"
+
+#~ msgid "Top-5 books"
+#~ msgstr "5 кращих творів"
+
+#~ msgid "Rating"
+#~ msgstr "Рейтинг"
+
+#~ msgid "Escalibro"
+#~ msgstr "Escalibro"
+
+#~ msgid "My works"
+#~ msgstr "Мої роботи"
+
+#~ msgid "People"
+#~ msgstr "Люди"
+
+#~ msgid "Latest"
+#~ msgstr "Останнє"
+
+#~ msgid "%(name)s's information"
+#~ msgstr "Інформація про %(name)s"
+
+#~ msgid "Edit book"
+#~ msgstr "Редагувати книгу"
+
+#~ msgid "%(username)s's works"
+#~ msgstr "Роботи %(username)s"
+
+#~ msgid "No works yet."
+#~ msgstr "Робіт ще нема."
+
+#~ msgid "Rating table"
+#~ msgstr "Рейтингова таблиця"
+
+#, fuzzy
+#~ msgid "%(name)s"
+#~ msgstr "Блог: %(name)s"
+
+#~ msgid "First letter of publisher name (russian alphabet)"
+#~ msgstr "Перша літера назви видавництва (український алфавіт)"
+
+#~ msgid "First letter of publisher name (english alphabet)"
+#~ msgstr "Перша літера назви видавництва (англійський алфавіт)"
+
+#~ msgid "Automatic import from %s started"
+#~ msgstr "Автоматичне імпортування з %s розпочато"
+
+#~ msgid "Please, wait until importer download all your poetry from %s"
+#~ msgstr "Будь ласка, зачекайте поки імпортер завантажить усі ваші твори з %s"
+
+#~ msgid "Show"
+#~ msgstr "Показати"
+
+#~ msgid "Feed message"
+#~ msgstr "Повідомлення новин"
+
+#~ msgid "Feed messages"
+#~ msgstr "Повідомлення новин"
+
+#~ msgid "Message to user %(user)s: %(title)s"
+#~ msgstr "Повідомлення користувачу %(user)s: %(title)s"
+
+#~ msgid "Welcome to escalibro!"
+#~ msgstr "Вітаємо на Escalibro!"
+
+#~ msgid "Welcome to lovely home of poetry and people who love write and read."
+#~ msgstr "Вітаємо в нашому домі літератури та людей, хто її пише та читає."
+
+#~ msgid "Import function available from RSS and Zhurnal.lib.ru"
+#~ msgstr "Функція импортеру доступна з RSS та Zhurnal.lib.ru"
+
+#~ msgid ""
+#~ "You can import your poetry from RSS or zhurnal.lib.ru. Just <a href=\"/"
+#~ "importer/sources/add/\">add source</a> to importer"
+#~ msgstr ""
+#~ "Ви можете імпортувати ваші твори з RSS чи zhurnal.lib.ru. Для цього "
+#~ "просто <a href=\"/importer/sources/add/\">додайте джерело</a> до імпортеру"
+
+#~ msgid "Private message received"
+#~ msgstr "Отримано приватне повідомлення"
+
+#~ msgid "Comments"
+#~ msgstr "Коментарії:"
+
+#~ msgid "Messages"
+#~ msgstr "Повідомлення"
+
+#~ msgid "Imported successfully"
+#~ msgstr "Імпортування завершено успішно"
+
+#~ msgid "Importer: %(count)d posts imported from url '%(source)s'"
+#~ msgstr "Імпорт: %(count)d елементів імпортовано з адреси '%(source)s'"
+
+#~ msgid "Failed to import"
+#~ msgstr "Помилка при імпортуванні"
+
+#~ msgid ""
+#~ "Importer: failed to import from '%(source)s', try another source or "
+#~ "notify administration"
+#~ msgstr ""
+#~ "Імпорт: помилка імпорту з '%(source)s', спробуйте інше джерело або "
+#~ "зверніться до адміністрації"
+
+#~ msgid ""
+#~ "You added as co-author to book <a href=\"%(url)s\">«%(name)s»</a>. If you "
+#~ "don't want to be co-author of this book <a href=\"%(remove_url)s\">cancel "
+#~ "this invite</a>."
+#~ msgstr ""
+#~ "Вас додали співавтором книги <a href=\"%(url)s\">«%(name)s»</a>. Якщо ви "
+#~ "не бажаєте бути співавтором даної книги - <a href=\"%(remove_url)s"
+#~ "\">відмовитись від данного запрошення</a>."
+
+#~ msgid "You added as co-author to series «%(name)s»"
+#~ msgstr "Вас запросили в співавтори до серії «%(name)s»"
+
+#~ msgid ""
+#~ "You added as co-author to series «%(name)s». If you don't want to be co-"
+#~ "author on this series <a href=\"%(remove_url)s\">cancel this invite</a>."
+#~ msgstr ""
+#~ "Вас додали співавтором до серії «%(name)s». Якщо ви не бажаєте бути "
+#~ "співавтором у цій серії <a href=\"%(remove_url)s\">відмовитись від "
+#~ "данного запрошенн</a>."
+
+#~ msgid "Like"
+#~ msgstr "Подобається"
+
+#~ msgid "Likes"
+#~ msgstr "Подобається"
+
+#~ msgid "You already voted"
+#~ msgstr "Ви вже проголосували"
+
+#~ msgid "You can't vote for this object"
+#~ msgstr "Ви не можете проголосувати за цей об'єкт"
+
+#~ msgid "Your vote successfully counted"
+#~ msgstr "Ваш голос зараховано"
+
+#~ msgid "Sign up and download information from \"%(url)s\""
+#~ msgstr "Зареєструватися та завантажити информацію з \"%(url)s\""
+
+#~ msgid "Notices"
+#~ msgstr "Сповіщення"
+
+#~ msgid "Notice"
+#~ msgstr "Сповіщення"
+
+#~ msgid ""
+#~ "<a href=\"%(sender_url)s\">%(message_sender)s</a> has sent you a reply to "
+#~ "<a href=\"%(message_url)s\">%(message_parent_msg)s</a>."
+#~ msgstr ""
+#~ "<a href=\"%(sender_url)s\">%(message_sender)s</a> відправив вам відповідь "
+#~ "на <a href=\"%(message_url)s\">%(message_parent_msg)s</a>."
+
+#, fuzzy
+#~ msgid "Private message reply from %(message_sender)s"
+#~ msgstr "Нове повідомлення від %(message_sender)s"
+
+#~ msgid "New comment from user %(username)s"
+#~ msgstr "Новий коментар від користувача %(username)s"
+
+#, fuzzy
+#~ msgid ""
+#~ "Typo or mistake was detected in book \"%(book_name)s\". (https://"
+#~ "%(current_site)s%(book_url)s)"
+#~ msgstr ""
+#~ "\n"
+#~ "Була знайдена помилка в книзі \"%(book_name)s\". (http://%(current_site)s"
+#~ "%(book_url)s)\n"
+
+#~ msgid ""
+#~ "\n"
+#~ "    Typo or mistake was detected in book \"<a href=\"%(book_url)s\">"
+#~ "%(book_name)s</a>\".\n"
+#~ "    <a href=\"%(typo_list_url)s\">All typos</a>\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Була знайдена помилка в книзі  \"<a href=\"%(book_url)s\">%(book_name)s</"
+#~ "a>\".\n"
+#~ "    <a href=\"%(typo_list_url)s\">Всі помилки</a>\n"
+
+#~ msgid "Typos in %(name)s"
+#~ msgstr "Помилки в %(name)s"
+
+#~ msgid ""
+#~ "\n"
+#~ "    You have received the reply in book \"<a href=\"%(book_url)s\">"
+#~ "%(book_name)s</a>\"\n"
+#~ "    from user <a href=\"%(poetry_user_works_url)s\">%(display_name)s</"
+#~ "a>.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Ви отримали відповідь до книги <a href=\"%(book_url)s\">%(book_name)s</a> "
+#~ "від користувача <a href=\"%(poetry_user_works_url)s\">%(display_name)s</"
+#~ "a>.\n"
+
+#, fuzzy
+#~ msgid ""
+#~ "On %(date)s, you asked to send a message to the user '%(recipient)s'."
+#~ msgstr "Ви відновили повідомлення '%(message)s'."
+
+#, fuzzy
+#~ msgid ", for the following reason:"
+#~ msgstr "Я читаю"
+
+#, fuzzy
+#~ msgid "On %(date)s, you sent a message to the user '%(sender)s'."
+#~ msgstr "Ви відновили повідомлення '%(message)s'."
+
+#, fuzzy
+#~ msgid "You have received a copy of a response from the user '%(sender)s'."
+#~ msgstr ""
+#~ "Ви отримали відповідь у пості \"%(post_title)s\" від користувача "
+#~ "%(display_name)s"
+
+#, fuzzy
+#~ msgid "You have received a message from the user '%(sender)s'."
+#~ msgstr "Ви відновили повідомлення '%(message)s'."
+
+#~ msgid "Publisher %(publisher)s"
+#~ msgstr "Видавництво %(publisher)s"
+
+#~ msgid "Book: %(name)s"
+#~ msgstr "Книга: %(name)s"
+
+#~ msgid "Message received"
+#~ msgstr "Повідомлення отримано"
+
+#~ msgid "you have received a message"
+#~ msgstr "ви отримали повідомлення"
+
+#~ msgid "Reply received"
+#~ msgstr "Відповідь отримана"
+
+#~ msgid "you have received a reply to a message"
+#~ msgstr "ви отримали відповідь на повідомлення"
+
+#~ msgid "Message successfully deleted."
+#~ msgstr "Повідомлення видалено."
+
+#~ msgid "Message successfully recovered."
+#~ msgstr "Повідомлення відновлено."
+
+#~ msgid ""
+#~ "\n"
+#~ "    Typo or mistake was detected in book \"%(book_name)s\". (http://"
+#~ "%(current_site)s%(book_url)s)\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Була знайдена помилка в книзі \"%(book_name)s\". (http://%(current_site)s"
+#~ "%(book_url)s)\n"
+
+#~ msgid "Type"
+#~ msgstr "Тип"
+
+#~ msgid "ago"
+#~ msgstr "тому"
+
+#~ msgid "Compose Message"
+#~ msgstr "Написати повідомлення"
+
+#~ msgid "Action"
+#~ msgstr "Дія"
+
+#~ msgid "delete"
+#~ msgstr "видалити"
+
+#~ msgid "Sent from %(site_url)s"
+#~ msgstr "Надіслано з %(site_url)s"
+
+#~ msgid "undelete"
+#~ msgstr "відновити"
+
+#~ msgid ""
+#~ "Deleted Messages are removed from the trash at irregular intervals, don't "
+#~ "rely on this feature for long-time storage."
+#~ msgstr ""
+#~ "Видалені повідомлення будуть переміщені до кошику. Не використовуйте "
+#~ "кошик для зберігання повідомлень. Повідомлення з кошику видаляються "
+#~ "автоматично через деякий час."
+
+#~ msgid ""
+#~ "%(message_sender)s has sent you a message:\n"
+#~ "\n"
+#~ "%(message|safe)s\n"
+#~ "\n"
+#~ "%(message_body|safe)s\n"
+#~ "\n"
+#~ "http://%(current_site)s%(message_url)s"
+#~ msgstr ""
+#~ "%(message_sender)s надіслав вам повідомлення:\n"
+#~ "\n"
+#~ "%(message|safe)s\n"
+#~ "\n"
+#~ "%(message_body|safe)s\n"
+#~ "\n"
+#~ "http://%(current_site)s%(message_url)s"
+
+#~ msgid ""
+#~ "You have received the message <a href=\"%(message_url)s\">%(message)s</a> "
+#~ "from <a href=\"%(sender_url)s\">%(message_sender)s</a>."
+#~ msgstr ""
+#~ "Ви отримали повідомлення <a href=\"%(message_url)s\">%(message)s</a> від "
+#~ "<a href=\"%(sender_url)s\">%(message_sender)s</a>."
+
+#~ msgid ""
+#~ "%(message_sender)s replied to '%(message_parent_msg)s':\n"
+#~ "\n"
+#~ "%(message|safe)s\n"
+#~ "\n"
+#~ "%(message_body|safe)s\n"
+#~ "\n"
+#~ "http://%(current_site)s%(message_url)s"
+#~ msgstr ""
+#~ "%(message_sender)s відповів на '%(message_parent_msg)s':\n"
+#~ "\n"
+#~ "%(message|safe)s\n"
+#~ "\n"
+#~ "%(message_body|safe)s\n"
+#~ "\n"
+#~ "http://%(current_site)s%(message_url)s"
+
+#~ msgid "Your posts. Create new post."
+#~ msgstr "Ваші пости. Створити новий пост."
+
+#~ msgid "End date"
+#~ msgstr "Дата закінчення"
+
+#, fuzzy
+#~ msgid "Importer Info"
+#~ msgstr "Джерела для завантаження"
+
+#~ msgid "Owner can not vote"
+#~ msgstr "Автор не може голосувати"
+
+#, fuzzy
+#~ msgid "No images yet"
+#~ msgstr "Елементів ще нема."
+
+#, fuzzy
+#~ msgid "Users whom already saw this guide"
+#~ msgstr "Ви вже поділилися цією новиною"
+
+#~ msgid "Topic:"
+#~ msgstr "Тема:"
+
+#~ msgid "Author:"
+#~ msgstr "Автор:"
+
+#~ msgid "%(name)s's blog"
+#~ msgstr "Блог %(name)s"
+
+#~ msgid "%(username)s's reader room"
+#~ msgstr "Читальний зал %(username)s"
+
+#~ msgid "Latest posts"
+#~ msgstr "Останніі пости"
+
+#, fuzzy
+#~ msgid "Book with such title already exists"
+#~ msgstr "Книга з такою назвою вже іcнує."
+
+#~ msgid "Initial book content"
+#~ msgstr "Початковий зміст книги"
+
+#~ msgid "You can insert book content"
+#~ msgstr "Ви можете редагувати зміст книги"
+
+#~ msgid "Followings"
+#~ msgstr "Спостереження"
+
+#, fuzzy
+#~ msgid "Latest updated"
+#~ msgstr "Останніі пости"
+
+#~ msgid "%(current_user)s's followers"
+#~ msgstr "Читачі %(current_user)s"
+
+#~ msgid "%(current_user)s's followings"
+#~ msgstr "Спостерігачі %(current_user)s"
+
+#, fuzzy
+#~ msgid "Add work"
+#~ msgstr "Додати книгу"
+
+#~ msgid "Message Sent"
+#~ msgstr "Повідомлення надіслане"
+
+#~ msgid "you have sent a message"
+#~ msgstr "ви надіслали повідомлення"
+
+#~ msgid "Message Replied"
+#~ msgstr "На повідомлення була відповідь"
+
+#~ msgid "you have replied to a message"
+#~ msgstr "Ви відповіли на повідомлення"
+
+#~ msgid "Message Deleted"
+#~ msgstr "Повідомлення видалено"
+
+#~ msgid "you have deleted a message"
+#~ msgstr "Ви видалили повідомлення"
+
+#~ msgid "you have undelete a message"
+#~ msgstr "Ви відновили повідомлення"
+
+#~ msgid "You have deleted the message '%(message)s'."
+#~ msgstr "Ви видалили повідомлення '%(message)s'."
+
+#~ msgid ""
+#~ "You have deleted the message <a href=\"%(message_url)s\">%(message)s</a>."
+#~ msgstr ""
+#~ "Ви видалили повідомлення <a href=\"%(message_url)s\">%(message)s</a>."
+
+#~ msgid ""
+#~ "You have recovered the message <a href=\"%(message_url)s\">%(message)s</"
+#~ "a>."
+#~ msgstr ""
+#~ "Ви відновили повідомлення <a href=\"%(message_url)s\">%(message)s</a>."
+
+#~ msgid ""
+#~ "You have replied to '%(message_parent_msg)s' from %(message_recipient)s."
+#~ msgstr "Ви відповіли на '%(message_parent_msg)s' від %(message_recipient)s"
+
+#~ msgid ""
+#~ "You have replied to <a href=\"%(message_url)s\">%(message_parent_msg)s</"
+#~ "a> from <a href=\"%(recipient_url)s\">%(message_recipient)s</a>."
+#~ msgstr ""
+#~ "Ви відповіли на <a href=\"%(message_url)s\">%(message_parent_msg)s</a> "
+#~ "від <a href=\"%(recipient_url)s\">%(message_recipient)s</a>."
+
+#~ msgid "You have sent the message '%(message)s' to %(message_recipient)s."
+#~ msgstr "Ви надіслали повідомлення '%(message)s' до %(message_recipient)s."
+
+#~ msgid ""
+#~ "You have sent the message <a href=\"%(message_url)s\">%(message)s</a> to "
+#~ "<a href=\"%(recipient_url)s\">%(message_recipient)s</a>."
+#~ msgstr ""
+#~ "Ви відправили повідомлення <a href=\"%(message_url)s\">%(message)s</a> до "
+#~ "<a href=\"%(recipient_url)s\">%(message_recipient)s</a>."
+
+#~ msgid "♻ by %(name)s"
+#~ msgstr "♻ %(name)s"
+
+#~ msgid "Avatar for %s"
+#~ msgstr "Аватар для %s"
+
+#~ msgid "Successfully uploaded a new avatar."
+#~ msgstr "Новий аватар успішно завантажено."
+
+#~ msgid "Successfully updated your avatar."
+#~ msgstr "Ваш аватар успішно оновлено."
+
+#~ msgid "Successfully deleted the requested avatars."
+#~ msgstr "Зазначені аватари успішно видалені."
+
+#~ msgid "Default Avatar"
+#~ msgstr "Аватар за замовчуванням"
+
+#~ msgid "Descперемоги"
+#~ msgstr "Опис"
+
+#~ msgid "Reading %(name)s"
+#~ msgstr "Рейтинг: %(name)s"
+
+#~ msgid "All comments"
+#~ msgstr "дозволити коментувати"
+
+#~ msgid "Don't have an account? <a href=\"%(signup_url)s\">Sign up</a>!"
+#~ msgstr "У вас немає акаунту? <a href=\"%(signup_url)s\">Зареєструйтеся</a>!"
+
+#~ msgid "New theme"
+#~ msgstr "Встановити тему"
+
+#~ msgid "user"
+#~ msgstr "користувач"
+
+#~ msgid "reset yet?"
+#~ msgstr "скинути зовсім?"
+
+#~ msgid "follow list"
+#~ msgstr "список спостережень"
+
+#~ msgid "follow lists"
+#~ msgstr "список спостережень"
+
+#~ msgid "None"
+#~ msgstr "Нема"
+
+#~ msgid "middle name"
+#~ msgstr "по батькові"
+
+#~ msgid "sex"
+#~ msgstr "стать"
+
+#~ msgid "birth date"
+#~ msgstr "дата народження"
+
+#~ msgid "location"
+#~ msgstr "Країна"
+
+#~ msgid "website"
+#~ msgstr "Веб-сайт"
+
+#~ msgid "phone"
+#~ msgstr "Телефон"
+
+#~ msgid "Author rating"
+#~ msgstr "Рейтинг автора"
+
+#~ msgid "Critic rating"
+#~ msgstr "Рейтинг критика"
+
+#~ msgid "about myself"
+#~ msgstr "Про себе"
+
+#~ msgid "Name group"
+#~ msgstr "Назва групи"
+
+#~ msgid "Can comment?"
+#~ msgstr "Можна прокоментувати?"
+
+#~ msgid "Can change?"
+#~ msgstr "Можна змінити?"
+
+#~ msgid "Group: "
+#~ msgstr "Група: "
+
+#~ msgid "Friends Group"
+#~ msgstr "Група друзів"
+
+#~ msgid "Friends Groups"
+#~ msgstr "Групи друзів"
+
+#~ msgid "Friend"
+#~ msgstr "Друг"
+
+#~ msgid "Group"
+#~ msgstr "Група"
+
+#~ msgid "User's friends class "
+#~ msgstr "Клас друзів користувача"
+
+#~ msgid "User's friends"
+#~ msgstr "Друзі користувача"
+
+#~ msgid "You logged out"
+#~ msgstr "Ви вийшли"
+
+#~ msgid "Thanks for spending some quality time with Escalibro today."
+#~ msgstr "Дакуємо за те, що провели час з Escalibro"
+
+#~ msgid "Tweet it"
+#~ msgstr "До Twitter"
+
+#~ msgid "Post link on Buzz"
+#~ msgstr "Поділитися посиланням у Buzz"
+
+#~ msgid "Buzz it"
+#~ msgstr "До базз"
+
+#~ msgid "Share link on FaceBook"
+#~ msgstr "Поділитися посиланням у FaceBook"
+
+#~ msgid "To FaceBook"
+#~ msgstr "До FaceBook"
+
+#~ msgid "Share link on VKontakte"
+#~ msgstr "Поділитися посиланням у ВКонтакте"
+
+#~ msgid "To VKontakte"
+#~ msgstr "До ВКонтакті"
+
+#~ msgid "Read more"
+#~ msgstr "Читати докладніше"
+
+#~ msgid "Wait for an update"
+#~ msgstr "аватар було оновлено"
+
+#~ msgid "Theme"
+#~ msgstr "Теми"
+
+#~ msgid "Escalibro all posts"
+#~ msgstr "Escalibro всі пости"
+
+#~ msgid "Escalibro blog %s"
+#~ msgstr "Блог Escalibro %s"
+
+#~ msgid "and"
+#~ msgstr "та"
+
+#~ msgid "%(model_name)s with this %(field_label)s already exists."
+#~ msgstr "%(model_name)s з %(field_label)s вже існує."
+
+#~ msgid "The %(name)s \"%(obj)s\" was changed successfully."
+#~ msgstr "%(name)s \"%(obj)s\" був успішно змінений"
+
+#~ msgid "You may edit it again below."
+#~ msgstr "Ви можете редагувати це нижче"
+
+#~ msgid ""
+#~ "Example: '/about/contact/'. Make sure to have leading and trailing "
+#~ "slashes."
+#~ msgstr ""
+#~ "Наприклад: '/ about / contact /'. Переконайтеся чи є в наявності "
+#~ "початкові та кінцеві косі риски."
+
+#~ msgid ""
+#~ "This value must contain only letters, numbers, underscores, dashes or "
+#~ "slashes."
+#~ msgstr ""
+#~ "Це значення повинно містити тільки літери, цифри, підкреслення, тире або "
+#~ "штрихи."
+
+#~ msgid "Advanced options"
+#~ msgstr "Додаткові параметри"
+
+#~ msgid "enable comments"
+#~ msgstr "дозволити коментувати"
+
+#~ msgid "template name"
+#~ msgstr "назва шаблону"
+
+#~ msgid ""
+#~ "Example: 'flatpages/contact_page.html'. If this isn't provided, the "
+#~ "system will use 'flatpages/default.html'."
+#~ msgstr ""
+#~ "Наприклад: 'flatpages / contact_page.html'. Якщо це не передбачено,"
+#~ "система буде використовувати 'flatpages / default.html'."
+
+#~ msgid "registration required"
+#~ msgstr "необхідна реєстрація"
+
+#~ msgid ""
+#~ "If this is checked, only logged-in users will be able to view the page."
+#~ msgstr ""
+#~ "Якщо цей пункт обрано, тільки зареєстровані користувачі матимуть змогу "
+#~ "переглядати сторінки."
+
+#~ msgid "Delete?"
+#~ msgstr "Видалити?"
+
+#~ msgid "View on site"
+#~ msgstr "Подивитися на сайті"
+
+#~ msgid "Add another %(verbose_name)s"
+#~ msgstr "Додати інше %(verbose_name)s"
+
+#~ msgid "Remove"
+#~ msgstr "Видалити"
+
+#~ msgid "Blue"
+#~ msgstr "Блакитна"
+
+#~ msgid "Logo"
+#~ msgstr "Лого"
+
+#~ msgid ""
+#~ "<a href=\"%(author_url)s\">%(post_author)s</a> has posted <a href="
+#~ "\"%(post_url)s\">%(post_title)s</a> to their blog."
+#~ msgstr ""
+#~ "<a href=\"%(author_url)s\">%(post_author)s</a> відправив <a href="
+#~ "\"%(post_url)s\">%(post_title)s</a> на їхній блог."
+
+#~ msgid "%(invitation_to_user)s has accepted your friend request."
+#~ msgstr ""
+#~ "<a href=\"%(user_url)s\">%(invitation_user)s</a> прийняв Ваш запит про "
+#~ "додання до друзів. "
+
+#~ msgid ""
+#~ "<a href=\"%(user_url)s\">%(invitation_user)s</a> has accepted your friend "
+#~ "request."
+#~ msgstr ""
+#~ "<a href=\"%(user_url)s\">%(invitation_user)s</a> прийняв Ваш запит про "
+#~ "додання до друзів. "
+
+#~ msgid "You accepted %(invitation_from_user)s's friend request."
+#~ msgstr ""
+#~ "Ви прийняли <a href=\"%(user_url)s\">%(invitation_from_user)s</a>'s запит "
+#~ "про додання до друзів."
+
+#~ msgid ""
+#~ "You accepted <a href=\"%(user_url)s\">%(invitation_from_user)s</a>'s "
+#~ "friend request."
+#~ msgstr ""
+#~ "Ви прийняли <a href=\"%(user_url)s\">%(invitation_from_user)s</a>'s запит "
+#~ "про додання до друзів."
+
+#~ msgid ""
+#~ "%(invitation_from_user)s has requested to add you as a friend. You can "
+#~ "accept their invitation at:\n"
+#~ "\n"
+#~ "http://%(current_site)s%(invitation_page)s\n"
+#~ msgstr ""
+#~ "<a href=\"%(user_url)s\">%(invitation_from_user)s</a> попросив додати вас "
+#~ "як друга(see <a href=\"%(invitation)s\">invitations</a>)"
+
+#~ msgid ""
+#~ "<a href=\"%(user_url)s\">%(invitation_from_user)s</a> has requested to "
+#~ "add you as a friend (see <a href=\"%(invitation)s\">invitations</a>)"
+#~ msgstr ""
+#~ "<a href=\"%(user_url)s\">%(invitation_from_user)s</a> попросив додати вас "
+#~ "як друга(see <a href=\"%(invitation)s\">invitations</a>)"
+
+#~ msgid "you have invited %(invitation_to_user)s to add you as a friend."
+#~ msgstr ""
+#~ "ви запросили <a href=\"%(user_url)s\">%(invitation_to_user)s</a> додати "
+#~ "Вас як друга."
+
+#~ msgid ""
+#~ "you have invited <a href=\"%(user_url)s\">%(invitation_to_user)s</a> to "
+#~ "add you as a friend."
+#~ msgstr ""
+#~ "ви запросили <a href=\"%(user_url)s\">%(invitation_to_user)s</a> додати "
+#~ "Вас як друга."
+
+#~ msgid "%(invitation_from_user)s and %(to_user)s are now friends."
+#~ msgstr ""
+#~ "<a href=\"%(from_user_url)s\">%(invitation_from_user)s</a> та <a href="
+#~ "\"%(to_user_url)s\">%(to_user)s</a> тепер друзі."
+
+#~ msgid ""
+#~ "<a href=\"%(from_user_url)s\">%(invitation_from_user)s</a> and <a href="
+#~ "\"%(to_user_url)s\">%(to_user)s</a> are now friends."
+#~ msgstr ""
+#~ "<a href=\"%(from_user_url)s\">%(invitation_from_user)s</a> та <a href="
+#~ "\"%(to_user_url)s\">%(to_user)s</a> тепер друзі."
+
+#~ msgid "%(new_user)s has joined and is now a friend."
+#~ msgstr "<a href=\"%(user_url)s\">%(new_user)s</a> додався та тепер друг."
+
+#~ msgid ""
+#~ "<a href=\"%(user_url)s\">%(new_user)s</a> has joined and is now a friend."
+#~ msgstr "<a href=\"%(user_url)s\">%(new_user)s</a> додався та тепер друг."
+
+#~ msgid "Unreaded message"
+#~ msgstr "Надіслати повідомлення"
+
+#~ msgid "Avatar Updated"
+#~ msgstr "Аватар оновлено"
+
+#~ msgid "Friend Updated Avatar"
+#~ msgstr "Аватар друга оновлено"
+
+#~ msgid "a friend has updated his avatar"
+#~ msgstr "аватар друга було оновлено"
+
+#~ msgid "More"
+#~ msgstr "Ще"
+
+#~ msgid "You don't follow now"
+#~ msgstr "Ви не спостерігаєте зараз"
+
+#~ msgid "Created book"
+#~ msgstr "Створити книгу"
+
+#~ msgid "«%(name)s» created"
+#~ msgstr "«%(name)s» створено"
+
+#~ msgid "Updated book"
+#~ msgstr "Книгу оновлено"
+
+#~ msgid "«%(name)s» updated"
+#~ msgstr "«%(name)s» оновлено"
+
+#~ msgid "All %(current_user)s's %(header)s"
+#~ msgstr "Всі %(header)s %(current_user)s"
+
+#~ msgid "Common followings"
+#~ msgstr "Загальні спостерігачі"
+
+#~ msgid "tags"
+#~ msgstr "Сторінки"
+
+#~ msgid "Not need now"
+#~ msgstr "Зараз не треба"
+
+#~ msgid ""
+#~ "\n"
+#~ "    You have receive the reply in post \"<a href=\"%(post_url)s\">"
+#~ "%(post_title)s</a>\"\n"
+#~ "    from <a href=\"%(poetry_user_works_url)s\">%(display_name)s</a>.\n"
+#~ msgstr ""
+#~ "Ви отримали відповідь у пості <a href=\"%(message_url)s\">%(message)s</a> "
+#~ "від <a href=\"%(sender_url)s\">%(message_sender)s</a>."
+
+#~ msgid "Primary email"
+#~ msgstr "Робоча поштова скринька"
+
+#~ msgid "Email successfully changed"
+#~ msgstr "Електронна пошта успішно змінена."
+
+#~ msgid ""
+#~ "<a href=\"%(user_url)s\">%(user)s</a> has commented on your post '<a href="
+#~ "\"%(post_url)s\">%(post)s</a>'."
+#~ msgstr ""
+#~ "<a href=\"%(user_url)s\">%(user)s</a> прокоментував ваш пост '<a href="
+#~ "\"%(post_url)s\">%(post)s</a>'."
+
+#~ msgid "%(name)s's profile "
+#~ msgstr "Профайл %(name)s"
+
+#~ msgid "Your email address has already been verified"
+#~ msgstr "Адреса Вашої електронної пошти вже була підтверджена"
+
+#~ msgid "This email address already associated with this account."
+#~ msgstr "Ця адреса пов'язана з обліковим записом."
+
+#~ msgid "Password reset on %s"
+#~ msgstr "Скидання паролю на %s"
+
+#~ msgid "Removed email address %(email)s"
+#~ msgstr "Адресу електронної пошти видалено %(email)s"
+
+#~ msgid "Friendship request sent."
+#~ msgstr "Запит про дружбу надіслано."
+
+#~ msgid "Let's be friends!"
+#~ msgstr "Давайте дружити!"
+
+#~ msgid "You have accepted the friendship request from %(from_user)s"
+#~ msgstr "Ви прийняли запит про дружбу від %(from_user)s"
+
+#~ msgid "Friendship request accepted."
+#~ msgstr "Запит про дружбу прийнято."
+
+#~ msgid "Friendship request declined."
+#~ msgstr "Запит про дружбу відхилено"
+
+#~ msgid "You have removed %(from_user)s from friends"
+#~ msgstr "Ви видалили %(from_user)s з друзів"
+
+#~ msgid "User %s deleted from your friends."
+#~ msgstr "Користувача %s видалено з друзів."
+
+#~ msgid "Account"
+#~ msgstr "Акаунт"
+
+#~ msgid "Email Addresses"
+#~ msgstr "Адреса електроних пошти"
+
+#~ msgid "verified"
+#~ msgstr "підтвердження"
+
+#~ msgid "primary"
+#~ msgstr "основний"
+
+#~ msgid "make primary"
+#~ msgstr "зробити основним"
+
+#~ msgid "unverified"
+#~ msgstr "не підтверджено"
+
+#~ msgid "re-send verification email"
+#~ msgstr "повторно відправити лист з підтвердженням"
+
+#~ msgid "remove"
+#~ msgstr "видалити"
+
+#~ msgid ""
+#~ "You should really add one so you can receive notifications, reset your "
+#~ "password if you forget it, etc."
+#~ msgstr ""
+#~ "Ви повинні додати один, так Ви зможете отримувати сповіщення, зкидання "
+#~ "пароля, якщо ви його забудете и т.д."
+
+#~ msgid "Add Email Address"
+#~ msgstr "Додати адресу електронної пошти"
+
+#~ msgid "E-mail address:"
+#~ msgstr "Адреса електронної пошти"
+
+#~ msgid "Sign up closed"
+#~ msgstr "Реєстрація закрита"
+
+#~ msgid ""
+#~ "\n"
+#~ "\t\tRegistration closed.\n"
+#~ "\t\tYou need invite to sign up.\n"
+#~ "\t"
+#~ msgstr ""
+#~ "\n"
+#~ "\t\tРеєстрація закрита.\n"
+#~ "\t\tВас повинні запросити, щоб зареєструватися.\n"
+#~ "\t"
+
+#~ msgid "Verification email sent"
+#~ msgstr "Підтвердження електронної пошти надіслано"
+
+#~ msgid "Verification email sent to "
+#~ msgstr "Підтвердження електронної пошти надіслано на"
+
+#~ msgid "Unknown error occured"
+#~ msgstr "Виникла невідома помилка"
+
+#~ msgid "You vote successfully counted."
+#~ msgstr "Ви успішно проголосували."
+
+#~ msgid "Load Content"
+#~ msgstr "Завантажити зміст"
+
+#~ msgid "Current Rating"
+#~ msgstr "Рейтинг"
+
+#~ msgid "Set Rating"
+#~ msgstr "Встановити рейтинг"

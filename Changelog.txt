@@ -1,3 +1,7 @@
+## 2013-07-25 0.2.3
+
+    * Added localization for RU and UK languages
+
 ## 2012-11-16 0.2
 
     * Added permissions for reading\writing\moderationg blogs. BlogUserAccess model added to capture access rules. Admin page for blog allows to edit access rules.
