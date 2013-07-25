@@ -1,5 +1,9 @@
 # encoding: utf-8
-from django.conf.urls.defaults import patterns, url
+try:
+    from django.conf.urls import patterns, url
+except ImportError:
+    from django.conf.urls.defaults import patterns, url # Django < 1.6
+
 from django.shortcuts import get_object_or_404
 
 from misc.views import redirect_by_name
