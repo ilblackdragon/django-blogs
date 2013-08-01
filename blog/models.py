@@ -4,7 +4,6 @@ from pytils.translit import slugify
 
 from django.db import models
 from django.conf import settings
-from django.contrib.auth.models import User
 from django.utils.translation import ugettext_lazy as _
 from django.db.models.signals import post_save, post_delete
 
@@ -16,10 +15,13 @@ else:
 from tagging.fields import TagField
 from voter.models import RatingField
 
+AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
+
+
 class BlogUserAccess(models.Model):
     blog = models.ForeignKey('Blog', verbose_name=_("Blog"), 
         related_name="blog_user_access_list")
-    user = models.ForeignKey(User, verbose_name=_("User"),
+    user = models.ForeignKey(AUTH_USER_MODEL, verbose_name=_("User"),
         related_name="blog_user_access_list")
     is_moderator = models.BooleanField(_("Is moderator"))
     can_read = models.BooleanField(_("Can read"))
@@ -31,7 +33,7 @@ class Blog(models.Model):
     icon = models.ImageField(_('blog icon'), height_field=None, width_field=None, blank=True, upload_to="blog_icons/", default="blog_icons/default.jpg")
     description = models.TextField(_('description'), max_length=256, blank=True)
 
-    user_access_list = models.ManyToManyField(User, through=BlogUserAccess,
+    user_access_list = models.ManyToManyField(AUTH_USER_MODEL, through=BlogUserAccess,
         related_name="blog_user_access_m2m_list", verbose_name=_("User access list"))
     can_read = models.BooleanField(_('Are everybody can read'), default=True)
     can_write = models.BooleanField(_('Are everybody can write'), default=True)
@@ -70,7 +72,7 @@ class Post(models.Model):
 
     title = models.CharField(_("title"), max_length=200)
     slug = models.SlugField(_("slug"), blank=True)
-    author = models.ForeignKey(User, related_name='added_posts')
+    author = models.ForeignKey(AUTH_USER_MODEL, related_name='added_posts')
     creator_ip = models.CharField(_("IP Address of the Post Creator"),
         max_length=255, blank=True, null=True)
     tease = models.TextField(_("tease"), blank=True)
