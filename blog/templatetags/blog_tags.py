@@ -38,14 +38,14 @@ class CheckPostStatus(Node):
         return ''
 
 @register.simple_tag
-def get_last_escalibro_post_list():
-    return Post.objects.filter(status=Post.IS_PUBLIC, blog__slug='escalibro')
+def get_last_post_list():
+    return Post.objects.filter(status=Post.IS_PUBLIC)
 
 @register.simple_tag
-def get_month_escalibro_post_list():
+def get_month_post_list():
     now = date.today()
     month_beginning = date(now.year, now.month, 1)
-    return get_last_escalibro_post_list().filter(updated_at__gte=month_beginning)
+    return get_last_post_list().filter(updated_at__gte=month_beginning)
 
 @register.inclusion_tag("blog/post_item.html", takes_context=True)
 def show_blog_post(context, post):
