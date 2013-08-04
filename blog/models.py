@@ -28,10 +28,10 @@ class BlogUserAccess(models.Model):
     can_write = models.BooleanField(_("Can write"))
 
 class Blog(models.Model):
-    name = models.CharField(_('name'), max_length=200)
-    slug = models.SlugField(_('slug'))
-    icon = models.ImageField(_('blog icon'), height_field=None, width_field=None, blank=True, upload_to="blog_icons/", default="blog_icons/default.jpg")
-    description = models.TextField(_('description'), max_length=256, blank=True)
+    name = models.CharField(_('Name'), max_length=200)
+    slug = models.SlugField(_('Slug'))
+    icon = models.ImageField(_('Blog icon'), height_field=None, width_field=None, blank=True, upload_to="blog_icons/", default="blog_icons/default.jpg")
+    description = models.TextField(_('Description'), max_length=256, blank=True)
 
     user_access_list = models.ManyToManyField(AUTH_USER_MODEL, through=BlogUserAccess,
         related_name="blog_user_access_m2m_list", verbose_name=_("User access list"))
@@ -70,23 +70,23 @@ class Post(models.Model):
         (IS_DELETED, _("Deleted"))
     )
 
-    title = models.CharField(_("title"), max_length=200)
-    slug = models.SlugField(_("slug"), blank=True)
+    title = models.CharField(_("Title"), max_length=200)
+    slug = models.SlugField(_("Slug"), blank=True)
     author = models.ForeignKey(AUTH_USER_MODEL, related_name='added_posts')
     creator_ip = models.CharField(_("IP Address of the Post Creator"),
         max_length=255, blank=True, null=True)
-    tease = models.TextField(_("tease"), blank=True)
-    body = models.TextField(_("body"))
-    status = models.IntegerField(_("status"), choices=STATUS_CHOICES, default=IS_DRAFT)
-    allow_comments = models.BooleanField(_("allow comments"), default=True)
-    publish = models.DateTimeField(_("publish"), default=datetime.now)
-    created_at = models.DateTimeField(_("created at"), default=datetime.now)
-    updated_at = models.DateTimeField(_("updated at"), default=datetime.now)
+    tease = models.TextField(_("Tease"), blank=True)
+    body = models.TextField(_("Body"))
+    status = models.IntegerField(_("Status"), choices=STATUS_CHOICES, default=IS_DRAFT)
+    allow_comments = models.BooleanField(_("Allow comments"), default=True)
+    publish = models.DateTimeField(_("Publish"), default=datetime.now)
+    created_at = models.DateTimeField(_("Created at"), default=datetime.now)
+    updated_at = models.DateTimeField(_("Updated at"), default=datetime.now)
     tags = TagField()
     blog = models.ForeignKey(Blog, verbose_name=_("Blog"),
         related_name='post_list', null=True, blank=True)
-    comments_count = models.IntegerField(_("comments count"), default=0)
-    last_comment_datetime = models.DateTimeField(_("date of last comment"),
+    comments_count = models.IntegerField(_("Comments count"), default=0)
+    last_comment_datetime = models.DateTimeField(_("Date of last comment"),
         default=datetime.now)
     
     rating = RatingField(related_name="post_list")

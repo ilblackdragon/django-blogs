@@ -1,3 +1,8 @@
+## 2013-08-04 0.2.4
+
+    * Removed followers/friends templates
+    * Updated RU and UK language translations
+
 ## 2013-07-25 0.2.3
 
     * Added localization for RU and UK languages

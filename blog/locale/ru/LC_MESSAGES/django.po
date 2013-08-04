@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-07-24 23:14-0700\n"
+"POT-Creation-Date: 2013-08-04 21:37+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,170 +39,154 @@ msgstr ""
 "Ваше вступление (кат) слишком длинное - пожалуйста, добавьте где-нибуть кат, "
 "так что бы оставить только вступительную часть перед ним."
 
-#: management.py:10
-#, fuzzy
-msgid "Friend Posted to Blog"
-msgstr "Блоги друзей"
-
-#: management.py:10
-msgid "a friend of yours posted to their blog"
-msgstr ""
-
-#: management.py:11
-msgid "New Comment on Blog Post"
-msgstr ""
-
-#: management.py:11
-msgid "a comment was made on one of your blog posts"
-msgstr ""
-
-#: models.py:20 models.py:40 models.py:84
+#: models.py:22 models.py:42 models.py:86
 #: templates/blog/user_post_base_list.html:20
 msgid "Blog"
 msgstr "Блог"
 
-#: models.py:22
+#: models.py:24
 msgid "User"
 msgstr "Пользователь"
 
-#: models.py:24
+#: models.py:26
 msgid "Is moderator"
 msgstr "Модератор?"
 
-#: models.py:25
+#: models.py:27
 msgid "Can read"
 msgstr "Можно читать?"
 
-#: models.py:26
+#: models.py:28
 msgid "Can write"
 msgstr "Можно писать?"
 
-#: models.py:29
-msgid "name"
-msgstr "имя"
-
-#: models.py:30 models.py:72
-msgid "slug"
-msgstr "слаг"
-
 #: models.py:31
-msgid "blog icon"
-msgstr "иконка блога"
+msgid "Name"
+msgstr "Имя"
 
-#: models.py:32
-msgid "description"
-msgstr "описание"
+#: models.py:32 models.py:74
+msgid "Slug"
+msgstr "Слаг"
 
-#: models.py:35
+#: models.py:33
+msgid "Blog icon"
+msgstr "Иконка блога"
+
+#: models.py:34
+msgid "Description"
+msgstr "Описание"
+
+#: models.py:37
 msgid "User access list"
 msgstr ""
 
-#: models.py:36
+#: models.py:38
 msgid "Are everybody can read"
 msgstr "Все могут читать?"
 
-#: models.py:37
+#: models.py:39
 msgid "Are everybody can write"
 msgstr "Все могут писать?"
 
-#: models.py:41 templates/blog/follow_info.html:61
-#: templates/blog/user_post_base_list.html:6
+#: models.py:43 templates/blog/user_post_base_list.html:6
 msgid "Blogs"
 msgstr "Блоги"
 
-#: models.py:66 templates/blog/post_item.html:23
+#: models.py:68 templates/blog/post_item.html:23
 msgid "Draft"
 msgstr "Черновик"
 
-#: models.py:67
+#: models.py:69
 msgid "Public"
 msgstr "Опубликовано"
 
-#: models.py:68
+#: models.py:70
 msgid "Deleted"
 msgstr "Удален"
 
-#: models.py:71
-msgid "title"
-msgstr "название"
+#: models.py:73 templates/blog/post_compact_iterator.html:10
+#: templates/blog/post_my_list.html:18
+msgid "Title"
+msgstr "Название"
 
-#: models.py:74
+#: models.py:76
 msgid "IP Address of the Post Creator"
 msgstr "IP-адрес из поста автора"
 
-#: models.py:76
-msgid "tease"
-msgstr "теза"
-
-#: models.py:77
-msgid "body"
-msgstr "содержание"
-
 #: models.py:78
-msgid "status"
-msgstr "статус"
+msgid "Tease"
+msgstr "Теза"
 
 #: models.py:79
-msgid "allow comments"
-msgstr "разрешить комментировать"
+msgid "Body"
+msgstr "Содержание"
 
 #: models.py:80
-msgid "publish"
-msgstr "опубликовать"
+msgid "Status"
+msgstr "Состояние"
 
 #: models.py:81
-msgid "created at"
-msgstr "создана в"
+msgid "Allow comments"
+msgstr "Разрешить комментировать"
 
-#: models.py:82
-msgid "updated at"
-msgstr "обновлена в"
+#: models.py:82 templates/blog/post_compact_iterator.html:31
+#: templates/blog/post_item.html:24 templates/blog/post_my_list.html:37
+msgid "Publish"
+msgstr "Опубликовать"
 
-#: models.py:86
-msgid "comments count"
-msgstr "количество комментариев"
+#: models.py:83
+msgid "Created at"
+msgstr "Создана в"
 
-#: models.py:87
-msgid "date of last comment"
-msgstr "дата последнего комментария"
+#: models.py:84
+msgid "Updated at"
+msgstr "Обновлена в"
 
-#: models.py:91
+#: models.py:88
+msgid "Comments count"
+msgstr "Количество комментариев"
+
+#: models.py:89
+msgid "Date of last comment"
+msgstr "Дата последнего комментария"
+
+#: models.py:93
 msgid "Rating score"
 msgstr "Рейтинг"
 
-#: models.py:94
+#: models.py:96
 msgid "Post"
 msgstr "Пост"
 
-#: models.py:95 templates/blog/base_profile.html:14
+#: models.py:97 templates/blog/base_profile.html:14
 #: templates/blog/user_post_base_list.html:5
 #: templates/blog/user_post_base_list.html:6
 #: templates/blog/user_post_base_list.html:7
 msgid "Posts"
 msgstr "Посты"
 
-#: views.py:115
+#: views.py:119
 #, python-format
 msgid "Successfully change status for post '%s'"
 msgstr "Успешно изменен статус для поста '%s'"
 
-#: views.py:130
+#: views.py:134
 #, python-format
 msgid "Successfully created post '%s'"
 msgstr "Успешно создан пост '%s'"
 
-#: views.py:138
+#: views.py:142
 msgid "You can't edit posts that aren't yours"
 msgstr "Вы не можете редактировать не Ваши посты"
 
-#: views.py:145
+#: views.py:149
 #, python-format
 msgid "Successfully updated post '%s'"
 msgstr "Успешно обновлен пост '%s'"
 
-#: views.py:153
+#: views.py:157
 msgid "You can't delete posts that aren't yours"
-msgstr ""
+msgstr "Вы не можете удалить пост не принадлежащий вам"
 
 #: templates/blog/base_my.html:13 templates/blog/post_my_list.html:5
 msgid "My posts"
@@ -240,8 +224,8 @@ msgid "Follow"
 msgstr "Подписаться"
 
 #: templates/blog/blog_detail.html:51 templates/blog/blog_list.html:46
-#: templates/blog/follow.html:26 templates/blog/post_list.html:21
-#: templates/blog/post_my_list.html:46 templates/blog/show_user_feed.html:7
+#: templates/blog/post_list.html:21 templates/blog/post_my_list.html:46
+#: templates/blog/show_user_feed.html:7
 #: templates/blog/user_post_compact_list.html:11
 #: templates/blog/user_post_full_list.html:11
 msgid "No posts yet."
@@ -268,70 +252,6 @@ msgstr "%(time)s назад"
 msgid "No blogs found."
 msgstr "Результатов не найдено."
 
-#: templates/blog/follow.html:8 templates/blog/follow.html.py:17
-msgid "Your feed"
-msgstr "Ваша лента"
-
-#: templates/blog/follow.html:10 templates/blog/follow.html.py:19
-#: templates/blog_jinja2/follow.html:10 templates/blog_jinja2/follow.html:19
-#, python-format
-msgid "%(username)s's feed"
-msgstr "Лента %(username)s"
-
-#: templates/blog/follow_info.html:7
-msgid "Following"
-msgstr "Подписка"
-
-#: templates/blog/follow_info.html:9
-msgid "Followers"
-msgstr "Подписчики"
-
-#: templates/blog/follow_info.html:18
-msgid "My following"
-msgstr "Я читаю"
-
-#: templates/blog/follow_info.html:20
-#: templates/blog_jinja2/follow_info.html:20
-#, python-format
-msgid "%(username)s's following"
-msgstr "Подписчики %(username)s"
-
-#: templates/blog/follow_info.html:24
-msgid "My followers"
-msgstr "Меня читают"
-
-#: templates/blog/follow_info.html:26
-#: templates/blog_jinja2/follow_info.html:26
-#, python-format
-msgid "%(username)s's followers"
-msgstr "Читатели %(username)s"
-
-#: templates/blog/follow_info.html:35
-msgid "Users"
-msgstr "Пользователи"
-
-#: templates/blog/follow_info.html:81
-msgid "No following yet."
-msgstr "Подписчиков еще нет"
-
-#: templates/blog/follow_info.html:83
-msgid "No followers yet."
-msgstr "Читателей еще нет"
-
-#: templates/blog/friends_posts.html:7 templates/blog/friends_posts.html:11
-#: templates/blog_jinja2/friends_posts.html:7
-#: templates/blog_jinja2/friends_posts.html:11
-msgid "Friends' Blogs"
-msgstr "Блоги друзей"
-
-#: templates/blog/friends_posts.html:14
-msgid "These are blog posts from your friends:"
-msgstr "Эти сообщения в блоге от ваших друзей:"
-
-#: templates/blog/friends_posts.html:25
-msgid "No blog posts yet."
-msgstr "В блоге еще нет сообщений"
-
 #: templates/blog/post_add.html:6
 msgid "Write a blog post"
 msgstr "Написать в блоге"
@@ -339,11 +259,6 @@ msgstr "Написать в блоге"
 #: templates/blog/post_add.html:38
 msgid "Create"
 msgstr "Создать"
-
-#: templates/blog/post_compact_iterator.html:10
-#: templates/blog/post_my_list.html:18
-msgid "Title"
-msgstr "Название"
 
 #: templates/blog/post_compact_iterator.html:11
 #: templates/blog/post_my_list.html:19
@@ -369,11 +284,6 @@ msgstr "Редактировать"
 #: templates/blog/post_item.html:27 templates/blog/post_my_list.html:35
 msgid "To drafts"
 msgstr "В черновики"
-
-#: templates/blog/post_compact_iterator.html:31
-#: templates/blog/post_item.html:24 templates/blog/post_my_list.html:37
-msgid "Publish"
-msgstr "Опубликовать"
 
 #: templates/blog/post_compact_iterator.html:32
 #: templates/blog/post_item.html:25
@@ -417,33 +327,94 @@ msgstr "Комментарии: %(comments_count)s"
 msgid "Blog post feed for user %(name)s"
 msgstr "Посты пользователя %(name)s"
 
-#: templates/blog/notification/threadedcomments_replied/email_body.html:4
-#: templates/blog/notification/threadedcomments_replied/email_body.txt:5
-#: templates/blog_jinja2/notification/threadedcomments_replied/email_body.html:4
-#: templates/blog_jinja2/notification/threadedcomments_replied/email_body.txt:5
-#, fuzzy, python-format
-msgid ""
-"You have received the reply in post \"%(post_title)s\" from user "
-"%(display_name)s"
-msgstr ""
-"Вы получили ответ в посте \"%(post_title)s\" от пользователя %(sender_name)s"
+#~ msgid "Your feed"
+#~ msgstr "Ваша лента"
 
-#: templates/blog/notification/threadedcomments_replied/email_body.html:9
-msgid "See comment"
-msgstr "Показать комментарий"
+#~ msgid "%(username)s's feed"
+#~ msgstr "Лента %(username)s"
 
-#: templates/blog/notification/threadedcomments_replied/web_body.html:4
-#: templates/blog_jinja2/notification/threadedcomments_replied/web_body.html:4
-#, python-format
-msgid ""
-"\n"
-"    You have received the reply in post \"<a href=\"%(post_url)s\">"
-"%(post_title)s</a>\"\n"
-"    from user <a href=\"%(poetry_user_works_url)s\">%(display_name)s</a>.\n"
-msgstr ""
-"\n"
-"Вы получили ответ в посте <a href=\"%(post_url)s\">%(post_title)s</a>\n"
-" отпользователя <a href=\"%(poetry_user_works_url)s\">%(display_name)s</a>.\n"
+#~ msgid "Following"
+#~ msgstr "Подписка"
+
+#~ msgid "Followers"
+#~ msgstr "Подписчики"
+
+#~ msgid "My following"
+#~ msgstr "Я читаю"
+
+#~ msgid "%(username)s's following"
+#~ msgstr "Подписчики %(username)s"
+
+#~ msgid "My followers"
+#~ msgstr "Меня читают"
+
+#~ msgid "%(username)s's followers"
+#~ msgstr "Читатели %(username)s"
+
+#~ msgid "Users"
+#~ msgstr "Пользователи"
+
+#~ msgid "No following yet."
+#~ msgstr "Подписчиков еще нет"
+
+#~ msgid "No followers yet."
+#~ msgstr "Читателей еще нет"
+
+#~ msgid "Friends' Blogs"
+#~ msgstr "Блоги друзей"
+
+#~ msgid "These are blog posts from your friends:"
+#~ msgstr "Эти сообщения в блоге от ваших друзей:"
+
+#~ msgid "No blog posts yet."
+#~ msgstr "В блоге еще нет сообщений"
+
+#~ msgid ""
+#~ "You have received the reply in post \"%(post_title)s\" from user "
+#~ "%(display_name)s"
+#~ msgstr ""
+#~ "Вы получили ответ в посте \"%(post_title)s\" от пользователя "
+#~ "%(sender_name)s"
+
+#~ msgid "See comment"
+#~ msgstr "Показать комментарий"
+
+#~ msgid ""
+#~ "\n"
+#~ "    You have received the reply in post \"<a href=\"%(post_url)s\">"
+#~ "%(post_title)s</a>\"\n"
+#~ "    from user <a href=\"%(poetry_user_works_url)s\">%(display_name)s</"
+#~ "a>.\n"
+#~ msgstr ""
+#~ "\n"
+#~ "Вы получили ответ в посте <a href=\"%(post_url)s\">%(post_title)s</a>\n"
+#~ " отпользователя <a href=\"%(poetry_user_works_url)s\">%(display_name)s</"
+#~ "a>.\n"
+
+#, fuzzy
+#~ msgid "Friend Posted to Blog"
+#~ msgstr "Блоги друзей"
+
+#~ msgid "name"
+#~ msgstr "имя"
+
+#~ msgid "slug"
+#~ msgstr "слаг"
+
+#~ msgid "description"
+#~ msgstr "описание"
+
+#~ msgid "title"
+#~ msgstr "название"
+
+#~ msgid "body"
+#~ msgstr "содержание"
+
+#~ msgid "status"
+#~ msgstr "статус"
+
+#~ msgid "publish"
+#~ msgstr "опубликовать"
 
 #~ msgid "Email"
 #~ msgstr "Адрес электронной почты"
@@ -711,20 +682,11 @@ msgstr ""
 #~ msgid "You can choose only users that you follow."
 #~ msgstr "Вы можете выбрать только пользователей, за которыми следите."
 
-#~ msgid "Slug"
-#~ msgstr "Слаг"
-
 #~ msgid "End date for publish"
 #~ msgstr "Последняя дата публикации"
 
 #~ msgid "End date for voting"
 #~ msgstr "Последняя дата для голосования"
-
-#~ msgid "Name"
-#~ msgstr "Имя"
-
-#~ msgid "Description"
-#~ msgstr "Описание"
 
 #~ msgid "Rules"
 #~ msgstr "Правила"
@@ -734,9 +696,6 @@ msgstr ""
 
 #~ msgid "Votes"
 #~ msgstr "Голоса"
-
-#~ msgid "Status"
-#~ msgstr "Состояние"
 
 #~ msgid "Feed item"
 #~ msgstr "Элемент ленты"
@@ -2039,8 +1998,8 @@ msgstr ""
 #~ "You were added as a co-author for the book \"<a href=\"https://"
 #~ "%(SITE_DOMAIN)s%(book_url)s\">%(book_name)s</a>\""
 #~ msgstr ""
-#~ "Вы добавлены как соавтор в произведение \"<a href=\"https://"
-#~ "%(SITE_DOMAIN)s%(book_url)s\">%(book_name)s</a>\""
+#~ "Вы добавлены как соавтор в произведение \"<a href=\"https://%(SITE_DOMAIN)"
+#~ "s%(book_url)s\">%(book_name)s</a>\""
 
 #~ msgid "You were added as a co-author for book \"%(book_name)s\""
 #~ msgstr "Вас пригласили быть соавтором для произведения \"%(book_name)s\""
