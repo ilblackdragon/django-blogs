@@ -78,7 +78,7 @@ msgstr "Описание"
 
 #: models.py:37
 msgid "User access list"
-msgstr ""
+msgstr "Список доступа"
 
 #: models.py:38
 msgid "Are everybody can read"
