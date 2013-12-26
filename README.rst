@@ -24,15 +24,16 @@ Requirements
 - python >= 2.5
 - pip >= 0.8
 - django >= 1.2
+- pytils
 - django-misc (https://github.com/ilblackdragon/django-misc)
 - django-pagination
 - django-tagging
-- django-voter (https://github.com/ProstoKSI/django-voter)
 
 Optional:
 
 - django-threadedcomments (https://github.com/ilblackdragon/django-threadedcomments)
 - django-notification (https://github.com/frol/django-notification)
+- django-voter (https://github.com/ProstoKSI/django-voter)
 
 Installation
 =============
@@ -73,6 +74,7 @@ Setup
 Please, consider templates and css that are in this application - as example how to create your own design.
 Note, that I use django-themes (https://github.com/ilblackdragon/django-themes) in my templates.
 
+- Setup database via syncdb or migrations. Note, that if you are not using django-voter, then migrations are not supported.
 
 Configure django-blogs
 ===============
@@ -96,8 +98,6 @@ Contributing
 ============
 
 Development of django-blogs happens at github: https://github.com/ilblackdragon/django-blogs
-
-Note, that I don't like having django-voter as obligatory requirement, and if you have a solution how to make it not to be obligatory but still be able to use it's RatingField as an optional feature - I'm open for suggestion.
 
 License
 ============

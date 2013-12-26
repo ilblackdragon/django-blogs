@@ -39,14 +39,13 @@ META_DATA = dict(
     package_data = { '': PACKAGE_DATA, },
 
     dependency_links = [
-                         'https://github.com/ProstoKSI/django-voter/archive/master.zip#egg=django-voter',
                          'https://github.com/ProstoKSI/html-cleaner/archive/master.zip#egg=html-cleaner',
                        ],
-    install_requires = [ 'django>=1.2', 
+    install_requires = [ 'django>=1.2',
+                         'pytils',
                          'django-misc', 
                          'django-pagination', 
                          'django-tagging', 
-                         'django-voter',
                          'html-cleaner',
                        ],
 )

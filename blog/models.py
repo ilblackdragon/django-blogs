@@ -13,7 +13,9 @@ else:
     ThreadedComment = None
 
 from tagging.fields import TagField
-from voter.models import RatingField
+
+if 'voter' in settings.INSTALLED_APPS:
+    from voter.models import RatingField
 
 AUTH_USER_MODEL = getattr(settings, 'AUTH_USER_MODEL', 'auth.User')
 
@@ -89,8 +91,9 @@ class Post(models.Model):
     last_comment_datetime = models.DateTimeField(_("Date of last comment"),
         default=datetime.now)
     
-    rating = RatingField(related_name="post_list")
-    rating_score = models.FloatField(_("Rating score"), default=0)
+    if 'voter' in settings.INSTALLED_APPS:
+        rating = RatingField(related_name="post_list")
+        rating_score = models.FloatField(_("Rating score"), default=0)
     
     class Meta:
         verbose_name = _("Post")
