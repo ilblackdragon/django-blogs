@@ -21,7 +21,8 @@ if 'coffin' in settings.INSTALLED_APPS:
 else:
     from django.template.response import TemplateResponse
 
-from voter.models import create_rating
+if 'voter' in settings.INSTALLED_APPS:
+    from voter.models import create_rating
 
 from blog.models import Blog, Post
 from blog.forms import PostForm
@@ -125,7 +126,8 @@ def post_add(request, form_class=PostForm, template_name="blog/post_add.html"):
     if request.method == "POST" and post_form.is_valid():
         post = post_form.save(commit=False)
         post.author = request.user
-        post.rating = create_rating()
+        if 'voter' in settings.INSTALLED_APPS:
+            post.rating = create_rating()
         creator_ip = request.META.get('HTTP_X_FORWARDED_FOR', None)
         if not creator_ip:
             creator_ip = request.META.get('REMOTE_ADDR', None)

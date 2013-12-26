@@ -1,12 +1,13 @@
 # encoding: utf-8
 from datetime import datetime
 from django import forms
+from django.conf import settings
 from django.db.models import Q
 from django.utils.translation import ugettext_lazy as _
 
 from html_cleaner.cleaner import clear_html_code
 
-from blog import settings
+from blog import local_settings
 from blog.models import Post, Blog
 
 
@@ -14,8 +15,11 @@ class PostForm(forms.ModelForm):
     
     class Meta:
         model = Post
-        exclude = ('author', 'slug', 'creator_ip', 'created_at', 'updated_at', 'publish', 
-                    'status', 'comments_count', 'last_comment_datetime', 'tags', 'tease', 'rating', 'rating_score', 'votes')
+        exclude = ['author', 'slug', 'creator_ip', 'created_at', 'updated_at', 'publish', 
+                    'status', 'comments_count', 'last_comment_datetime',
+                    'tags', 'tease'] + 
+                    (['rating', 'rating_score', 'votes'] if 'voter' in
+                    settings.INSTALLED_APPS else [])
     
     def __init__(self, request, *args, **kwargs):
         self.user = request.user
@@ -28,15 +32,15 @@ class PostForm(forms.ModelForm):
 
     def clean_title(self):
         title = self.cleaned_data['title'].strip().capitalize()
-        if len(title) < settings.POST_NAME_MIN_LENGTH:
+        if len(title) < local_settings.POST_NAME_MIN_LENGTH:
             raise forms.ValidationError(_("Post title should be at least 3 characters."))
         return title
 
     def clean_body(self):
         body = self.cleaned_data['body']
-        for synonym in settings.CUT_TAG_SYNONYMS:
-            body = body.replace(synonym, settings.CUT_TAG)
-        editor_cut = body.find(settings.CUT_TAG)
+        for synonym in local_settings.CUT_TAG_SYNONYMS:
+            body = body.replace(synonym, local_settings.CUT_TAG)
+        editor_cut = body.find(local_settings.CUT_TAG)
         if editor_cut != -1:
             tease = body[:editor_cut]
             tease = clear_html_code(tease)
@@ -44,9 +48,9 @@ class PostForm(forms.ModelForm):
             tease = ''
         body = clear_html_code(body)
         
-        if len(body) > settings.SHORT_POST_MAX_LENGTH and editor_cut == -1:
+        if len(body) > local_settings.SHORT_POST_MAX_LENGTH and editor_cut == -1:
             raise forms.ValidationError(_("Your post is too long and without cut - please add cut somewhere to leave only introduction part before it."))
-        if editor_cut > settings.CUT_MAX_LENGTH:
+        if editor_cut > local_settings.CUT_MAX_LENGTH:
             raise forms.ValidationError(_("Your cut is too long - please add cut somewhere to leave only introduction part before it."))
         self.cleaned_data['tease'] = tease
         return body
