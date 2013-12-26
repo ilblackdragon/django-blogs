@@ -1,5 +1,6 @@
 # encoding: utf-8
 from django.contrib import admin
+from django.conf import settings
 
 from blog.models import Post, Blog, BlogUserAccess
 
@@ -20,7 +21,10 @@ class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'author', 'publish', 'status')
     list_filter = ('publish', 'status')
     search_fields = ('title', 'body', 'tease')
-    raw_id_fields = ('author', 'rating')
+    if 'voter' in settings.INSTALLED_APPS:
+        raw_id_fields = ('author', 'rating')
+    else:
+        raw_id_fields = ('author', )
 
 
 admin.site.register(Blog, BlogAdmin)
