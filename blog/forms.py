@@ -17,7 +17,7 @@ class PostForm(forms.ModelForm):
         model = Post
         exclude = ['author', 'slug', 'creator_ip', 'created_at', 'updated_at', 'publish', 
                     'status', 'comments_count', 'last_comment_datetime',
-                    'tags', 'tease'] + 
+                    'tags', 'tease'] + \
                     (['rating', 'rating_score', 'votes'] if 'voter' in
                     settings.INSTALLED_APPS else [])
     
