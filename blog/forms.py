@@ -7,7 +7,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from html_cleaner.cleaner import clear_html_code
 
-from blog import local_settings
+from blog import settings as local_settings
 from blog.models import Post, Blog
 
 
