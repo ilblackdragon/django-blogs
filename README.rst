@@ -1,5 +1,5 @@
 django-blogs
-##############
+############
 
 **Django blogs** is module that provide configurable blogs for Django projects.
 
@@ -19,11 +19,11 @@ Quick overview
 - RSS feeds are available for all types of blogs.
 
 Requirements
-==============
+============
 
 - python >= 2.5
 - pip >= 0.8
-- django >= 1.2
+- django >= 1.2 (tested with Django 1.6 and Django 1.7)
 - pytils
 - django-misc (https://github.com/ilblackdragon/django-misc)
 - django-pagination
@@ -44,7 +44,7 @@ Installation
 
 
 Setup
-============
+=====
 
 - Add 'blog' to INSTALLED_APPS ::
 
@@ -77,7 +77,7 @@ Note, that I use django-themes (https://github.com/ilblackdragon/django-themes) 
 - Setup database via syncdb or migrations. Note, that if you are not using django-voter, then migrations are not supported.
 
 Configure django-blogs
-===============
+======================
 
 There are two main settings:
 
@@ -100,7 +100,7 @@ Contributing
 Development of django-blogs happens at github: https://github.com/ilblackdragon/django-blogs
 
 License
-============
+=======
 
 Copyright (C) 2013 Illia Polosukhin
 This program is licensed under the MIT License (see LICENSE)
