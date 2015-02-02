@@ -25,9 +25,9 @@ class BlogUserAccess(models.Model):
         related_name="blog_user_access_list")
     user = models.ForeignKey(AUTH_USER_MODEL, verbose_name=_("User"),
         related_name="blog_user_access_list")
-    is_moderator = models.BooleanField(_("Is moderator"))
-    can_read = models.BooleanField(_("Can read"))
-    can_write = models.BooleanField(_("Can write"))
+    is_moderator = models.BooleanField(_("Is moderator"), default=False)
+    can_read = models.BooleanField(_("Can read"), default=False)
+    can_write = models.BooleanField(_("Can write"), default=False)
 
 class Blog(models.Model):
     name = models.CharField(_('Name'), max_length=200)
